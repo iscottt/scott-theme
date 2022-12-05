@@ -1,0 +1,26 @@
+body > .pf_scroller_x,
+body > .pf_scroller_y {
+	border-radius: 5px;
+	background: black;
+	position: fixed;
+	z-index: 1000;
+	opacity: 0;
+	cursor: pointer;
+	transition: opacity .25s,height .25s,width .25s;
+}
+body > .pf_scroller_x {
+	height: 5px;
+	bottom: 2px;
+	left: 0;
+}
+body > .pf_scroller_y {
+	width: 5px;
+	right: 2px;
+	top: 0;
+}
+body:hover > .pf_scroller_x,
+body:hover > .pf_scroller_y,
+body.is_dragging > .pf_scroller_x,
+body.is_dragging > .pf_scroller_y {
+	opacity: .15;
+}

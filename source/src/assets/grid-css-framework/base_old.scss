@@ -1,0 +1,101 @@
+$sizes: (
+	none: 0,
+	xxs: .125rem,
+	xs: .25rem,
+	sm: .375rem,
+	md: .5rem,
+	lg: .625rem,
+	xl: 0.75rem,
+);
+$tails: (
+	// Top/Right/Bottom/Left
+	inset-0: (top:0,right:0,bottom:0,left:0),
+	inset-x-0: (right:0,left:0),
+	inset-y-0: (top:0,bottom:0),
+	top-0: (top:0),
+	right-0: (right:0),
+	bottom-0: (bottom:0),
+	left-0: (left:0),
+
+	//Position
+	static: (position:static),
+	fixed: (position:fixed),
+	absolute: (position:absolute),
+	relative: (position:relative),
+	sticky: (position:sticky),
+
+	// Floats
+	float-left: (float:left),
+	float-right: (float:right),
+	float-none: (float:none),
+	"clearfix::before": (content: "''",display: table,clear: both),
+	"clearfix::after": (content: "''",display: table,clear: both),
+
+	// Object Fit
+	object-contain: (object-fit: contain),
+	object-cover: (object-fit: cover),
+	object-fill: (object-fit: fill),
+	object-none: (object-fit: none),
+	object-scale-down: (object-fit: scale-down),
+
+	// Border Radius
+	rounded-none: (border-radius: 0),
+	rounded-xxs: (border-radius: .125rem),
+	rounded-xs: (border-radius: .25rem),
+	rounded-sm: (border-radius: .375rem),
+	rounded-md: (border-radius: .5rem),
+	rounded-lg: (border-radius: .625rem),
+	rounded-xl: (border-radius: .75rem),
+	rounded-50\%: (border-radius: 50%),
+	rounded-full: (border-radius: 9999px),
+);
+
+// border-radius
+// @each $name,$size in (
+// 	none: 0,
+// 	xxs: .125rem,
+// 	xs: .25rem,
+// 	sm: .375rem,
+// 	md: .5rem,
+// 	lg: .625rem,
+// 	xl: 0.75rem,
+// 	50\%: 50%,
+// 	full: 9999px,
+// ) {
+// 	$tails: join($tails, (rounded-#{$name}: (border-radius: $size)) );
+// }
+
+
+//把tails默认编译出来
+@each $className, $classStyle in $tails {
+	.#{$className},
+	// .hover\:#{$className}:hover,
+	// .focus\:#{$className}:focus,
+	// .active\:#{$className}:active
+	{
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $tails {
+			.#{$mediaName}\:#{$className},
+			// .#{$mediaName}\:hover\:#{$className}:hover,
+			// .#{$mediaName}\:focus\:#{$className}:focus,
+			// .#{$mediaName}\:active\:#{$className}:active
+			{
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}

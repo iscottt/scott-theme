@@ -1,0 +1,135 @@
+// baseon grid
+$typography: (
+	//Font Size
+	text-xxs: (font-size: .75rem,line-height: 1rem),
+	text-xs: (font-size: .875rem,line-height: 1.25rem),
+	text-md: (font-size: 1rem,line-height: 1.5rem),
+	text-lg: (font-size: 1.125rem,line-height: 1.75rem),
+	text-xl: (font-size: 1.25rem,line-height: 1.75rem),
+	text-2xl: (font-size: 1.5rem,line-height: 2rem),
+	text-3xl: (font-size: 1.875rem,line-height: 2.25rem),
+	text-4xl: (font-size: 2.25rem,line-height: 2.25rem),
+	text-5xl: (font-size: 3rem,line-height: 1),
+
+	// Font Style
+	italic: (font-style: italic),
+	not-italic: (font-font-style: normal),
+
+	// Font Weight
+	font-thin: (font-weight: 100),
+	font-extralight: (font-weight: 200),
+	font-light: (font-weight: 300),
+	font-normal: (font-weight: 400),
+	font-medium: (font-weight: 500),
+	font-semibold: (font-weight: 600),
+	font-bold: (font-weight: 700),
+	font-extrabold: (font-weight: 800),
+	font-black: (font-weight: 900),
+
+	// Line Height
+	line-height-xxs: (line-height: 1),
+	line-height-xs: (line-height: 1.25),
+	line-height-sm: (line-height: 1.375),
+	line-height-md: (line-height: 1.5),
+	line-height-lg: (line-height: 1.625),
+	line-height-xl: (line-height: 2),
+
+	// List Style
+	list-none: (list-style-type: none),
+	list-disc: (list-style-type: disc),
+	list-decimal: (list-style-type: decimal),
+
+	// list-inside
+	list-inside: (list-style-position: inside),
+	list-outside: (list-style-position: outside),
+
+	//Text Alignment
+	text-left: (text-align: left),
+	text-center: (text-align: center),
+	text-right: (text-align: right),
+	text-justify: (text-align: justify),
+
+	//Text Decoration
+	underline: (text-decoration: underline),
+	line-through: (text-decoration: line-through),
+	no-underline: (text-decoration: none),
+
+	// Vertical Alignment
+	align-baseline: (vertical-align: baseline),
+	align-top: (vertical-align: top),
+	align-middle: (vertical-align: middle),
+	align-bottom: (vertical-align: bottom),
+	align-text-top: (vertical-align: text-top),
+	align-text-bottom: (vertical-align: text-bottom),
+
+	// Text Overflow
+	truncate: (overflow: hidden,text-overflow: ellipsis,white-space: nowrap),
+);
+
+$typography-responsive: (
+	//Font Size
+	text-xxs: (font-size: .75rem,line-height: 1rem),
+	text-xs: (font-size: .875rem,line-height: 1.25rem),
+	text-md: (font-size: 1rem,line-height: 1.5rem),
+	text-lg: (font-size: 1.125rem,line-height: 1.75rem),
+	text-xl: (font-size: 1.25rem,line-height: 1.75rem),
+	text-2xl: (font-size: 1.5rem,line-height: 2rem),
+	text-3xl: (font-size: 1.875rem,line-height: 2.25rem),
+	text-4xl: (font-size: 2.25rem,line-height: 2.25rem),
+	text-5xl: (font-size: 3rem,line-height: 1),
+
+	// Font Weight
+	font-thin: (font-weight: 100),
+	font-extralight: (font-weight: 200),
+	font-light: (font-weight: 300),
+	font-normal: (font-weight: 400),
+	font-medium: (font-weight: 500),
+	font-semibold: (font-weight: 600),
+	font-bold: (font-weight: 700),
+	font-extrabold: (font-weight: 800),
+	font-black: (font-weight: 900),
+
+	// Line Height
+	line-height-xxs: (line-height: 1),
+	line-height-xs: (line-height: 1.25),
+	line-height-sm: (line-height: 1.375),
+	line-height-md: (line-height: 1.5),
+	line-height-lg: (line-height: 1.625),
+	line-height-xl: (line-height: 2),
+
+	//Text Alignment
+	text-left: (text-align: left),
+	text-center: (text-align: center),
+	text-right: (text-align: right),
+	text-justify: (text-align: justify),
+
+	// Text Overflow
+	truncate: (overflow: hidden,text-overflow: ellipsis,white-space: nowrap),
+);
+
+
+//把tails默认编译出来
+@each $className, $classStyle in $typography {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $typography-responsive {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}

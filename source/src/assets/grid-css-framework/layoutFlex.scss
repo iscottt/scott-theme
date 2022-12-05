@@ -1,0 +1,61 @@
+// baseon grid
+$layoutFlex: (
+	// Flex Direction
+	flex-row: (flex-direction: row),
+	flex-row-reverse: (flex-direction: row-reverse),
+	flex-col: (flex-direction: column),
+	flex-col-reverse: (flex-direction: column-reverse),
+
+	// Flex Wrap
+	flex-wrap: (flex-wrap: wrap),
+	flex-wrap-reverse: (flex-wrap: wrap-reverse),
+	flex-nowrap: (flex-wrap: nowrap),
+
+	// Flex
+	flex-1: (flex: '1 1 0%'),
+	flex-auto: (flex: '1 1 auto'),
+	flex-initial: (flex: '0 1 auto'),
+	flex-none: (flex: none),
+
+	// Flex Grow
+	flex-grow-0: (flex-grow: 0),
+	flex-grow: (flex-grow: 1),
+
+	// Flex Shrink
+	flex-shrink-0: (flex-shrink: 0),
+	flex-shrink: (flex-shrink: 1),
+);
+
+// Flex Order
+@each $item in (1,2,3,4,5,6,7,8,9,10,11,12) {
+	$layoutFlex: join($layoutFlex, (order-#{$item}: (order:#{$item})) );
+}
+$layoutFlex: join($layoutFlex, (order-first: (order:-9999)) );
+$layoutFlex: join($layoutFlex, (order-last: (order:9999)) );
+$layoutFlex: join($layoutFlex, (order-none: (order:0)) );
+
+//把tails默认编译出来
+@each $className, $classStyle in $layoutFlex {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $layoutFlex {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}

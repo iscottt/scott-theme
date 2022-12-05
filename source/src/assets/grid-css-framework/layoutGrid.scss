@@ -1,0 +1,103 @@
+// baseon grid
+$layoutGrid: (
+	// Grid Auto Flow
+	flow-row: (grid-auto-flow: row),
+	flow-col: (grid-auto-flow: column),
+	flow-row-dense: (grid-auto-flow: "row dense"),
+	flow-col-dense: (grid-auto-flow: "column dense"),
+
+	// Grid Auto Columns
+	auto-cols-auto: (grid-auto-columns: auto),
+	auto-cols-min: (grid-auto-columns: min-content),
+	auto-cols-max: (grid-auto-columns: max-content),
+	auto-cols-fr: (grid-auto-columns: "minmax(0, 1fr)"),
+
+	// Grid Auto Rows
+	auto-rows-auto: (grid-auto-rows: auto),
+	auto-rows-min: (grid-auto-rows: min-content),
+	auto-rows-max: (grid-auto-rows: max-content),
+	auto-rows-fr: (grid-auto-rows: "minmax(0, 1fr)"),
+);
+
+// Grid Template Columns
+@each $item in (1,2,3,4,5,6,7,8,9,10,11,12) {
+	$layoutGrid: join($layoutGrid, (cols-#{$item}: (grid-template-columns:"repeat(#{$item}, minmax(0, 1fr))")) );
+}
+$layoutGrid: join($layoutGrid, (cols-none: (grid-template-columns: none)) );
+
+// Grid Template Rows
+@each $item in (1,2,3,4,5,6) {
+	$layoutGrid: join($layoutGrid, (rows-#{$item}: (grid-template-rows:"repeat(#{$item}, minmax(0, 1fr))")) );
+}
+$layoutGrid: join($layoutGrid, (rows-none: (grid-template-rows: none)) );
+
+
+// Grid Column Start / End
+$layoutGrid: join($layoutGrid, (col-auto: (grid-column: auto)) );
+@each $item in (1,2,3,4,5,6,7,8,9,10,11,12) {
+	$layoutGrid: join($layoutGrid, (col-#{$item}: (grid-column:"span #{$item} / span #{$item}")) );
+}
+$layoutGrid: join($layoutGrid, (col-full: (grid-column: "1 / -1")) );
+@each $item in (1,2,3,4,5,6,7,8,9,10,11,12,13) {
+	$layoutGrid: join($layoutGrid, (col-start-#{$item}: (grid-column-start:#{$item})) );
+}
+$layoutGrid: join($layoutGrid, (col-start-auto: (grid-column-start: auto)) );
+@each $item in (1,2,3,4,5,6,7,8,9,10,11,12,13) {
+	$layoutGrid: join($layoutGrid, (col-end-#{$item}: (grid-column-end:#{$item})) );
+}
+$layoutGrid: join($layoutGrid, (col-end-auto: (grid-column-end: auto)) );
+
+// Grid Row Start / End
+$layoutGrid: join($layoutGrid, (row-auto: (grid-row: auto)) );
+@each $item in (1,2,3,4,5,6) {
+	$layoutGrid: join($layoutGrid, (row-#{$item}: (grid-row:"span #{$item} / span #{$item}")) );
+}
+$layoutGrid: join($layoutGrid, (row-full: (grid-row: "1 / -1")) );
+@each $item in (1,2,3,4,5,6,7) {
+	$layoutGrid: join($layoutGrid, (row-start-#{$item}: (grid-row-start:#{$item})) );
+}
+$layoutGrid: join($layoutGrid, (row-start-auto: (grid-row-start: auto)) );
+@each $item in (1,2,3,4,5,6,7) {
+	$layoutGrid: join($layoutGrid, (row-end-#{$item}: (grid-row-end:#{$item})) );
+}
+$layoutGrid: join($layoutGrid, (row-end-auto: (grid-row-end: auto)) );
+
+// Gap
+$layoutGrid: join($layoutGrid, (g-0: (gap: 0px)) );
+$layoutGrid: join($layoutGrid, (gx-0: (column-gap: 0px)) );
+$layoutGrid: join($layoutGrid, (gy-0: (row-gap: 0px)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$layoutGrid: join($layoutGrid, (g-#{$item}: (gap: #{calc($item / 8)}rem)) );
+	$layoutGrid: join($layoutGrid, (gx-#{$item}: (column-gap: #{calc($item / 8)}rem)) );
+	$layoutGrid: join($layoutGrid, (gy-#{$item}: (row-gap: #{calc($item / 8)}rem)) );
+}
+$layoutGrid: join($layoutGrid, (g-px: (gap: 1px)) );
+$layoutGrid: join($layoutGrid, (gx-px: (column-gap: 1px)) );
+$layoutGrid: join($layoutGrid, (gy-px: (row-gap: 1px)) );
+
+
+//把tails默认编译出来
+@each $className, $classStyle in $layoutGrid {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $layoutGrid {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}

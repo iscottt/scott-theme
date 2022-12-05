@@ -1,0 +1,25 @@
+//Media Break Points
+$breakpoints: (576px,768px,992px,1200px,1510px);
+
+//Media Query Variables
+// screen < 576
+$xxs: "(max-width: #{nth($breakpoints,1) - 1px})";
+// 576 < screen < 767
+$xs: "(min-width: #{nth($breakpoints,1)}) and (max-width: #{nth($breakpoints,2) - 1px})";
+// 768 < screen < 991
+$sm: "(min-width: #{nth($breakpoints,2)}) and (max-width: #{nth($breakpoints,3) - 1px})";
+// 992 < screen < 1199
+$md: "(min-width: #{nth($breakpoints,3)}) and (max-width: #{nth($breakpoints,4) - 1px})";
+// 1200 < screen < 1509
+$lg: "(min-width: #{nth($breakpoints,4)}) and (max-width: #{nth($breakpoints,5) - 1px})";
+// 1509 < screen
+$xl: "(min-width: #{nth($breakpoints,5)})";
+
+$medias: (
+	"xxs": $xxs,
+	"xs": $xs,
+	"sm": $sm,
+	"md": $md,
+	"lg": $lg,
+	"xl": $xl
+);

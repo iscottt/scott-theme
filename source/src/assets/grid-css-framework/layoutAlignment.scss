@@ -1,0 +1,75 @@
+// baseon grid
+$layoutAlignment: ();
+
+// Justify Items
+@each $item in (auto,start,end,center,stretch) {
+	$layoutAlignment: join($layoutAlignment, (justify-items-#{$item}: (justify-items:#{$item})) );
+}
+
+// Justify Self
+@each $item in (auto,start,end,center,stretch) {
+	$layoutAlignment: join($layoutAlignment, (justify-self-#{$item}: (justify-self:#{$item})) );
+}
+
+// Align Items
+@each $item in (start,end,center,stretch,baseline) {
+	$layoutAlignment: join($layoutAlignment, (items-#{$item}: (align-items:#{$item})) );
+}
+
+// Align Self
+@each $item in (auto,start,end,center,stretch) {
+	$layoutAlignment: join($layoutAlignment, (self-#{$item}: (align-self:#{$item})) );
+}
+
+// Justify Content, Align Content, Place Content
+@each $itemName,$itemVal in (
+	center: center,
+	start: start,
+	end: end,
+	between: space-between,
+	around: space-around,
+	evenly: space-evenly,
+	stretch: stretch,
+) {
+	$layoutAlignment: join($layoutAlignment, (justify-#{$itemName}: (justify-content:#{$itemVal})) );
+	$layoutAlignment: join($layoutAlignment, (content-#{$itemName}: (align-content:#{$itemVal})) );
+	$layoutAlignment: join($layoutAlignment, (place-content-#{$itemName}: (place-content:#{$itemVal})) );
+}
+
+// Place Items
+@each $item in (auto,start,end,center,stretch) {
+	$layoutAlignment: join($layoutAlignment, (place-items-#{$item}: (place-items:#{$item})) );
+}
+
+// Place Self
+@each $item in (auto,start,end,center,stretch) {
+	$layoutAlignment: join($layoutAlignment, (place-self-#{$item}: (place-self:#{$item})) );
+}
+
+
+
+//把tails默认编译出来
+@each $className, $classStyle in $layoutAlignment {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $layoutAlignment {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}

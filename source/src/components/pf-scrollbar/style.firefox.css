@@ -1,0 +1,3 @@
+html:not(.pf_scroller_is_mac):not(.pf_scroller_is_touchable) {
+    scrollbar-width: none;
+}

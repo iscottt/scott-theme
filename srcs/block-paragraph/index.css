@@ -1,0 +1,11 @@
+.ce-paragraph mark {
+	background: var(--primary-opacity-1);
+	border-radius: 5px;
+	color: var(--primary-color);
+	padding: 3px 5px;
+	margin: 0 3px;
+	text-shadow: 0 2px 2px var(--primary-opacity-3), 0 -1px var(--white-default);
+}
+.is-dark .ce-paragraph mark {
+	background: var(--primary-opacity-3);
+}

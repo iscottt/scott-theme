@@ -1,0 +1,94 @@
+// baseon grid
+$layout: (
+	// Position
+	static: (position: static),
+	fixed: (position: fixed),
+	absolute: (position: absolute),
+	relative: (position: relative),
+	sticky: (position: sticky),
+
+	// Overflow
+	overflow-auto: (overflow: overflow-auto),
+	overflow-hidden: (overflow: overflow-hidden),
+	overflow-visible: (overflow: overflow-visible),
+	overflow-scroll: (overflow: overflow-scroll),
+
+	overflow-x-auto: (overflow-x: overflow-auto),
+	overflow-x-hidden: (overflow-x: overflow-hidden),
+	overflow-x-visible: (overflow-x: overflow-visible),
+	overflow-x-scroll: (overflow-x: overflow-scroll),
+
+	overflow-y-auto: (overflow-y: overflow-auto),
+	overflow-y-hidden: (overflow-y: overflow-hidden),
+	overflow-y-visible: (overflow-y: overflow-visible),
+	overflow-y-scroll: (overflow-y: overflow-scroll),
+
+	// Display
+	block: (display: block),
+	inline-block: (display: inline-block),
+	inline: (display: inline),
+	grid: (display: grid),
+	inline-grid: (display: inline-grid),
+	flex: (display: flex),
+	inline-flex: (display: inline-flex),
+	hidden: (display: none),
+);
+
+// Container
+.container {
+	width: 100%;
+	margin: auto;
+}
+@media #{$sm} {
+	.container {
+		max-width: #{nth($breakpoints,2)}
+	}
+}
+@media #{$md} {
+	.container {
+		max-width: #{nth($breakpoints,3)}
+	}
+}
+@media #{$lg} {
+	.container {
+		max-width: #{nth($breakpoints,4)}
+	}
+}
+@media #{$xl} {
+	.container {
+		max-width: #{nth($breakpoints,5)}
+	}
+}
+
+//把tails默认编译出来
+@each $className, $classStyle in $layout {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+$mediaIndex: 1;
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $layout {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+		@if ($mediaIndex >= 2 and $mediaIndex <= 6){
+			.container {
+				max-width: #{nth($breakpoints, $mediaIndex - 1)}
+			}
+		}
+	}
+	$mediaIndex: $mediaIndex + 1;
+}

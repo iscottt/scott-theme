@@ -1,0 +1,74 @@
+// baseon grid
+$box: ();
+//Border Radius
+$box: join($box, (r-0: (border-radius: 0px)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$box: join($box, (r-#{$item}: (border-radius: #{$item / 8}rem)) );
+}
+$box: join($box, (r-full: (border-radius: 9999px)) );
+
+// Border
+$box: join($box, (border-0: (border: none)) );
+$box: join($box, (border-px: (border-width: 1px,border-style: solid)) );
+
+//Width
+$box: join($box, (w-0: (width: 0px)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$box: join($box, (w-#{$item}: (width: #{$item / 8}rem)) );
+}
+$box: join($box, (w-px: (width: 1px)) );
+
+//Height
+$box: join($box, (h-0: (height: 0px)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$box: join($box, (h-#{$item}: (height: #{$item / 8}rem)) );
+}
+$box: join($box, (h-px: (height: 1px)) );
+
+//Top / Right / Bottom / Left
+$box: join($box, (inset-0: (top: 0,right: 0,bottom: 0,left: 0)) );
+$box: join($box, (inset-auto: (top: auto,right: auto,bottom: auto,left: auto)) );
+$box: join($box, (top-0: (top: 0)) );
+$box: join($box, (right-0: (right: 0)) );
+$box: join($box, (bottom-0: (bottom: 0)) );
+$box: join($box, (left-0: (left: 0)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$box: join($box, (top-#{$item}: (top: #{$item / 8}rem)) );
+	$box: join($box, (right-#{$item}: (right: #{$item / 8}rem)) );
+	$box: join($box, (bottom-#{$item}: (bottom: #{$item / 8}rem)) );
+	$box: join($box, (left-#{$item}: (left: #{$item / 8}rem)) );
+	$box: join($box, (-top-#{$item}: (top: -#{$item / 8}rem)) );
+	$box: join($box, (-right-#{$item}: (right: -#{$item / 8}rem)) );
+	$box: join($box, (-bottom-#{$item}: (bottom: -#{$item / 8}rem)) );
+	$box: join($box, (-left-#{$item}: (left: -#{$item / 8}rem)) );
+}
+$box: join($box, (top-auto: (top: auto)) );
+$box: join($box, (right-auto: (right: auto)) );
+$box: join($box, (bottom-auto: (bottom: auto)) );
+$box: join($box, (left-auto: (left: auto)) );
+
+//把tails默认编译出来
+@each $className, $classStyle in $box {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $box {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}

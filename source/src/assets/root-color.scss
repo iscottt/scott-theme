@@ -1,0 +1,69 @@
+// $primary: #007dff;
+$primary: #1f8bff;
+$analogous: #33bbff;
+$white_default: #fff;
+
+$success: #67c23a;
+$warning: #e6a23c;
+$error: #f56c6c;
+
+$gray_0: #1f2d3d;
+$gray_1: #324057;
+$gray_2: #475669;
+$gray_3: #8492A6;
+$gray_4: #99A9BF;
+$gray_5: #C0CCDA;
+$gray_6: #D3DCE6;
+$gray_7: #E5E9F2;
+$gray_8: #EFF2F7;
+$gray_9: #f2f7fc;
+
+html {
+	--primary-color: #{$primary};
+	@for $i from 1 through 9 {
+		--primary-opacity-#{$i}: #{rgba($primary, calc($i/10) )};
+	}
+
+	--analogous-color: #{$analogous};
+	@for $i from 1 through 9 {
+		--analogous-opacity-#{$i}: #{rgba($analogous, calc($i/10) )};
+	}
+
+	--white-default: #{$white_default};
+	@for $i from 1 through 9 {
+		--white-opacity-#{$i}: #{rgba($white_default, calc($i/10) )};
+	}
+
+	--success-color: #{$success};
+	--warning-color: #{$warning};
+	--error-color: #{$error};
+
+	--gray-0: #{$gray_0};
+	@for $i from 1 through 9 {
+		--gray-opacity-#{$i}: #{rgba($gray_0, calc($i/10) )};
+	}
+
+	--gray-1: #{$gray_1};
+	--gray-2: #{$gray_2};
+	--gray-3: #{$gray_3};
+	--gray-4: #{$gray_4};
+	--gray-5: #{$gray_5};
+	--gray-6: #{$gray_6};
+	--gray-7: #{$gray_7};
+	--gray-8: #{$gray_8};
+	--gray-9: #{$gray_9};
+
+	--text-color: #{$gray_1};
+	--text-color-2: #{$gray_2};
+	--text-color-3: #{mix($gray_2,$gray_3,25%)};
+	--text-color-4: #{$gray_3};
+
+	--border-color-0: #{mix($gray_6,$gray_5)};
+	--border-color: #{$gray_6};
+	--border-color-2: #{$gray_7};
+	--border-color-3: #{$gray_8};
+
+	--bg-color: #e8f0fa;
+
+	--text-shadow: rgba(255,255,255,.6);
+}

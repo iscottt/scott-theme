@@ -1,0 +1,101 @@
+// baseon grid
+$layoutSpacing: ();
+
+//Padding
+$layoutSpacing: join($layoutSpacing, (p-0: (padding: 0px)) );
+$layoutSpacing: join($layoutSpacing, (px-0: (padding-left: 0px, padding-right: 0px)) );
+$layoutSpacing: join($layoutSpacing, (py-0: (padding-top: 0px, padding-bottom: 0px)) );
+$layoutSpacing: join($layoutSpacing, (pt-0: (padding-top: 0px)) );
+$layoutSpacing: join($layoutSpacing, (pr-0: (padding-right: 0px)) );
+$layoutSpacing: join($layoutSpacing, (pb-0: (padding-bottom: 0px)) );
+$layoutSpacing: join($layoutSpacing, (pl-0: (padding-left: 0px)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$layoutSpacing: join($layoutSpacing, (p-#{$item}: (padding: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (px-#{$item}: (padding-left: #{$item / 8}rem, padding-right: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (py-#{$item}: (padding-top: #{$item / 8}rem, padding-bottom: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (pt-#{$item}: (padding-top: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (pr-#{$item}: (padding-right: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (pb-#{$item}: (padding-bottom: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (pl-#{$item}: (padding-left: #{$item / 8}rem)) );
+}
+$layoutSpacing: join($layoutSpacing, (p-px: (padding: 1px)) );
+$layoutSpacing: join($layoutSpacing, (px-px: (padding-left: 1px, padding-right: 1px)) );
+$layoutSpacing: join($layoutSpacing, (py-px: (padding-top: 1px, padding-bottom: 1px)) );
+$layoutSpacing: join($layoutSpacing, (pt-px: (padding-top: 1px)) );
+$layoutSpacing: join($layoutSpacing, (pr-px: (padding-right: 1px)) );
+$layoutSpacing: join($layoutSpacing, (pb-px: (padding-bottom: 1px)) );
+$layoutSpacing: join($layoutSpacing, (pl-px: (padding-left: 1px)) );
+
+//Margin
+$layoutSpacing: join($layoutSpacing, (m-0: (margin: 0px)) );
+$layoutSpacing: join($layoutSpacing, (mx-0: (margin-left: 0px, margin-right: 0px)) );
+$layoutSpacing: join($layoutSpacing, (my-0: (margin-top: 0px, margin-bottom: 0px)) );
+$layoutSpacing: join($layoutSpacing, (mt-0: (margin-top: 0px)) );
+$layoutSpacing: join($layoutSpacing, (mr-0: (margin-right: 0px)) );
+$layoutSpacing: join($layoutSpacing, (mb-0: (margin-bottom: 0px)) );
+$layoutSpacing: join($layoutSpacing, (ml-0: (margin-left: 0px)) );
+@each $item in (1,2,3,4,5,8,10,16,20,30) {
+	$layoutSpacing: join($layoutSpacing, (m-#{$item}: (margin: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (mx-#{$item}: (margin-left: #{$item / 8}rem, margin-right: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (my-#{$item}: (margin-top: #{$item / 8}rem, margin-bottom: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (mt-#{$item}: (margin-top: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (mr-#{$item}: (margin-right: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (mb-#{$item}: (margin-bottom: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (ml-#{$item}: (margin-left: #{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-m-#{$item}: (margin: -#{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-mx-#{$item}: (margin-left: -#{$item / 8}rem, margin-right: -#{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-my-#{$item}: (margin-top: -#{$item / 8}rem, margin-bottom: -#{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-mt-#{$item}: (margin-top: -#{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-mr-#{$item}: (margin-right: -#{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-mb-#{$item}: (margin-bottom: -#{$item / 8}rem)) );
+	$layoutSpacing: join($layoutSpacing, (-ml-#{$item}: (margin-left: -#{$item / 8}rem)) );
+}
+$layoutSpacing: join($layoutSpacing, (m-px: (margin: 1px)) );
+$layoutSpacing: join($layoutSpacing, (mx-px: (margin-left: 1px, margin-right: 1px)) );
+$layoutSpacing: join($layoutSpacing, (my-px: (margin-top: 1px, margin-bottom: 1px)) );
+$layoutSpacing: join($layoutSpacing, (mt-px: (margin-top: 1px)) );
+$layoutSpacing: join($layoutSpacing, (mr-px: (margin-right: 1px)) );
+$layoutSpacing: join($layoutSpacing, (mb-px: (margin-bottom: 1px)) );
+$layoutSpacing: join($layoutSpacing, (ml-px: (margin-left: 1px)) );
+$layoutSpacing: join($layoutSpacing, (-m-px: (margin: -1px)) );
+$layoutSpacing: join($layoutSpacing, (-mx-px: (margin-left: -1px, margin-right: -1px)) );
+$layoutSpacing: join($layoutSpacing, (-my-px: (margin-top: -1px, margin-bottom: -1px)) );
+$layoutSpacing: join($layoutSpacing, (-mt-px: (margin-top: -1px)) );
+$layoutSpacing: join($layoutSpacing, (-mr-px: (margin-right: -1px)) );
+$layoutSpacing: join($layoutSpacing, (-mb-px: (margin-bottom: -1px)) );
+$layoutSpacing: join($layoutSpacing, (-ml-px: (margin-left: -1px)) );
+
+$layoutSpacing: join($layoutSpacing, (m-auto: (margin: auto)) );
+$layoutSpacing: join($layoutSpacing, (mx-auto: (margin-left: auto, margin-right: auto)) );
+$layoutSpacing: join($layoutSpacing, (my-px: (margin-top: auto, margin-bottom: auto)) );
+$layoutSpacing: join($layoutSpacing, (mt-auto: (margin-top: auto)) );
+$layoutSpacing: join($layoutSpacing, (mr-auto: (margin-right: auto)) );
+$layoutSpacing: join($layoutSpacing, (mb-auto: (margin-bottom: auto)) );
+$layoutSpacing: join($layoutSpacing, (ml-auto: (margin-left: auto)) );
+
+
+//把tails默认编译出来
+@each $className, $classStyle in $layoutSpacing {
+	.#{$className} {
+		@each $styleKey, $styleVal in $classStyle {
+			@each $val in $styleVal {
+				#{$styleKey} : #{$val}
+			}
+		}
+	}
+}
+
+//根据响应式分布，把tails编译出来
+@each $mediaName, $mediaRange in $medias {
+	@media #{$mediaRange} {
+		@each $className, $classStyle in $layoutSpacing {
+			.#{$mediaName}\:#{$className} {
+				@each $styleKey, $styleVal in $classStyle {
+					@each $val in $styleVal {
+						#{$styleKey} : #{$val}
+					}
+				}
+			}
+		}
+	}
+}
