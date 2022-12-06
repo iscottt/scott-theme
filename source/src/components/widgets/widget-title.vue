@@ -16,6 +16,7 @@ export default defineComponent({
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 1px var(--white-opacity-7);
   color: #5a6f87;
+  margin-bottom: 40px;
   span {
     display: inline-block;
     position: relative;
