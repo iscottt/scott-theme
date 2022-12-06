@@ -1,15 +1,15 @@
 /*必要基础*/
 .pf_scroller:not(.pf_scroller_is_mac):not(.pf_scroller_is_touchable) {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .pf_scroller:not(.pf_scroller_is_mac):not(.pf_scroller_is_touchable)::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+  width: 0px;
+  height: 0px;
 }
 
 .pf_scroller {
-	position: relative;
-	overflow: auto;
+  position: relative;
+  overflow: auto;
 }
