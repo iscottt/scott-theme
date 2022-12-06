@@ -19,6 +19,9 @@
     <div class="my-tag">
       <a href="http://scott.ethan.pub/assets/wechat.014d1982.png"> <i class="fa-brands fa-weixin"></i> WeChat </a>
     </div>
+    <div class="my-tag">
+      <a href="mailto:iscottt@163.com"> <i class="fa-solid fa-at"></i> Email </a>
+    </div>
   </div>
 </template>
 
