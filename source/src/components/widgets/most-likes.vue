@@ -52,6 +52,7 @@ export default defineComponent({
 </script>
 <style lang="less">
 .widget-post-list {
+  margin-top: 40px;
   &:hover {
     .post {
       .img {
