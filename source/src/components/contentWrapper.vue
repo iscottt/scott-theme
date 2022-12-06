@@ -41,6 +41,7 @@ export default {
 }
 aside {
   padding-left: 1em;
+  margin-top: 10px;
   &::-webkit-scrollbar {
     display: none; /* Chrome Safari */
   }
