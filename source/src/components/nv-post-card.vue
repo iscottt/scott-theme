@@ -228,6 +228,7 @@ export default defineComponent({
       margin-top: 0.625rem;
       text-align: left;
       max-width: 100%;
+      width: 100%;
       text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
       transition: 0.25s;
       color: #5a6f87;

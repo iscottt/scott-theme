@@ -22,7 +22,7 @@
         </transition>
         <div class="read-all flex items-start justify-center">
           <router-link :to="`/articles`" class="go flex items-end">
-            <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
+            <span>全部文章<i class="fa-solid fa-arrow-right"></i> </span>
           </router-link>
         </div>
       </template>
@@ -36,7 +36,7 @@
       <div class="container">
         <div class="title flex justify-between items-end">
           <span>{{ cat.title }}</span>
-          <router-link :to="`/category/${cat.slug}`" class="more flex items-center gx-2"> 更多<svg-icon name="angle-right" height="12" /> </router-link>
+          <!-- <router-link :to="`/category/${cat.slug}`" class="more flex items-center gx-2"> 更多<svg-icon name="angle-right" height="12" /> </router-link> -->
         </div>
         <transition name="posts-change" mode="out-in">
           <component :is="$store.state.card_type == 'card' ? 'home-cards-wrapper' : 'home-list-wrapper'">
@@ -45,6 +45,11 @@
             </template>
           </component>
         </transition>
+        <div class="read-all flex items-start justify-center">
+          <router-link :to="`/category/${cat.slug}`" class="go flex items-end">
+            <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
