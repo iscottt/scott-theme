@@ -45,7 +45,7 @@
             </template>
           </component>
         </transition>
-        <div class="read-all flex items-start justify-center">
+        <div class="read-all flex items-start justify-center" style="margin-top: 40px; height: 4em">
           <router-link :to="`/category/${cat.slug}`" class="go flex items-end">
             <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
           </router-link>
