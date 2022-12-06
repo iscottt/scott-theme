@@ -66,6 +66,7 @@ export default defineComponent({
   text-shadow: 0 1px 1px #fff;
   padding: 0.25em 0.6em 0.25em 0.6em;
   margin-right: 5px;
+  margin-bottom: 5px;
   &:hover {
     a {
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
