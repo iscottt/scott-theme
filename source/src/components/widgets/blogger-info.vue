@@ -6,12 +6,6 @@
       {{ $store.state.theme_settings.niRvana_blogger_description }}
     </div>
   </div>
-  <!-- <div class="widget post-info">
-    <div class="tags">
-      <a href="https://github.com/iscottt" target="_blank"> <i class="fa-brands fa-github"></i> Github </a>
-      <a href="http://scott.ethan.pub/assets/wechat.014d1982.png"> <i class="fa-brands fa-weixin"></i> WeChat </a>
-    </div>
-  </div> -->
   <div>
     <div class="my-tag">
       <a href="https://github.com/iscottt" target="_blank"> <i class="fa-brands fa-github"></i> Github </a>
