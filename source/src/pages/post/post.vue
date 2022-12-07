@@ -161,10 +161,10 @@ export default defineComponent({
 .article-wrapper {
   padding: 2em 3em;
   /*background: var(--white-opacity-8);*/
-  background: linear-gradient(var(--white-opacity-4), var(--white-opacity-9) 5em);
+  background: #f0f6fc;
   border: 1px solid var(--white-default);
   border-radius: 0.8125em;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 10px 15px var(--gray-opacity-1);
+  box-shadow: 0 0.5rem 1rem rgb(54 100 152 / 15%), inset 0 0 0 1px #fff;
   margin: 1.5em 0;
   @media (max-width: 577px) {
     padding: 1em;
