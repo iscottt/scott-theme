@@ -16,7 +16,7 @@
       <div class="widget-post-list" v-for="post in posts" style="margin-top: 0">
         <div class="post flex g-8">
           <router-link :to="`/${post.slug}`" class="img flex-shrink-0" :style="{ backgroundImage: `url(${post.thumbnail})` }"></router-link>
-          <div class="infos flex flex-col justify-center">
+          <div class="infos flex flex-col justify-between">
             <router-link :to="`/${post.slug}`" class="title">{{ post.title }}</router-link>
             <div class="metas">
               <span class="likes"><svg-icon name="heart" height="14" />{{ post.likes }}</span>
