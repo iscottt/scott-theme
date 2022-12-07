@@ -6,7 +6,7 @@
     id="comment">
     <teleport :to="reply2 ? `#comment-item-${reply2} .body` : null" :disabled="!reply2">
       <div v-if="$store.state.theme_settings.comment_registration && !$store.state.current_user.id">
-        <div class="login-tip">请您<a :href="get_login_url()">登录</a>后再发表评论或回复。或<a href="/nv-admin/register">注册为会员。</a></div>
+        <div class="login-tip">请您<a :href="get_login_url()">登录</a>后再发表评论或回复。或<a href="/nv-admin/register">注册</a>为会员。</div>
       </div>
 
       <template v-else>
