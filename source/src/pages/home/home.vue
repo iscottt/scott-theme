@@ -25,6 +25,23 @@
             <span>全部文章<i class="fa-solid fa-arrow-right"></i> </span>
           </router-link>
         </div>
+        <div class="category" v-for="cat in categories">
+          <div class="container">
+            <widgetTitle>{{ cat.title }}</widgetTitle>
+            <transition name="posts-change" mode="out-in">
+              <component :is="$store.state.card_type == 'card' ? 'nv-cards-wrapper' : 'nv-list-wrapper'">
+                <template v-for="(post, index) in cat.posts" :key="post.id">
+                  <nvPostCard :post="post" v-if="showCatCard(index)" />
+                </template>
+              </component>
+            </transition>
+            <div class="read-all flex items-start justify-center" style="margin-top: 40px">
+              <router-link :to="`/category/${cat.slug}`" class="go flex items-end">
+                <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
+              </router-link>
+            </div>
+          </div>
+        </div>
       </template>
       <template v-slot:aside>
         <bloggerInfo />
@@ -32,27 +49,6 @@
         <mostComments />
       </template>
     </contentWrapper>
-    <div class="category" v-for="cat in categories">
-      <div class="container">
-        <!-- <div class="title flex justify-between items-end">
-          <span>{{ cat.title }}</span>
-        </div> -->
-
-        <widgetTitle>{{ cat.title }}</widgetTitle>
-        <transition name="posts-change" mode="out-in">
-          <component :is="$store.state.card_type == 'card' ? 'home-cards-wrapper' : 'home-list-wrapper'">
-            <template v-for="(post, index) in cat.posts" :key="post.id">
-              <nvPostCard :post="post" v-if="showCatCard(index)" />
-            </template>
-          </component>
-        </transition>
-        <div class="read-all flex items-start justify-center" style="margin-top: 40px">
-          <router-link :to="`/category/${cat.slug}`" class="go flex items-end">
-            <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
-          </router-link>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
