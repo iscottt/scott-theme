@@ -308,7 +308,8 @@ export default defineComponent({
   visibility: visible;
   top: 0;
   opacity: 1;
-  background: #dae5f2;
+  background: linear-gradient(#f0f6fc 76%, #d3dfed);
+  box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
 }
 
 .logo-wrapper {
