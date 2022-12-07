@@ -5,13 +5,13 @@
       <template v-slot:main>
         <div class="article-wrapper">
           <blockParser is="article" :blocks="post.content.blocks" ref="article" />
-          <shareModal
-            @likes-change="
-              (e) => {
-                post.metas.likes = e;
-              }
-            " />
         </div>
+        <shareModal
+          @likes-change="
+            (e) => {
+              post.metas.likes = e;
+            }
+          " />
         <reletePost v-if="post.post_type == 'article'" :post="post" />
         <commentModal v-if="post.id" :post="post" @public-comment-sent="requestData" />
       </template>
