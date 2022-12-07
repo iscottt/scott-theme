@@ -20,7 +20,7 @@
     </NTooltip>
     <NTooltip>
       <template #trigger>
-        <button class="share"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+        <button class="share" @click="showShare = true"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
       </template>
       分享
     </NTooltip>
@@ -58,6 +58,48 @@
       </div>
     </div>
   </div>
+
+  <div class="scott-share-mask fixed" :class="{ fadeOut: showAni }" v-if="showShare"></div>
+  <div class="scott-poster fixed flex justify-start" :class="{ fadeOut: showAni }" v-if="showShare">
+    <div class="poster-main">
+      <div class="share-top">
+        <img @click="test" src="https://www.homaton.com/wp-content/uploads/2022/11/category_mesh@2x.png" alt="" />
+        <div class="date">
+          <div class="day">18</div>
+          <div class="year-month">2022-11</div>
+        </div>
+      </div>
+      <div class="share-title">
+        <div class="info">
+          <div class="title">Neumorphism新拟物WP主题</div>
+          <div class="desc">
+            这是一款从2021年中旬开始开发的一款WordPress新拟物主题（当前博客正在使用）。新拟物是2020年开始流行的，它尝试在纯色界面中使用阴影和高光来凸显元素的凸起和凹陷感。虽然有很多人已经做出了完美的新拟物设计，然而市面上却很难有这样的产品出现，很多开发人员没办法将它落地实现。
+          </div>
+        </div>
+        <div class="code">
+          <img src="https://www.homaton.com/wp-content/uploads/2022/11/category_mesh@2x.png" alt="" />
+        </div>
+      </div>
+      <div class="share-action grid items-center justify-center">
+        <div class="share-button items-center justify-center flex" @click="shareQq">
+          <i class="fa-brands fa-qq"></i>
+        </div>
+        <div class="share-button items-center justify-center flex" @click="shareWb">
+          <i class="fa-brands fa-weibo"></i>
+        </div>
+        <div class="share-button items-center justify-center flex" @click="shareQzone">
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="share-button items-center justify-center flex" @click="save">
+          <i class="fa-solid fa-image"></i>
+        </div>
+        <p v-if="isCreating">正在生成海报...</p>
+      </div>
+      <div @click="closeModal" class="close flex items-center absolute justify-center">
+        <i class="fa-solid fa-close"></i>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -75,6 +117,8 @@ export default defineComponent({
       curActive: 1,
       showPay: false,
       showAni: false,
+      showShare: false,
+      isCreating: false,
     };
   },
   watch: {
@@ -83,10 +127,27 @@ export default defineComponent({
     },
   },
   methods: {
+    shareWb() {
+      window.open(
+        'https://service.weibo.com/share/share.php?title=用域名访问Nas · 阿里云DDNS解决方案&url=https://www.homaton.com/project/nas-ddns-synology.html&searchPic=true&display=0&retcode=6102#_loginLayer_1670423435716'
+      );
+    },
+    shareQq() {
+      window.open(
+        'https://connect.qq.com/widget/shareqq/index.html?url=https://www.homaton.com/project/nas-ddns-synology.html&sharesource=qzone&title=用域名访问Nas · 阿里云DDNS解决方案&pics=https://www.homaton.com/wp-content/uploads/2022/09/category_nas_ddns.png&summary=背景前不久在一个QQ群里面和一个开发大佬（Panda-Stud...'
+      );
+    },
+    shareQzone() {
+      window.open(
+        'https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.homaton.com/project/nas-ddns-synology.html&sharesource=qzone&title=用域名访问Nas · 阿里云DDNS解决方案&pics=https://www.homaton.com/wp-content/uploads/2022/09/category_nas_ddns.png&summary=背景前不久在一个QQ群里面和一个开发大佬（Panda-Stud...'
+      );
+    },
+    save() {},
     closeModal() {
       this.showAni = true;
       setTimeout(() => {
         this.showPay = false;
+        this.showShare = false;
         this.showAni = false;
       }, 350);
     },
@@ -221,9 +282,9 @@ export default defineComponent({
   left: 0;
   justify-content: center;
   z-index: 9000;
-  animation: fadeIn 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: fadeInZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   &.fadeOut {
-    animation: fadeOut 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: fadeOutZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .share-main {
     padding-top: 2rem;
@@ -334,7 +395,131 @@ export default defineComponent({
     }
   }
 }
-.scott-mask {
+.scott-poster {
+  padding-bottom: 20vh;
+  top: 24px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  z-index: 9000;
+  animation: fadeInZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &.fadeOut {
+    animation: fadeOutZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .poster-main {
+    width: 25rem;
+    margin: auto;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    transition-duration: 0.35s;
+    background: #fff;
+    box-shadow: 0 1rem 2rem rgb(0 0 0 / 20%), 0 1rem 1rem rgb(54 100 152 / 50%);
+    .share-top {
+      position: relative;
+      img {
+        max-width: 100%;
+      }
+      .date {
+        position: absolute;
+        left: 1.25rem;
+        bottom: 1.25rem;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        color: #fff;
+        text-shadow: 0 0.3rem 0.5rem rgb(0 0 0 / 50%);
+        opacity: 0.8;
+        font-family: Play;
+        .day {
+          font-size: 3rem;
+          line-height: 1;
+        }
+        .year-month {
+          border-top: 1px solid hsla(0, 0%, 100%, 0.5);
+        }
+      }
+    }
+    .share-title {
+      padding: 1.25rem;
+      grid-template-columns: 1fr 110px;
+      display: grid;
+      .title {
+        color: #517db2;
+        padding-bottom: 1.25rem;
+        font-weight: 700;
+      }
+      .desc {
+        color: #73869a;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .code {
+        justify-content: end;
+        align-content: center;
+        display: grid;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+    .share-action {
+      border-top: 1px dashed rgba(54, 100, 152, 0.25);
+      height: 4.25rem;
+      background-color: #e8f0fa;
+      gap: 1rem;
+      grid-auto-flow: column;
+      p {
+        color: var(--primary-color);
+        text-shadow: 0 2px 2px var(--primary-opacity-3), 0 -1px var(--white-default);
+      }
+      .share-button {
+        height: 2.25rem;
+        width: 2.25rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-shadow: 0 1px 1px #fff;
+        box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%), inset -0.3536rem -0.3536rem 0.625rem rgb(54 100 152 / 10%),
+          0.4419rem 0.4419rem 1rem rgb(54 100 152 / 30%);
+        background-color: #dae5f2;
+        &:nth-of-type(1) {
+          color: #f56c6c;
+        }
+        &:nth-of-type(2) {
+          color: #409eff;
+        }
+        &:nth-of-type(3) {
+          color: #e6a23c;
+        }
+        &:nth-of-type(4) {
+          color: #61be33;
+        }
+      }
+    }
+  }
+  .close {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    left: 50%;
+    margin-left: -1.25rem;
+    width: 2.5rem;
+    border-radius: 9999px;
+    background: #fff;
+    cursor: pointer;
+    height: 2.5rem;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--member-light-color, var(--theme-light-color));
+    opacity: 0.8;
+  }
+}
+.scott-mask,
+.scott-share-mask {
   background: radial-gradient(rgba(54, 100, 152, 0.4), rgba(19, 40, 77, 0.8));
   -webkit-backdrop-filter: blur(0.1rem);
   backdrop-filter: blur(0.1rem);
@@ -357,6 +542,17 @@ export default defineComponent({
     opacity: 1;
   }
 }
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -364,6 +560,17 @@ export default defineComponent({
 
   100% {
     opacity: 0;
+  }
+}
+@keyframes fadeOutZoom {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
   }
 }
 </style>
