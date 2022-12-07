@@ -178,6 +178,8 @@ export default defineComponent({
           a {
             text-decoration: none;
             color: #007dff;
+            font-size: 0.9rem;
+            font-weight: 500;
             &:hover i {
               transform: scale(1.2) !important;
               transition: 0.25s;
@@ -205,24 +207,6 @@ export default defineComponent({
       position: absolute;
     }
 
-    &:hover {
-      i {
-        transform: scale(1) !important;
-      }
-      .inner {
-        box-shadow: -0.44rem -0.44rem 0.625rem hsl(0deg 0% 100% / 80%), 0.44rem 0.44rem 0.625rem rgb(54 100 152 / 10%), inset 0 0 0 transparent, inset 0 0 0 transparent;
-        border-radius: 0.9375rem;
-        .info {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      .cover {
-        transform: perspective(59rem) rotateY(-59deg);
-        box-shadow: 2.5rem 2rem 3rem rgb(54 100 152 / 30%);
-        transition: 0.5s cubic-bezier(0.5, 1.5, 0.6, 1);
-      }
-    }
     .title {
       padding: 0 0.5em;
       margin-top: 0.625rem;
@@ -309,6 +293,29 @@ export default defineComponent({
       font-size: 0.875rem;
       line-height: 1.25rem;
       padding-left: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px), (min-width: 992px) and (max-width: 1199px), (min-width: 1200px) and (max-width: 1509px), (min-width: 1510px) {
+  .post-item.card {
+    &:hover {
+      i {
+        transform: scale(1) !important;
+      }
+      .inner {
+        box-shadow: -0.44rem -0.44rem 0.625rem hsl(0deg 0% 100% / 80%), 0.44rem 0.44rem 0.625rem rgb(54 100 152 / 10%), inset 0 0 0 transparent, inset 0 0 0 transparent;
+        border-radius: 0.9375rem;
+        .info {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .cover {
+        transform: perspective(59rem) rotateY(-59deg);
+        box-shadow: 2.5rem 2rem 3rem rgb(54 100 152 / 30%);
+        transition: 0.5s cubic-bezier(0.5, 1.5, 0.6, 1);
+      }
     }
   }
 }
