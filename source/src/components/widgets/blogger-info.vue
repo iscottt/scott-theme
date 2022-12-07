@@ -7,14 +7,13 @@
     </div>
   </div>
   <div>
+    <template v-for="(item, index) in footerLinks">
+      <div class="my-tag" v-if="index < footerLinks.length - 1">
+        <a :href="item.url" target="_blank"> <span v-html="item.text"></span> </a>
+      </div>
+    </template>
     <div class="my-tag">
-      <a href="https://github.com/iscottt" target="_blank"> <i class="fa-brands fa-github"></i> Github </a>
-    </div>
-    <div class="my-tag">
-      <a href="http://scott.ethan.pub/assets/wechat.014d1982.png"> <i class="fa-brands fa-weixin"></i> WeChat </a>
-    </div>
-    <div class="my-tag">
-      <a href="mailto:iscottt@163.com"> <i class="fa-solid fa-at"></i> Email </a>
+      <a :href="`mailto:${$store.state.current_user.email}`"> <i class="fa-solid fa-at"></i> Email </a>
     </div>
   </div>
 </template>
@@ -25,8 +24,10 @@ import { NProgress } from 'naive-ui';
 export default defineComponent({
   name: 'post-info',
   components: { NProgress },
-  mounted() {
-    console.log(this.$store.state);
+  computed: {
+    footerLinks() {
+      return this.$store.state.theme_settings.niRvana_footer_links || [];
+    },
   },
 });
 </script>

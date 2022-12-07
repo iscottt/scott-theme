@@ -60,7 +60,6 @@ export default defineComponent({
         result.push(last);
         last = getPrevId(last);
       }
-      console.log('this.titles', this.post.content.blocks);
       return result;
     },
   },
