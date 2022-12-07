@@ -20,7 +20,7 @@
     </NTooltip>
     <NTooltip>
       <template #trigger>
-        <button class="share" @click="showShare = true"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+        <button class="share" @click="doShare"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
       </template>
       分享
     </NTooltip>
@@ -62,24 +62,25 @@
   <div class="scott-share-mask fixed" :class="{ fadeOut: showAni }" v-if="showShare"></div>
   <div class="scott-poster fixed flex justify-start" :class="{ fadeOut: showAni }" v-if="showShare">
     <div class="poster-main">
-      <div class="share-top">
-        <img @click="test" src="https://www.homaton.com/wp-content/uploads/2022/11/category_mesh@2x.png" alt="" />
-        <div class="date">
-          <div class="day">18</div>
-          <div class="year-month">2022-11</div>
-        </div>
-      </div>
-      <div class="share-title">
-        <div class="info">
-          <div class="title">Neumorphism新拟物WP主题</div>
-          <div class="desc">
-            这是一款从2021年中旬开始开发的一款WordPress新拟物主题（当前博客正在使用）。新拟物是2020年开始流行的，它尝试在纯色界面中使用阴影和高光来凸显元素的凸起和凹陷感。虽然有很多人已经做出了完美的新拟物设计，然而市面上却很难有这样的产品出现，很多开发人员没办法将它落地实现。
+      <div id="share">
+        <div class="share-top">
+          <img @click="test" src="https://ethanwp.oss-cn-shenzhen.aliyuncs.com/blog/img_2LjFtxeCFpiqh0n_k4HE3A%3D%3D.png" alt="" />
+          <div class="date">
+            <div class="day">18</div>
+            <div class="year-month">2022-11</div>
           </div>
         </div>
-        <div class="code">
-          <img src="https://www.homaton.com/wp-content/uploads/2022/11/category_mesh@2x.png" alt="" />
+        <div class="share-title">
+          <div class="info">
+            <div class="title">Neumorphism新拟物WP主题</div>
+            <div class="desc">
+              这是一款从2021年中旬开始开发的一款WordPress新拟物主题（当前博客正在使用）。新拟物是2020年开始流行的，它尝试在纯色界面中使用阴影和高光来凸显元素的凸起和凹陷感。虽然有很多人已经做出了完美的新拟物设计，然而市面上却很难有这样的产品出现，很多开发人员没办法将它落地实现。
+            </div>
+          </div>
+          <div class="code" id="code" ref="code"></div>
         </div>
       </div>
+      <div id="content"></div>
       <div class="share-action grid items-center justify-center">
         <NTooltip placement="top-start">
           <template #trigger>
@@ -125,6 +126,9 @@
 <script>
 import { defineComponent } from 'vue';
 import { NTooltip } from 'naive-ui';
+import { Canvas2Image } from './canvas2image';
+import html2canvas from 'html2canvas';
+import QRCode from './qrcode';
 export default defineComponent({
   name: 'share-modal',
   inject: ['post'],
@@ -163,6 +167,14 @@ export default defineComponent({
       );
     },
     save() {},
+    doShare() {
+      this.showShare = true;
+      setTimeout(() => {
+        this.$nextTick(() => {
+          this.handleShare();
+        });
+      }, 350);
+    },
     closeModal() {
       this.showAni = true;
       setTimeout(() => {
@@ -173,7 +185,6 @@ export default defineComponent({
     },
     // tab切换
     tabChange(index) {
-      console.log('index', index);
       this.curActive = index;
     },
     parseLiked() {
@@ -225,6 +236,94 @@ export default defineComponent({
       if (!liked.includes(current_post_id)) {
         liked.push(current_post_id);
         this.$localStorage('liked', liked);
+      }
+    },
+    handleShare() {
+      const _self = this;
+      //定义查找元素方法
+      function $(selector) {
+        return document.querySelector(selector);
+      }
+      var main = {
+        init: function () {
+          _self.show = true;
+          main.getQrCode();
+        },
+        //设置监听事件
+        getQrCode: function () {
+          new QRCode(_self.$refs.code, {
+            text: 'http://resume.ethan.pub',
+            colorDark: '#517db2',
+            wdith: 100,
+            height: 100,
+            correctLevel: QRCode.CorrectLevel.H,
+          });
+          main.html2Canvas();
+        },
+        //获取像素密度
+        getPixelRatio: function (context) {
+          var backingStore =
+            context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio ||
+            1;
+          return (window.devicePixelRatio || 1) / backingStore;
+        },
+
+        //绘制dom 元素，生成截图canvas
+        html2Canvas: function () {
+          var shareContent = $('#share'); // 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
+          var width = shareContent.offsetWidth; // 获取(原生）dom 宽度
+          var height = shareContent.offsetHeight; // 获取(原生）dom 高
+          var offsetTop = shareContent.offsetTop; //元素距离顶部的偏移量
+
+          var canvas = document.createElement('canvas'); //创建canvas 对象
+          var context = canvas.getContext('2d');
+          var scaleBy = main.getPixelRatio(context); //获取像素密度的方法 (也可以采用自定义缩放比例)
+          canvas.width = width * scaleBy; //这里 由于绘制的dom 为固定宽度，居中，所以没有偏移
+          canvas.height = height * scaleBy; // 注意高度问题，由于顶部有个距离所以要加上顶部的距离，解决图像高度偏移问题
+          // context.scale(scaleBy, scaleBy);
+          context.translate(0, 0);
+
+          var opts = {
+            useCORS: true, //允许加载跨域的图片
+            scale: scaleBy, // 添加的scale 参数
+            canvas: canvas, //自定义 canvas
+            width: width, //dom 原始宽度
+            height: height, //dom 原始高度
+          };
+          html2canvas(shareContent, opts).then(function (canvas) {
+            var context = canvas.getContext('2d');
+            // 【重要】关闭抗锯齿
+            context.mozImageSmoothingEnabled = false;
+            context.webkitImageSmoothingEnabled = false;
+            context.msImageSmoothingEnabled = false;
+            context.imageSmoothingEnabled = false;
+            _self.canvas = canvas;
+            var img = Canvas2Image.convertToImage(canvas, canvas.width, canvas.height);
+            img.style.width = canvas.width / scaleBy + 'px';
+            img.style.height = canvas.height / scaleBy + 'px';
+            document.getElementById('content').appendChild(img);
+            _self.hasShare = true;
+            $('#share').style.display = 'none';
+          });
+        },
+      };
+
+      //最后运行代码
+      if (this.isTap) {
+        return;
+        this.isTap = false;
+      } else {
+        this.isTap = true;
+        if (this.hasShare) {
+          this.show = true;
+        } else {
+          main.init();
+        }
       }
     },
   },
@@ -463,6 +562,9 @@ export default defineComponent({
       padding: 1.25rem;
       grid-template-columns: 1fr 110px;
       display: grid;
+      .info {
+        padding-right: 10px;
+      }
       .title {
         color: #517db2;
         padding-bottom: 1.25rem;
@@ -480,8 +582,11 @@ export default defineComponent({
         justify-content: end;
         align-content: center;
         display: grid;
+        width: 100%;
         img {
-          max-width: 100%;
+          width: 100px;
+          height: 100px;
+          display: block;
         }
       }
     }
