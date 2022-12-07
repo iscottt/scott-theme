@@ -44,11 +44,16 @@ export default {
   methods: {
     inputImgSrc() {
       if (this.inputSrc) {
+        this.show = false;
         this.images.push({
           thumbnail: this.inputSrc,
           original: this.inputSrc,
         });
         this.inputSrc = '';
+        this.$emit('forceUpdate');
+        this.$nextTick(() => {
+          this.show = true;
+        });
       }
     },
     handleSelectImages() {
