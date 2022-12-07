@@ -222,7 +222,7 @@ export default defineComponent({
   margin-top: -1.8em;
 }
 .read-all {
-  height: 8em;
+  height: 5em;
   position: relative;
   .go {
     padding-left: 1.25rem;
