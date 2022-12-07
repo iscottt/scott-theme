@@ -79,6 +79,11 @@ export default defineComponent({
     color: #5a6f87;
     text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
     transition: 0.35s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     &:hover {
       color: var(--primary-color);
       text-shadow: 0 -1px var(--white-default), 0 2px 2px var(--primary-opacity-4);

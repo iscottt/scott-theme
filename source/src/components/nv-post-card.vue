@@ -232,6 +232,11 @@ export default defineComponent({
       text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
       transition: 0.25s;
       color: #5a6f87;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       @media (max-width: 768px) {
         font-size: 14px;
       }
