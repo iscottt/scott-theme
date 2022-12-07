@@ -56,10 +56,8 @@ export default defineComponent({
   .post {
     margin-top: 1em;
     &:hover {
-      .post {
-        .img {
-          transform: scale(1.1);
-        }
+      .img {
+        transform: scale(1.1);
       }
     }
   }
@@ -76,7 +74,7 @@ export default defineComponent({
   }
   .title {
     text-decoration: none;
-    color: #5a6f87;
+    color: #415973;
     text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
     transition: 0.35s;
     overflow: hidden;
@@ -84,9 +82,12 @@ export default defineComponent({
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
     &:hover {
       color: var(--primary-color);
-      text-shadow: 0 -1px var(--white-default), 0 2px 2px var(--primary-opacity-4);
+      text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
     }
   }
   .metas {

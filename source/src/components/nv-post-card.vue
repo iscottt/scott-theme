@@ -221,6 +221,7 @@ export default defineComponent({
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+      font-weight: 500;
       @media (max-width: 768px) {
         font-size: 14px;
       }
@@ -260,7 +261,7 @@ export default defineComponent({
       margin: 0;
       font-size: 1rem;
       line-height: 1.5rem;
-      font-weight: 400;
+      font-weight: 500;
       text-align: left;
       a {
         max-width: 100%;
