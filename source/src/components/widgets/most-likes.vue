@@ -53,15 +53,15 @@ export default defineComponent({
 <style lang="less">
 .widget-post-list {
   margin-top: 40px;
-  &:hover {
-    .post {
-      .img {
-        transform: scale(1.1);
-      }
-    }
-  }
   .post {
     margin-top: 1em;
+    &:hover {
+      .post {
+        .img {
+          transform: scale(1.1);
+        }
+      }
+    }
   }
   .img {
     width: 3.75rem;
