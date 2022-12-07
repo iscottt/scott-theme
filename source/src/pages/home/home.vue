@@ -34,10 +34,11 @@
     </contentWrapper>
     <div class="category" v-for="cat in categories">
       <div class="container">
-        <div class="title flex justify-between items-end">
+        <!-- <div class="title flex justify-between items-end">
           <span>{{ cat.title }}</span>
-          <!-- <router-link :to="`/category/${cat.slug}`" class="more flex items-center gx-2"> 更多<svg-icon name="angle-right" height="12" /> </router-link> -->
-        </div>
+        </div> -->
+
+        <widgetTitle>{{ cat.title }}</widgetTitle>
         <transition name="posts-change" mode="out-in">
           <component :is="$store.state.card_type == 'card' ? 'home-cards-wrapper' : 'home-list-wrapper'">
             <template v-for="(post, index) in cat.posts" :key="post.id">
@@ -45,7 +46,7 @@
             </template>
           </component>
         </transition>
-        <div class="read-all flex items-start justify-center" style="margin-top: 40px; height: 4em">
+        <div class="read-all flex items-start justify-center" style="margin-top: 40px">
           <router-link :to="`/category/${cat.slug}`" class="go flex items-end">
             <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
           </router-link>
@@ -70,10 +71,12 @@ import nvCardsWrapper from '/@/components/nv-cards-wrapper.vue';
 import nvListWrapper from '/@/components/nv-list-wrapper.vue';
 import homeCardsWrapper from './home-cards-wrapper.vue';
 import homeListWrapper from './home-list-wrapper.vue';
+import widgetTitle from '/@/components/widgets/widget-title.vue';
 export default defineComponent({
   name: 'home',
   components: {
     SliderWrapper,
+    widgetTitle,
     contentWrapper,
     CatMenu,
     CardType,
@@ -268,12 +271,6 @@ export default defineComponent({
       padding: 0 2em;
     }
   }
-  &:nth-child(even) {
-    background: var(--white-opacity-4);
-  }
-  border-top: 1px solid var(--border-color);
-  box-shadow: 0 1px var(--white-opacity-8) inset;
-  padding: 0 0 5.5em 0;
   .title {
     margin-top: calc(-2.7em + 4px);
     padding-bottom: 3em;
