@@ -3,7 +3,7 @@
     <widgetTitle>文章目录</widgetTitle>
     <ul>
       <template v-for="block in titles">
-        <li :class="{ active: activeIds.includes(block.id), isTop: block.data.level <= 3 }" :data-header-level="block.data.level">
+        <li :class="{ active: activeIds.includes(block.id), isTop: block.data.style === 1 }" :data-header-level="block.data.level">
           <div class="toc_wrapper">
             <span
               ><a @click="handleTitleClick(block.id)">{{ block.data.text }}</a></span
@@ -60,6 +60,7 @@ export default defineComponent({
         result.push(last);
         last = getPrevId(last);
       }
+      console.log('this.titles', this.post.content.blocks);
       return result;
     },
   },
