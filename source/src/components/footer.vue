@@ -33,34 +33,34 @@ export default defineComponent({
     padding-left: 1em;
     padding-right: 1em;
   }
-  &:hover .info {
-    opacity: 1;
-  }
 }
 .copyright {
   padding: 1em 0 0;
   color: var(--text-color-3);
-  text-shadow: 0 1px var(--white-opacity-8);
+  text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
+  color: #5a6f87;
   text-align: center;
   font-size: 14px;
+  text-align: right;
 }
 .info {
-  opacity: 0.35;
   cursor: default;
-  color: var(--text-color-4);
-  text-align: center;
+  text-align: right;
+  color: #8c9cae;
   font-size: 12px;
   transition: 0.35s;
   margin-top: 0.5em;
+  text-shadow: 0 1px 1px #fff;
 }
 .links {
   font-size: 14px;
   padding-top: 0.5em;
   text-decoration: none;
+ justify-content: flex-end;
   a {
     text-decoration: none;
-    color: var(--text-color-3);
-    text-shadow: 0 1px var(--white-opacity-8);
+    color: #8c9cae;
+    text-shadow: 0 1px 1px #fff;
     img {
       width: 16px;
       height: 16px;
@@ -73,7 +73,7 @@ export default defineComponent({
 <style lang="less">
 footer {
   // background: var(--gray-opacity-1);
-  background: var(--gray-6);
+  background: #dae5f2;
   padding-bottom: env(safe-area-inset-bottom);
   transform-origin: bottom;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
