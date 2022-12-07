@@ -6,7 +6,7 @@
     id="comment">
     <teleport :to="reply2 ? `#comment-item-${reply2} .body` : null" :disabled="!reply2">
       <div v-if="$store.state.theme_settings.comment_registration && !$store.state.current_user.id">
-        <div class="login-tip">请<a :href="get_login_url()">点击登录</a>后再发表评论或回复</div>
+        <div class="login-tip">请您<a :href="get_login_url()">登录</a>后再发表评论或回复。</div>
       </div>
 
       <template v-else>
@@ -282,17 +282,15 @@ export default defineComponent({
   .login-tip {
     margin: 0.5em 0;
     padding: 0.5em 1.25em;
-    background: var(--primary-opacity-1);
-    border: 1px solid var(--primary-opacity-3);
+    background-color: #dae5f2;
     border-radius: 0.5em;
     text-align: center;
-    color: var(--primary-color);
-    text-shadow: 0 1px #fff;
+    color: #5a6f87;
     a {
-      font-weight: bold;
+      font-weight: 500;
       margin: 0 0.25em;
-      text-shadow: -1px -1px #fff, 2px 2px 2px var(--primary-opacity-3);
-      color: inherit;
+      text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+      color: #007dff;
       text-decoration: none;
     }
   }
