@@ -81,18 +81,38 @@
         </div>
       </div>
       <div class="share-action grid items-center justify-center">
-        <div class="share-button items-center justify-center flex" @click="shareQq">
-          <i class="fa-brands fa-qq"></i>
-        </div>
-        <div class="share-button items-center justify-center flex" @click="shareWb">
-          <i class="fa-brands fa-weibo"></i>
-        </div>
-        <div class="share-button items-center justify-center flex" @click="shareQzone">
-          <i class="fa-solid fa-star"></i>
-        </div>
-        <div class="share-button items-center justify-center flex" @click="save">
-          <i class="fa-solid fa-image"></i>
-        </div>
+        <NTooltip placement="top-start">
+          <template #trigger>
+            <div class="share-button items-center justify-center flex" @click="shareWb">
+              <i class="fa-brands fa-weibo"></i>
+            </div>
+          </template>
+          分享到微博
+        </NTooltip>
+        <NTooltip placement="top-start">
+          <template #trigger>
+            <div class="share-button items-center justify-center flex" @click="shareQq">
+              <i class="fa-brands fa-qq"></i>
+            </div>
+          </template>
+          分享到QQ
+        </NTooltip>
+        <NTooltip placement="top-start">
+          <template #trigger>
+            <div class="share-button items-center justify-center flex" @click="shareQzone">
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </template>
+          分享到QQ空间
+        </NTooltip>
+        <NTooltip placement="top-start">
+          <template #trigger>
+            <div class="share-button items-center justify-center flex" @click="save">
+              <i class="fa-solid fa-image"></i>
+            </div>
+          </template>
+          保存海报
+        </NTooltip>
         <p v-if="isCreating">正在生成海报...</p>
       </div>
       <div @click="closeModal" class="close flex items-center absolute justify-center">
@@ -281,7 +301,7 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   justify-content: center;
-  z-index: 9000;
+  z-index: 1001;
   animation: fadeInZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   &.fadeOut {
     animation: fadeOutZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -402,7 +422,7 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   justify-content: center;
-  z-index: 9000;
+  z-index: 1001;
   animation: fadeInZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   &.fadeOut {
     animation: fadeOutZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -527,7 +547,7 @@ export default defineComponent({
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 8000;
+  z-index: 1000;
   animation: fadeIn linear 0.35s;
   &.fadeOut {
     animation: fadeOut 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
