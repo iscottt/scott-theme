@@ -11,8 +11,6 @@
     "blueimp-md5": "^2.19.0",
     "highlight.js": "^11.5.0",
     "html2canvas": "^1.4.1",
-    "qrcodejs2": "^0.0.2",
-    "qrcodejs2-fix": "^0.0.1",
     "rollup-plugin-copy": "^3.4.0",
     "ua-parser-js": "^1.0.2",
     "vite": "^2.6.14",

@@ -62,19 +62,19 @@
   <div class="scott-share-mask fixed" :class="{ fadeOut: showAni }" v-if="showShare"></div>
   <div class="scott-poster fixed flex justify-start" :class="{ fadeOut: showAni }" v-if="showShare">
     <div class="poster-main">
-      <div id="share">
+      <div id="share" ref="share">
         <div class="share-top">
-          <img @click="test" src="https://ethanwp.oss-cn-shenzhen.aliyuncs.com/blog/img_2LjFtxeCFpiqh0n_k4HE3A%3D%3D.png" alt="" />
+          <img @click="test" :src="post.metas._nv_thumbnail" alt="" />
           <div class="date">
-            <div class="day">18</div>
-            <div class="year-month">2022-11</div>
+            <div class="day">{{ parse_date(post.created_time).date }}</div>
+            <div class="year-month">{{ parse_date(post.created_time).year }}</div>
           </div>
         </div>
         <div class="share-title">
           <div class="info">
-            <div class="title">Neumorphism新拟物WP主题</div>
+            <div class="title">{{ post.title }}</div>
             <div class="desc">
-              这是一款从2021年中旬开始开发的一款WordPress新拟物主题（当前博客正在使用）。新拟物是2020年开始流行的，它尝试在纯色界面中使用阴影和高光来凸显元素的凸起和凹陷感。虽然有很多人已经做出了完美的新拟物设计，然而市面上却很难有这样的产品出现，很多开发人员没办法将它落地实现。
+              {{ post.excerpt }}
             </div>
           </div>
           <div class="code" id="code" ref="code"></div>
@@ -82,38 +82,40 @@
       </div>
       <div id="content"></div>
       <div class="share-action grid items-center justify-center">
-        <NTooltip placement="top-start">
-          <template #trigger>
-            <div class="share-button items-center justify-center flex" @click="shareWb">
-              <i class="fa-brands fa-weibo"></i>
-            </div>
-          </template>
-          分享到微博
-        </NTooltip>
-        <NTooltip placement="top-start">
-          <template #trigger>
-            <div class="share-button items-center justify-center flex" @click="shareQq">
-              <i class="fa-brands fa-qq"></i>
-            </div>
-          </template>
-          分享到QQ
-        </NTooltip>
-        <NTooltip placement="top-start">
-          <template #trigger>
-            <div class="share-button items-center justify-center flex" @click="shareQzone">
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </template>
-          分享到QQ空间
-        </NTooltip>
-        <NTooltip placement="top-start">
-          <template #trigger>
-            <div class="share-button items-center justify-center flex" @click="save">
-              <i class="fa-solid fa-image"></i>
-            </div>
-          </template>
-          保存海报
-        </NTooltip>
+        <template v-if="!isCreating">
+          <NTooltip placement="top-start">
+            <template #trigger>
+              <div class="share-button items-center justify-center flex" @click="shareWb">
+                <i class="fa-brands fa-weibo"></i>
+              </div>
+            </template>
+            分享到微博
+          </NTooltip>
+          <NTooltip placement="top-start">
+            <template #trigger>
+              <div class="share-button items-center justify-center flex" @click="shareQq">
+                <i class="fa-brands fa-qq"></i>
+              </div>
+            </template>
+            分享到QQ
+          </NTooltip>
+          <NTooltip placement="top-start">
+            <template #trigger>
+              <div class="share-button items-center justify-center flex" @click="shareQzone">
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </template>
+            分享到QQ空间
+          </NTooltip>
+          <NTooltip placement="top-start">
+            <template #trigger>
+              <div class="share-button items-center justify-center flex" @click="save">
+                <i class="fa-solid fa-image"></i>
+              </div>
+            </template>
+            保存海报
+          </NTooltip>
+        </template>
         <p v-if="isCreating">正在生成海报...</p>
       </div>
       <div @click="closeModal" class="close flex items-center absolute justify-center">
@@ -143,6 +145,7 @@ export default defineComponent({
       showAni: false,
       showShare: false,
       isCreating: false,
+      canvas: null,
     };
   },
   watch: {
@@ -152,23 +155,31 @@ export default defineComponent({
   },
   methods: {
     shareWb() {
-      window.open(
-        'https://service.weibo.com/share/share.php?title=用域名访问Nas · 阿里云DDNS解决方案&url=https://www.homaton.com/project/nas-ddns-synology.html&searchPic=true&display=0&retcode=6102#_loginLayer_1670423435716'
-      );
+      window.open(`https://service.weibo.com/share/share.php?title=${this.post.title}&url=${location.href}&searchPic=true&display=0&retcode=6102#_loginLayer_1670423435716`);
+    },
+    parse_date(timestamp) {
+      var timestr = new Date(timestamp);
+      var year = timestr.getFullYear();
+      var month = timestr.getMonth() + 1;
+      var date = timestr.getDate();
+      return { year: year + '-' + month, date: date < 10 ? `0${date}` : date };
     },
     shareQq() {
       window.open(
-        'https://connect.qq.com/widget/shareqq/index.html?url=https://www.homaton.com/project/nas-ddns-synology.html&sharesource=qzone&title=用域名访问Nas · 阿里云DDNS解决方案&pics=https://www.homaton.com/wp-content/uploads/2022/09/category_nas_ddns.png&summary=背景前不久在一个QQ群里面和一个开发大佬（Panda-Stud...'
+        `https://connect.qq.com/widget/shareqq/index.html?url=${location.href}&sharesource=qzone&title=${this.post.title}&pics=${this.post.metas._nv_thumbnail}&summary=${this.post.excerpt}`
       );
     },
     shareQzone() {
       window.open(
-        'https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.homaton.com/project/nas-ddns-synology.html&sharesource=qzone&title=用域名访问Nas · 阿里云DDNS解决方案&pics=https://www.homaton.com/wp-content/uploads/2022/09/category_nas_ddns.png&summary=背景前不久在一个QQ群里面和一个开发大佬（Panda-Stud...'
+        `https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=${location.href}&sharesource=qzone&title=${this.post.title}&pics=${this.post.metas._nv_thumbnail}&summary=${this.post.excerpt}`
       );
     },
-    save() {},
+    save() {
+      Canvas2Image.saveAsPNG(this.canvas);
+    },
     doShare() {
       this.showShare = true;
+      this.isCreating = true;
       setTimeout(() => {
         this.$nextTick(() => {
           this.handleShare();
@@ -246,15 +257,14 @@ export default defineComponent({
       }
       var main = {
         init: function () {
-          _self.show = true;
           main.getQrCode();
         },
         //设置监听事件
         getQrCode: function () {
           new QRCode(_self.$refs.code, {
-            text: 'http://resume.ethan.pub',
+            text: location.href,
             colorDark: '#517db2',
-            wdith: 100,
+            width: 100,
             height: 100,
             correctLevel: QRCode.CorrectLevel.H,
           });
@@ -275,56 +285,45 @@ export default defineComponent({
 
         //绘制dom 元素，生成截图canvas
         html2Canvas: function () {
-          var shareContent = $('#share'); // 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
+          var shareContent = _self.$refs.share; // 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
           var width = shareContent.offsetWidth; // 获取(原生）dom 宽度
           var height = shareContent.offsetHeight; // 获取(原生）dom 高
-          var offsetTop = shareContent.offsetTop; //元素距离顶部的偏移量
-
           var canvas = document.createElement('canvas'); //创建canvas 对象
           var context = canvas.getContext('2d');
           var scaleBy = main.getPixelRatio(context); //获取像素密度的方法 (也可以采用自定义缩放比例)
           canvas.width = width * scaleBy; //这里 由于绘制的dom 为固定宽度，居中，所以没有偏移
           canvas.height = height * scaleBy; // 注意高度问题，由于顶部有个距离所以要加上顶部的距离，解决图像高度偏移问题
-          // context.scale(scaleBy, scaleBy);
+          context.scale(1, 1);
           context.translate(0, 0);
-
+          // 定义html2canvas参数
           var opts = {
-            useCORS: true, //允许加载跨域的图片
             scale: scaleBy, // 添加的scale 参数
             canvas: canvas, //自定义 canvas
             width: width, //dom 原始宽度
-            height: height, //dom 原始高度
+            height: height,
+            logging: true,
+            dpi: window.devicePixelRatio * 2,
+            useCORS: true, // 【重要】开启跨域配置
           };
-          html2canvas(shareContent, opts).then(function (canvas) {
+          html2canvas(_self.$refs.share, opts).then(function (canvas) {
             var context = canvas.getContext('2d');
             // 【重要】关闭抗锯齿
             context.mozImageSmoothingEnabled = false;
             context.webkitImageSmoothingEnabled = false;
             context.msImageSmoothingEnabled = false;
             context.imageSmoothingEnabled = false;
+            context.willReadFrequency = true;
             _self.canvas = canvas;
             var img = Canvas2Image.convertToImage(canvas, canvas.width, canvas.height);
             img.style.width = canvas.width / scaleBy + 'px';
             img.style.height = canvas.height / scaleBy + 'px';
             document.getElementById('content').appendChild(img);
-            _self.hasShare = true;
-            $('#share').style.display = 'none';
+            _self.isCreating = false;
+            $('#share').remove();
           });
         },
       };
-
-      //最后运行代码
-      if (this.isTap) {
-        return;
-        this.isTap = false;
-      } else {
-        this.isTap = true;
-        if (this.hasShare) {
-          this.show = true;
-        } else {
-          main.init();
-        }
-      }
+      main.init();
     },
   },
 });
@@ -534,8 +533,19 @@ export default defineComponent({
     transition-duration: 0.35s;
     background: #fff;
     box-shadow: 0 1rem 2rem rgb(0 0 0 / 20%), 0 1rem 1rem rgb(54 100 152 / 50%);
+    #share {
+      width: 25rem;
+      overflow: visible;
+      border-radius: 0.625rem;
+    }
+    #content {
+      line-height: 0;
+    }
     .share-top {
+      width: 400px;
+      overflow: visible;
       position: relative;
+      line-height: 0;
       img {
         max-width: 100%;
       }
@@ -544,7 +554,6 @@ export default defineComponent({
         left: 1.25rem;
         bottom: 1.25rem;
         font-size: 1.125rem;
-        line-height: 1.75rem;
         color: #fff;
         text-shadow: 0 0.3rem 0.5rem rgb(0 0 0 / 50%);
         opacity: 0.8;
@@ -554,6 +563,7 @@ export default defineComponent({
           line-height: 1;
         }
         .year-month {
+          line-height: 1.75rem;
           border-top: 1px solid hsla(0, 0%, 100%, 0.5);
         }
       }
@@ -582,7 +592,6 @@ export default defineComponent({
         justify-content: end;
         align-content: center;
         display: grid;
-        width: 100%;
         img {
           width: 100px;
           height: 100px;
@@ -611,17 +620,30 @@ export default defineComponent({
         box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%), inset -0.3536rem -0.3536rem 0.625rem rgb(54 100 152 / 10%),
           0.4419rem 0.4419rem 1rem rgb(54 100 152 / 30%);
         background-color: #dae5f2;
+        transition: 0.35s;
         &:nth-of-type(1) {
           color: #f56c6c;
+          &:hover {
+            text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(245 108 108 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+          }
         }
         &:nth-of-type(2) {
           color: #409eff;
+          &:hover {
+            text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(64 158 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+          }
         }
         &:nth-of-type(3) {
           color: #e6a23c;
+          &:hover {
+            text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(230 162 60 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+          }
         }
         &:nth-of-type(4) {
           color: #61be33;
+          &:hover {
+            text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(97 190 51 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+          }
         }
       }
     }
@@ -640,7 +662,12 @@ export default defineComponent({
     font-size: 18px;
     line-height: 1;
     color: var(--member-light-color, var(--theme-light-color));
-    opacity: 0.8;
+    opacity: 0.7;
+    transition: 0.35s;
+    box-shadow: 0 1rem 2rem rgb(0 0 0 / 20%), 0 1rem 1rem rgb(54 100 152 / 50%);
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 .scott-mask,

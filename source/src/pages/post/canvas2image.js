@@ -97,11 +97,11 @@ export const Canvas2Image = (function () {
 
     //
     //  typedef struct tagBITMAPFILEHEADER {
-    //      WORD bfType;
-    //      DWORD bfSize;
-    //      WORD bfReserved1;
-    //      WORD bfReserved2;
-    //      DWORD bfOffBits;
+    //  	WORD bfType;
+    //  	DWORD bfSize;
+    //  	WORD bfReserved1;
+    //  	WORD bfReserved2;
+    //  	DWORD bfOffBits;
     //  } BITMAPFILEHEADER;
     //
     var BITMAPFILEHEADER = [
@@ -128,17 +128,17 @@ export const Canvas2Image = (function () {
 
     //
     //  typedef struct tagBITMAPINFOHEADER {
-    //      DWORD biSize;
-    //      LONG  biWidth;
-    //      LONG  biHeight;
-    //      WORD  biPlanes;
-    //      WORD  biBitCount;
-    //      DWORD biCompression;
-    //      DWORD biSizeImage;
-    //      LONG  biXPelsPerMeter;
-    //      LONG  biYPelsPerMeter;
-    //      DWORD biClrUsed;
-    //      DWORD biClrImportant;
+    //  	DWORD biSize;
+    //  	LONG  biWidth;
+    //  	LONG  biHeight;
+    //  	WORD  biPlanes;
+    //  	WORD  biBitCount;
+    //  	DWORD biCompression;
+    //  	DWORD biSizeImage;
+    //  	LONG  biXPelsPerMeter;
+    //  	LONG  biYPelsPerMeter;
+    //  	DWORD biClrUsed;
+    //  	DWORD biClrImportant;
     //  } BITMAPINFOHEADER, *PBITMAPINFOHEADER;
     //
     var BITMAPINFOHEADER = [

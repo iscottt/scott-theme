@@ -898,16 +898,6 @@ prr@~1.0.1:
   resolved "https://registry.npmmirror.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
   integrity sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==
 
-qrcodejs2-fix@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmmirror.com/qrcodejs2-fix/-/qrcodejs2-fix-0.0.1.tgz#7e355c1facbe74fdf85520bf973d30abb9d79a52"
-  integrity sha512-1R6jB87k1PUwjX65hh24FftDjrghPvryYfsajV3chCp//dQb8QUeL446DVLj2SIeotP8ro9rSYri0wOp7O+7Hg==
-
-qrcodejs2@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npmmirror.com/qrcodejs2/-/qrcodejs2-0.0.2.tgz#465afe5e39f19facecb932c11f7a186109146ae1"
-  integrity sha512-+Y4HA+cb6qUzdgvI3KML8GYpMFwB24dFwzMkS/yXq6hwtUGNUnZQdUnksrV1XGMc2mid5ROw5SAuY9XhI3ValA==
-
 queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmmirror.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
