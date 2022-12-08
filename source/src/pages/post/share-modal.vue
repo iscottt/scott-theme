@@ -30,9 +30,9 @@
   <div class="scott-share fixed flex" :class="{ fadeOut: showAni }" v-show="showPay">
     <div class="share-main grid">
       <div class="content">
-        <div class="title">请我喝杯咖啡~</div>
+        <div class="title">请我喝杯奶茶~</div>
         <div class="code-main">
-          <p>熬夜码字不易，请我喝杯咖啡吧~</p>
+          <p>熬夜码字不易，请我喝杯奶茶吧~</p>
           <div class="tab">
             <div class="tab-header">
               <div class="tab-title" :class="{ active: curActive == 1 }" @click="curActive = 1">
