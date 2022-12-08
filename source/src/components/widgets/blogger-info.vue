@@ -7,6 +7,7 @@
     </div>
   </div>
   <div>
+    <!-- 调用网站底部链接前两个，需要注意后台设置 -->
     <template v-for="(item, index) in footerLinks">
       <div class="my-tag" v-if="index < footerLinks.length - 1">
         <a :href="item.url" target="_blank"> <span v-html="item.text"></span> </a>

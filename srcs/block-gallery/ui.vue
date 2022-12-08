@@ -10,9 +10,7 @@
     <div class="image" :style="{ backgroundImage: `url(${image.thumbnail || image.original})` }" v-for="(image, index) in images">
       <div class="remove" @click="handleRemove(index)"><i class="el-icon-close"></i></div>
     </div>
-    <!-- <div class="image add_image">
-      <i class="el-icon-plus add_icon"></i>
-    </div> -->
+    <!-- 增加可以自己输入url选择图片的功能 -->
     <div class="upload-main">
       <div class="title" @click="handleSelectImages">
         <i class="fa-regular fa-image"></i>
@@ -42,6 +40,9 @@ export default {
     nv.block.loadDefaultData.bind(this)();
   },
   methods: {
+    /**
+     * 输入图片地址
+     */
     inputImgSrc() {
       if (this.inputSrc) {
         this.show = false;
@@ -50,10 +51,7 @@ export default {
           original: this.inputSrc,
         });
         this.inputSrc = '';
-        this.$emit('forceUpdate');
-        this.$nextTick(() => {
-          this.show = true;
-        });
+        this.updateView();
       }
     },
     handleSelectImages() {
@@ -71,13 +69,18 @@ export default {
             }
           });
           this.images = this.images.concat(results);
-          // 需要调用一次保存，否则在inner-blocks里面异步的数据会丢失
-          this.$emit('forceUpdate');
-
-          this.$nextTick(() => {
-            this.show = true;
-          });
+          this.updateView();
         },
+      });
+    },
+    /**
+     * 刷新视图
+     */
+    updateView() {
+      // 需要调用一次保存，否则在inner-blocks里面异步的数据会丢失
+      this.$emit('forceUpdate');
+      this.$nextTick(() => {
+        this.show = true;
       });
     },
     handleRemove(index) {
