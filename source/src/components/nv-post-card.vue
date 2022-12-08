@@ -117,7 +117,6 @@ export default defineComponent({
       box-shadow: -0.44rem -0.44rem 0.625rem hsl(0deg 0% 100% / 80%), 0.44rem 0.44rem 0.625rem rgb(54 100 152 / 10%), inset 0 0 0 transparent, inset 0 0 0 transparent;
       border-radius: 0.9375rem;
       padding-bottom: 89.45313%;
-      transition: 0.35s;
       .info {
         opacity: 0;
         transform: translateX(-2rem);
@@ -191,7 +190,7 @@ export default defineComponent({
     }
     .cover {
       border: 0.125rem solid #e8f0fa;
-      // transform-origin: left;
+      transform-origin: left;
       transform: perspective(59rem) rotateY(0);
       transition: 0.35s;
       flex-shrink: 0;
@@ -310,12 +309,11 @@ export default defineComponent({
         border-radius: 0.9375rem;
         .info {
           opacity: 1;
-          transform: translateY(25px);
+          transform: translateX(0);
         }
       }
       .cover {
-        // transform: perspective(59rem) rotateY(-59deg);
-        transform: translate(-60px, -50px);
+        transform: perspective(59rem) rotateY(-59deg);
         box-shadow: 2.5rem 2rem 3rem rgb(54 100 152 / 30%);
         transition: 0.5s cubic-bezier(0.5, 1.5, 0.6, 1);
       }
