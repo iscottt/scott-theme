@@ -1,3 +1,5 @@
 source/node_modules
 web
 .DS_Store
+*.zip
+source/vite.config.js
