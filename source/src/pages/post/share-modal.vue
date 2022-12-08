@@ -287,8 +287,10 @@ export default defineComponent({
          * 生成二维码
          */
         getQrCode: function () {
+          const text = decodeURI('https://niwu.titaike.cn/minecraft');
+          console.log('text', text);
           new QRCode(_self.$refs.code, {
-            text: location.href,
+            text,
             colorDark: '#517db2',
             width: 100,
             height: 100,
