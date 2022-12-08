@@ -26,7 +26,7 @@
           </router-link>
         </div>
         <div class="category" v-for="cat in categories">
-          <div class="container">
+          <div class="container" style="padding: 0">
             <widgetTitle>{{ cat.title }}</widgetTitle>
             <transition name="posts-change" mode="out-in">
               <component :is="$store.state.card_type == 'card' ? 'nv-cards-wrapper' : 'nv-list-wrapper'">
