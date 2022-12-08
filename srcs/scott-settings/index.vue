@@ -5,16 +5,29 @@
     </div>
     <div class="page-content flex-grow">
       <pd-form :config="formConfig" :data="formData" @submit="handleSubmit">
-        <template v-slot:footerLinks>
-          <nvSettingTable add-label="添加链接" :columns="footerLinksColumns" v-model:data="formData.niRvana_footer_links">
+        <template v-slot:rewardLinks>
+          <nvSettingTable add-label="添加图片" :columns="rewardLinksColumns" v-model:data="formData.scott_reward_links">
             <template v-slot:column-image="row">
-              <nv-thumbnail-selector :height="40" v-model:value="formData.niRvana_footer_links[row.$index].image" />
+              <nv-thumbnail-selector :height="40" v-model:value="formData.scott_reward_links[row.$index].image" />
             </template>
             <template v-slot:column-text="row">
-              <n-input v-model:value="formData.niRvana_footer_links[row.$index].text" />
+              <n-input v-model:value="formData.scott_reward_links[row.$index].text" />
             </template>
             <template v-slot:column-url="row">
-              <n-input placeholder="http(s)://" v-model:value="formData.niRvana_footer_links[row.$index].url" />
+              <n-input placeholder="http(s)://" v-model:value="formData.scott_reward_links[row.$index].url" />
+            </template>
+          </nvSettingTable>
+        </template>
+        <template v-slot:personalLinks>
+          <nvSettingTable add-label="添加链接" :columns="personalLinksColumns" v-model:data="formData.scott_personal_links">
+            <template v-slot:column-image="row">
+              <nv-thumbnail-selector :height="40" v-model:value="formData.scott_personal_links[row.$index].image" />
+            </template>
+            <template v-slot:column-text="row">
+              <n-input v-model:value="formData.scott_personal_links[row.$index].text" />
+            </template>
+            <template v-slot:column-url="row">
+              <n-input placeholder="http(s)://" v-model:value="formData.scott_personal_links[row.$index].url" />
             </template>
           </nvSettingTable>
         </template>
@@ -36,58 +49,42 @@ export default {
         },
         items: [
           {
-            label: '打赏设置',
+            label: '打赏图片设置',
             type: 'FormSubtitle',
           },
           {
-            label: '打赏图片',
-            custom_type: 'footerLinks',
-            prop: 'niRvana_footer_links',
+            custom_type: 'rewardLinks',
+            prop: 'scott_reward_links',
+          },
+          {
+            label: '个人外链设置',
+            type: 'FormSubtitle',
+          },
+          {
+            custom_type: 'personalLinks',
+            prop: 'scott_personal_links',
           },
         ],
       },
       formData: {
-        niRvana_footer_links: [],
+        scott_reward_links: [],
+        scott_personal_links: [],
       },
-      footerLinksColumns: [
+      rewardLinksColumns: [
         { title: '图片', key: 'image' },
         { title: '文本', key: 'text' },
+        { title: '链接地址', key: 'url' },
+      ],
+      personalLinksColumns: [
+        { title: '文本', key: 'text' },
+        { title: '链接地址', key: 'url' },
       ],
     };
   },
   mounted() {
     this.requestData();
-    this.requestCategories();
   },
   methods: {
-    requestCategories() {
-      $fullLoading.start();
-      this.$axios({
-        method: 'post',
-        url: this.$API + '/nv/query-terms',
-        data: {
-          taxonomy: 'category',
-          hide_empty: false,
-          terms_per_page: 999,
-        },
-      })
-        .then(({ data }) => {
-          if (!this.$isSuccess(data)) {
-            return;
-          }
-          this.all_categories = data.data.map(({ name, id }) => ({
-            label: name,
-            value: id,
-          }));
-        })
-        .catch((error) => {
-          $message.warning('读取分类数据请求失败');
-          console.log(error);
-        })
-        .finally(() => {
-          $fullLoading.end();
-        });
-    },
     requestData() {
       //从formConfig里面读出需要从后端得到的options数据
       var names = [];
