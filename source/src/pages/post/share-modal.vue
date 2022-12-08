@@ -26,7 +26,7 @@
     </NTooltip>
   </div>
 
-  <div class="scott-mask fixed" :class="{ fadeOut: showAni }" v-if="showPay" @click="closeModal"></div>
+  <div class="scott-mask fixed" :class="{ fadeOut: showAni }" v-if="showPay || showShare"></div>
   <div class="scott-share fixed flex" :class="{ fadeOut: showAni }" v-show="showPay">
     <div class="share-main grid">
       <div class="content">
@@ -35,10 +35,10 @@
           <p>熬夜码字不易，请我喝杯咖啡吧~</p>
           <div class="tab">
             <div class="tab-header">
-              <div class="tab-title" :class="{ active: curActive == 1 }" @click="tabChange(1)">
+              <div class="tab-title" :class="{ active: curActive == 1 }" @click="curActive = 1">
                 <div class="title-text">支付宝</div>
               </div>
-              <div class="tab-title" :class="{ active: curActive == 2 }" @click="tabChange(2)">
+              <div class="tab-title" :class="{ active: curActive == 2 }" @click="curActive = 2">
                 <div class="title-text">微信</div>
               </div>
             </div>
@@ -58,8 +58,6 @@
       </div>
     </div>
   </div>
-
-  <div class="scott-share-mask fixed" :class="{ fadeOut: showAni }" v-if="showShare"></div>
   <div class="scott-poster fixed flex justify-start" :class="{ fadeOut: showAni }" v-if="showShare">
     <div class="poster-main">
       <div id="share" ref="share">
@@ -146,6 +144,7 @@ export default defineComponent({
       showShare: false,
       isCreating: false,
       canvas: null,
+      curPost: {},
     };
   },
   watch: {
@@ -154,38 +153,59 @@ export default defineComponent({
     },
   },
   methods: {
-    shareWb() {
-      window.open(`https://service.weibo.com/share/share.php?title=${this.post.title}&url=${location.href}&searchPic=true&display=0&retcode=6102#_loginLayer_1670423435716`);
-    },
+    /**
+     * 格式化时间
+     */
     parse_date(timestamp) {
       var timestr = new Date(timestamp);
       var year = timestr.getFullYear();
       var month = timestr.getMonth() + 1;
       var date = timestr.getDate();
-      return { year: year + '-' + month, date: date < 10 ? `0${date}` : date };
+      return { year: `${year}-${month}`, date: date < 10 ? `0${date}` : date };
     },
+    /**
+     * 分享到微博
+     */
+    shareWb() {
+      window.open(`https://service.weibo.com/share/share.php?title=${this.post.title}&url=${location.href}&searchPic=true&display=0&retcode=6102#_loginLayer_1670423435716`);
+    },
+    /**
+     * 分享到QQ
+     */
     shareQq() {
       window.open(
         `https://connect.qq.com/widget/shareqq/index.html?url=${location.href}&sharesource=qzone&title=${this.post.title}&pics=${this.post.metas._nv_thumbnail}&summary=${this.post.excerpt}`
       );
     },
+    /**
+     * 分享到QQ空间
+     */
     shareQzone() {
       window.open(
         `https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=${location.href}&sharesource=qzone&title=${this.post.title}&pics=${this.post.metas._nv_thumbnail}&summary=${this.post.excerpt}`
       );
     },
+    /**
+     * 保存海报到本地
+     */
     save() {
       Canvas2Image.saveAsPNG(this.canvas);
+      $message.success('成功保存海报~');
     },
+    /**
+     * 点击分享按钮
+     */
     doShare() {
       this.showShare = true;
       this.isCreating = true;
+      // 弹窗动画完成后再生成海报
       setTimeout(() => {
-        this.$nextTick(() => {
-          this.handleShare();
-        });
+        this.createPoster();
       }, 350);
     },
+    /**
+     * 关闭弹窗
+     */
     closeModal() {
       this.showAni = true;
       setTimeout(() => {
@@ -193,10 +213,6 @@ export default defineComponent({
         this.showShare = false;
         this.showAni = false;
       }, 350);
-    },
-    // tab切换
-    tabChange(index) {
-      this.curActive = index;
     },
     parseLiked() {
       var liked = this.getLikedPosts();
@@ -207,6 +223,9 @@ export default defineComponent({
     handleDuplicateLikeClick() {
       $message.warning('您已经点过赞了');
     },
+    /**
+     * 点赞
+     */
     handleLikeClick() {
       if (!this.post.id) {
         return;
@@ -237,10 +256,16 @@ export default defineComponent({
           message.destroy();
         });
     },
+    /**
+     * 获取已点赞文章列表
+     */
     getLikedPosts() {
       var liked = this.$localStorage('liked');
       return Array.isArray(liked) ? liked : [];
     },
+    /**
+     * 把当前文章id存入已点赞文章列表
+     */
     setLikedPosts() {
       var liked = this.getLikedPosts();
       var current_post_id = this.post.id;
@@ -249,17 +274,18 @@ export default defineComponent({
         this.$localStorage('liked', liked);
       }
     },
-    handleShare() {
+    /**
+     * 生成海报
+     */
+    createPoster() {
       const _self = this;
-      //定义查找元素方法
-      function $(selector) {
-        return document.querySelector(selector);
-      }
-      var main = {
+      const main = {
         init: function () {
           main.getQrCode();
         },
-        //设置监听事件
+        /**
+         * 生成二维码
+         */
         getQrCode: function () {
           new QRCode(_self.$refs.code, {
             text: location.href,
@@ -270,7 +296,9 @@ export default defineComponent({
           });
           main.html2Canvas();
         },
-        //获取像素密度
+        /**
+         * 获取像素密度
+         */
         getPixelRatio: function (context) {
           var backingStore =
             context.backingStorePixelRatio ||
@@ -282,8 +310,9 @@ export default defineComponent({
             1;
           return (window.devicePixelRatio || 1) / backingStore;
         },
-
-        //绘制dom 元素，生成截图canvas
+        /**
+         * 绘制dom 元素，生成截图canvas
+         */
         html2Canvas: function () {
           var shareContent = _self.$refs.share; // 需要绘制的部分的 (原生）dom 对象 ，注意容器的宽度不要使用百分比，使用固定宽度，避免缩放问题
           var width = shareContent.offsetWidth; // 获取(原生）dom 宽度
@@ -293,15 +322,12 @@ export default defineComponent({
           var scaleBy = main.getPixelRatio(context); //获取像素密度的方法 (也可以采用自定义缩放比例)
           canvas.width = width * scaleBy; //这里 由于绘制的dom 为固定宽度，居中，所以没有偏移
           canvas.height = height * scaleBy; // 注意高度问题，由于顶部有个距离所以要加上顶部的距离，解决图像高度偏移问题
-          context.scale(1, 1);
-          context.translate(0, 0);
           // 定义html2canvas参数
           var opts = {
             scale: scaleBy, // 添加的scale 参数
             canvas: canvas, //自定义 canvas
             width: width, //dom 原始宽度
-            height: height,
-            logging: true,
+            height: height, //dom 原始高度
             dpi: window.devicePixelRatio * 2,
             useCORS: true, // 【重要】开启跨域配置
           };
@@ -319,7 +345,7 @@ export default defineComponent({
             img.style.height = canvas.height / scaleBy + 'px';
             document.getElementById('content').appendChild(img);
             _self.isCreating = false;
-            $('#share').remove();
+            _self.$refs.share.remove();
           });
         },
       };
@@ -670,8 +696,7 @@ export default defineComponent({
     }
   }
 }
-.scott-mask,
-.scott-share-mask {
+.scott-mask {
   background: radial-gradient(rgba(54, 100, 152, 0.4), rgba(19, 40, 77, 0.8));
   -webkit-backdrop-filter: blur(0.1rem);
   backdrop-filter: blur(0.1rem);
@@ -683,46 +708,6 @@ export default defineComponent({
   animation: fadeIn linear 0.35s;
   &.fadeOut {
     animation: fadeOut 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeInZoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fadeOutZoom {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(0.9);
   }
 }
 </style>
