@@ -1,6 +1,6 @@
 <template>
   <modalWrapper title="相关文章" v-if="posts.length">
-    <div class="grid cols-4 g-8 xxs:cols-2 xs:cols-2">
+    <div class="grid cols-3 g-8 xxs:cols-2 xs:cols-2">
       <!-- <router-link
 			:to="`/${post.slug}`"
 			class="relate-post-item relative block"
