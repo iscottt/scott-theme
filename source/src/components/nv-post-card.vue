@@ -268,8 +268,9 @@ export default defineComponent({
         text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
-        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         flex-shrink: 0;
         flex-grow: 0;
         transition-duration: 0.35s;

@@ -29,7 +29,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/vite-proxy/, ''),
       },
       '/uploads': {
-        target: 'http://localhost:9999//uploads',
+        target: 'http://localhost:9999/uploads',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/uploads/, ''),
       },
