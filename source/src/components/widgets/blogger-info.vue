@@ -9,7 +9,7 @@
   <div>
     <!-- 调用网站底部链接前两个，需要注意后台设置 -->
     <template v-for="(item, index) in footerLinks">
-      <div class="my-tag" v-if="index < footerLinks.length - 1">
+      <div class="my-tag">
         <a :href="item.url" target="_blank"> <span v-html="item.text"></span> </a>
       </div>
     </template>
@@ -27,7 +27,7 @@ export default defineComponent({
   components: { NProgress },
   computed: {
     footerLinks() {
-      return this.$store.state.theme_settings.niRvana_footer_links || [];
+      return this.$store.state.theme_settings.scott_personal_links || [];
     },
   },
 });

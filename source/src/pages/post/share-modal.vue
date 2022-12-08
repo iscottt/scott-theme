@@ -35,19 +35,13 @@
           <p>熬夜码字不易，请我喝杯奶茶吧~</p>
           <div class="tab">
             <div class="tab-header">
-              <div class="tab-title" :class="{ active: curActive == 1 }" @click="curActive = 1">
-                <div class="title-text">支付宝</div>
-              </div>
-              <div class="tab-title" :class="{ active: curActive == 2 }" @click="curActive = 2">
-                <div class="title-text">微信</div>
+              <div class="tab-title" v-for="(item, index) in rewardLinks" :class="{ active: curActive == index }" @click="curActive = index">
+                <div class="title-text">{{ item.text }}</div>
               </div>
             </div>
             <div class="tab-panels">
-              <div class="tab-panel" :class="{ active: curActive == 1 }">
-                <img src="https://ethanwp.oss-cn-shenzhen.aliyuncs.com/blog/alipay.png" alt="" />
-              </div>
-              <div class="tab-panel" :class="{ active: curActive == 2 }">
-                <img src="https://ethanwp.oss-cn-shenzhen.aliyuncs.com/blog/wechat.png" alt="" />
+              <div class="tab-panel" v-for="(item, index) in rewardLinks" :class="{ active: curActive == index }">
+                <img :src="item.image" alt="" />
               </div>
             </div>
           </div>
@@ -138,7 +132,7 @@ export default defineComponent({
   data() {
     return {
       liked: false,
-      curActive: 1,
+      curActive: 0,
       showPay: false,
       showAni: false,
       showShare: false,
@@ -146,6 +140,12 @@ export default defineComponent({
       canvas: null,
       curPost: {},
     };
+  },
+  computed: {
+    rewardLinks() {
+      console.log(this.$store.state.theme_settings);
+      return this.$store.state.theme_settings.scott_reward_links || [];
+    },
   },
   watch: {
     post() {
