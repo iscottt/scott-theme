@@ -52,9 +52,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-        	# 上传URL为创建GitHub Release步骤的输出值，可通过配置的id获取
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          # 上传文件信息
           asset_path: ./scott-theme.tar.gz
           asset_name: scott-theme.tar.gz
           asset_content_type: application/tar+gzip
