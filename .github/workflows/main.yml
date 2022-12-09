@@ -34,21 +34,15 @@ jobs:
         id: version
         uses: ashley-taylor/read-json-property-action@v1.0
         with:
-        	# 读取dist/package.json的，而不是根路径下的package.json
           path: ./source/package.json
           property: version
       - name: 创建GitHub Release
         id: create_release
         uses: actions/create-release@latest
         env:
-        	# 配置github token （这个无需去github配置，默认存在的）
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-        	# 标签名
           tag_name: v${{steps.version.outputs.value}}
-          # release名
           release_name: v${{steps.version.outputs.value}}
-          # 是否为草稿
           draft: false
-          # 是否为预发布
           prerelease: false
