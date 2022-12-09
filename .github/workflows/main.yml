@@ -29,9 +29,8 @@ jobs:
           npm run build
           cd ..
           pwd
-          tar -zcvf scott-theme.tar.gz --exclude=/home/runner/work/scott-theme/scott-theme/source /home/runner/work/scott-theme/scott-theme
-        env:
-          CI: true
+          ll -a
+          tar -zcvf scott-theme.tar.gz --exclude=/home/runner/work/scott-theme/scott-theme/source --exclude=/home/runner/work/scott-theme/scott-theme/.git /home/runner/work/scott-theme/scott-theme
       - name: 读取当前版本号
         id: version
         uses: ashley-taylor/read-json-property-action@v1.0
