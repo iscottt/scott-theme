@@ -9,19 +9,16 @@ on:
 jobs:
   publish-release:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 12.x ]
-      steps:
-        # 检查并切换到主分支
-        - name: 检查分支
-          uses: actions/checkout@main
+    steps:
+      # 检查并切换到主分支
+      - name: 检查分支
+        uses: actions/checkout@main
 
-        #安装node
-        - name: 设置NodeJS
-          uses: actions/setup-node@main
-          with:
-            node-version: ${{ matrix.node-version }}
+      #安装node
+      - name: 设置NodeJS
+        uses: actions/setup-node@main
+        with:
+          node-version: 16
 
         # npm install
       - name: npm install and build
