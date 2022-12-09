@@ -113,6 +113,9 @@ export default defineComponent({
         ::v-deep(.content p) {
           margin: 0 !important;
         }
+        ::v-deep(.content li) {
+          margin-bottom: 2px;
+        }
       }
     }
   }

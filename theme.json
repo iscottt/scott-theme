@@ -1,8 +1,8 @@
 {
-	"name": "niRvana",
-	"url": "",
-	"description": "前台采用CSR、SEO优化采用SSR，两者混合渲染方案的nvPress官方博客主题",
-	"version": "1.3.5",
-	"author": "PANDA Studio",
-	"author_url": "https://panda.panda-studio.cn"
+  "name": "SCOTT-THEME",
+  "url": "",
+  "description": "前台采用CSR、SEO优化采用SSR，两者混合渲染方案的nvPress官方博客主题",
+  "version": "0.0.1",
+  "author": "SCOTT Studio",
+  "author_url": "https://blod.scott-studio.cn"
 }
