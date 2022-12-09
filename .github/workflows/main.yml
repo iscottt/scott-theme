@@ -29,7 +29,7 @@ jobs:
           npm run build
           cd ..
           pwd
-          ll -a
+          ls -a
           tar -zcvf scott-theme.tar.gz --exclude=/home/runner/work/scott-theme/scott-theme/source --exclude=/home/runner/work/scott-theme/scott-theme/.git /home/runner/work/scott-theme/scott-theme
       - name: 读取当前版本号
         id: version
