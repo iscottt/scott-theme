@@ -28,7 +28,8 @@ jobs:
           npm install
           npm run build
           cd ..
-          zip –q –r scott-theme.zip /web
+          pwd
+          tar -zcvf scott-theme.tar.gz --exclude=/source /
         env:
           CI: true
       - name: 读取当前版本号
