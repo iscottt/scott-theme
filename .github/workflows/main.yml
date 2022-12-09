@@ -3,8 +3,9 @@ name: Push Release
 
 # 当代码提交到main分支时，执行脚本
 on:
-  push: branches:[main]
-
+  push:
+    branches:
+      - main
 #任务
 jobs:
   publish-release:
