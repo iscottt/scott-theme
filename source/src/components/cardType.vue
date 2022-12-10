@@ -55,8 +55,9 @@ ul {
   justify-content: start;
   align-items: center;
   position: relative;
-  background: rgba(31, 45, 61, 0.08);
-  box-shadow: 0 8px 10px rgba(31, 45, 61, 0.15) inset, 0 1px var(--white-opacity-6);
+  // background: rgba(31, 45, 61, 0.08);
+  // box-shadow: 0 8px 10px rgba(31, 45, 61, 0.15) inset, 0 1px var(--white-opacity-6);
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(0, 0, 70, 0.12);
   border-radius: 9em;
 }
 li {
@@ -71,8 +72,10 @@ li {
   transition: color 0.3s;
   &.anchor {
     position: absolute;
-    background: linear-gradient(var(--white-default), var(--gray-7));
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.15), 0 -1px 2px var(--white-default) inset;
+    // background: linear-gradient(var(--white-default), var(--gray-7));
+    // box-shadow: 0 6px 6px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.15), 0 -1px 2px var(--white-default) inset;
+
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
     transition: 0.3s;
     z-index: 0;
   }

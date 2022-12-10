@@ -141,7 +141,7 @@ export default defineComponent({
             height: 2rem;
             transform: scale(0);
             font-style: normal;
-            transition: 0.25s;
+            transition: 0.35s;
             width: 2rem;
             margin-left: 0.375rem;
             box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%),
