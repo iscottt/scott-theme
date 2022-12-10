@@ -70,6 +70,7 @@ export default defineComponent({
         this.darkerColor = darkerColor.getString();
         this.shadowColor = darkerColor.setA(0.5).getString('rgba');
         this.lighterColor = new pdColor(data).mappingL([45, 90]).getString();
+        // background: linear-gradient(90deg,v-bind(darkerColor),v-bind(lighterColor));
       })
       .catch(() => {});
   },

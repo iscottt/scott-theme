@@ -42,7 +42,6 @@ export default defineComponent({
   margin-top: 40px;
   .timeline-item {
     position: relative;
-    color: rgb(29, 33, 41);
     font-size: 14px;
     min-height: 78px;
     padding-left: 6px;
@@ -92,7 +91,6 @@ export default defineComponent({
         display: flex;
         line-height: 1.5715;
         font-size: 14px;
-        color: rgb(29, 33, 41);
         margin-bottom: 4px;
         & > div:first-child {
           min-width: 100px;
@@ -109,6 +107,7 @@ export default defineComponent({
           font-size: 20px;
           line-height: 28px;
           font-weight: 500;
+          color: rgb(29, 33, 41);
         }
         ::v-deep(.content p) {
           margin: 0 !important;
