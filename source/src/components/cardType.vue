@@ -95,10 +95,6 @@ li {
     z-index: -2;
     transition: 0.25s;
   }
-  &:not(.anchor):hover:after {
-    opacity: 1;
-    transform: scale(0.8);
-  }
 }
 </style>
 <style lang="less">
