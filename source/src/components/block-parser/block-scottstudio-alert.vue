@@ -1,13 +1,15 @@
 <template>
   <div
-    class="nv-tip"
+    class="scott-alert"
     :class="{
       error: data.type == 'error',
       warning: data.type == 'warning',
       success: data.type == 'success',
     }">
-    <i class="fa-solid fa-circle-exclamation"></i>
-    <p class="content" v-html="data.title"></p>
+    <div class="icon">
+      <i class="fa-solid fa-circle-exclamation"></i>
+    </div>
+    <div class="content" v-html="data.title"></div>
   </div>
 </template>
 <script>
