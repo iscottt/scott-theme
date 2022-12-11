@@ -1,7 +1,7 @@
 <template>
   <div>
     <SliderWrapper />
-    <contentWrapper type="transparent">
+    <contentWrapper type="transparent" ref="contentWrapper">
       <template v-slot:main>
         <div class="article-wrapper">
           <blockParser is="article" :blocks="post.content.blocks" ref="article" />
@@ -39,6 +39,7 @@ import mostComments from '/@/components/widgets/most-comments.vue';
 import reletePost from './relate-post.vue';
 import shareModal from './share-modal.vue';
 import commentModal from './comment-modal.vue';
+
 export default defineComponent({
   name: 'post',
   components: {

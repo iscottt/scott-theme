@@ -26,6 +26,9 @@
       <nvFooter />
     </n-message-provider>
   </n-notification-provider>
+  <NBackTop :listen-to="target">
+    <i class="fa-solid fa-arrow-up"></i>
+  </NBackTop>
 </template>
 
 <script>
@@ -41,13 +44,14 @@ import nvFooter from '/@/components/footer.vue';
 
 import circleMagic from '/@/assets/circleMagic-top-to-down.js';
 
-import { NMessageProvider, NNotificationProvider, NSpin } from 'naive-ui';
+import { NMessageProvider, NNotificationProvider, NSpin, NBackTop } from 'naive-ui';
 
 export default {
   name: 'App',
   components: {
     topNav,
     nvFooter,
+    NBackTop,
     NMessageProvider,
     NNotificationProvider,
     NSpin,
@@ -59,8 +63,8 @@ export default {
       fullScreenLoadingStack: [],
       fullLoadingIsClicked: false,
       loadingText: '正在加载...',
-
       isLeaving: false,
+      target: () => document.documentElement,
     };
   },
   mounted() {
@@ -310,5 +314,30 @@ main.is-leaving {
 }
 .n-image-preview-toolbar .n-base-icon {
   box-sizing: initial;
+}
+
+.n-back-top {
+  width: 2rem;
+  border-radius: 9999px;
+  padding: 0;
+  min-width: auto;
+  color: #73869a;
+  text-shadow: 0 1px 1px #fff;
+  box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%), inset -0.3536rem -0.3536rem 0.625rem rgb(54 100 152 / 10%),
+    0.4419rem 0.4419rem 1rem rgb(54 100 152 / 30%);
+  background-color: #dae5f2;
+  height: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: 0.35s !important;
+  i {
+    transition: 0.35s;
+  }
+  &:hover {
+    color: var(--primary-color);
+    text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+    box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%), inset -0.3536rem -0.3536rem 0.625rem rgb(54 100 152 / 10%),
+      0.4419rem 0.4419rem 1rem rgb(54 100 152 / 30%);
+  }
 }
 </style>
