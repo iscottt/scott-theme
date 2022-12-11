@@ -114,6 +114,11 @@ var types = {
     });
     echo('</div>');
   },
+  'scottstudio/alert'({ echo, data }) {
+    echo(`<div>`);
+    echo(`<p>${data.text}</p>`);
+    echo(`</div>`);
+  },
 };
 
 function renderer({ echo, blocks }) {

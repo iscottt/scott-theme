@@ -49,6 +49,12 @@
         <mostComments />
       </template>
     </contentWrapper>
+    <div class="scott-alert">
+      <div class="icon">
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </div>
+      <div class="content">123123</div>
+    </div>
   </div>
 </template>
 
