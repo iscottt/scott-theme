@@ -76,7 +76,6 @@ export default {
 	mounted() {
 		// 加载默认数据
 		nv.block.loadDefaultData.bind(this)();
-		console.log(111)
 	},
 	methods: {
 		handleToggleAlign(position) {
