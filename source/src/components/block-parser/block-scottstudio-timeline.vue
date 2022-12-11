@@ -91,7 +91,6 @@ export default defineComponent({
         margin-bottom: 4px;
         & > div:first-child {
           min-width: 100px;
-          margin-right: 40px;
         }
         .date {
           font-size: 12px;

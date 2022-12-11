@@ -152,7 +152,6 @@ export default {
 }
 .scottstudio-timeline .timeline-content-wrapper .timeline-content > div:first-child {
   min-width: 100px;
-  margin-right: 40px;
 }
 .scottstudio-timeline .timeline-content-wrapper .timeline-content > div:last-child {
   flex: 1;
