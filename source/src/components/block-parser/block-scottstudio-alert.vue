@@ -6,9 +6,8 @@
       warning: data.type == 'warning',
       success: data.type == 'success',
     }">
-    <p class="title" v-html="data.title"></p>
-    <p v-if="'string' == typeof data.text" class="content" v-html="data.text"></p>
-    <blockParser v-else class="nested-blocks" :blocks="data.text.blocks" />
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <p class="content" v-html="data.title"></p>
   </div>
 </template>
 <script>
