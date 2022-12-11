@@ -31,9 +31,6 @@ export default defineComponent({
     },
   },
   components: { blockParser },
-  mounted() {
-    console.log('data', this.$props.data);
-  },
 });
 </script>
 

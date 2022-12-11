@@ -143,7 +143,6 @@ export default defineComponent({
   },
   computed: {
     rewardLinks() {
-      console.log(this.$store.state.theme_settings);
       return this.$store.state.theme_settings.scott_reward_links || [];
     },
   },
