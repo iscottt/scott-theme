@@ -6,6 +6,9 @@
       warning: type == 'warning',
       success: type == 'success',
     }">
+    <div class="icon">
+      <i class="fa-solid fa-circle-exclamation"></i>
+    </div>
     <richText class="title" v-model:value="title" />
   </div>
 </template>
@@ -33,7 +36,6 @@ export default {
   --solid-color: var(--primary-color);
   --opacity-color: var(--primary-opacity-1);
   --content-color: var(--text-color-2);
-
   background: var(--opacity-color);
   margin: 0;
   padding: 8px 12px;
@@ -49,10 +51,11 @@ export default {
   border-radius: 8px;
   /* background-color: #e6f4ff; */
   border: 1px solid;
-  border-color: var(--primary-color);
+  border-color: var(--solid-color);
 }
 .scottstudio-alert .icon {
-  color: #1677ff;
+  --content-color: var(--text-color-2);
+  color: var(--solid-color);
   margin-inline-end: 8px;
   display: inline-flex;
   align-items: center;
@@ -64,23 +67,24 @@ export default {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+.scottstudio-alert .icon i {
+  font-style: normal;
+}
 .scottstudio-alert .content {
   flex: 1;
 }
 .scottstudio-alert.success {
   --solid-color: var(--success-color);
   --opacity-color: rgba(103, 194, 58, 0.1);
-  --content-color: #36661f;
 }
+
 .scottstudio-alert.warning {
   --solid-color: var(--warning-color);
   --opacity-color: rgba(230, 162, 60, 0.1);
-  --content-color: #66481b;
 }
 .scottstudio-alert.error {
   --solid-color: var(--error-color);
   --opacity-color: rgba(245, 108, 108, 0.1);
-  --content-color: #662d2d;
 }
 </style>
 
