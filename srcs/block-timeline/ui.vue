@@ -42,13 +42,14 @@ export default {
   methods: {
     handleAddItem() {
       this.show = false;
-      this.timeItems = this.timeItems.concat([
+      const newItem = [
         {
           time: '',
           title: '',
           content: {},
         },
-      ]);
+      ];
+      this.timeItems = newItem.concat(this.timeItems);
       this.$emit('forceUpdate');
       this.$nextTick(() => {
         this.show = true;
@@ -152,6 +153,7 @@ export default {
 }
 .scottstudio-timeline .timeline-content-wrapper .timeline-content > div:first-child {
   min-width: 100px;
+  margin-right: 40px;
 }
 .scottstudio-timeline .timeline-content-wrapper .timeline-content > div:last-child {
   flex: 1;
