@@ -110,7 +110,7 @@ export default {
 }
 .scottstudio-timeline .timeline-item .timeline-dot-wrapper .timeline-dot-line {
   width: 1px;
-  border: 1px solid rgb(229, 230, 235);
+  border-left: 1px solid rgb(229, 230, 235);
   left: 50%;
   transform: translateX(-50%);
   top: 18px;

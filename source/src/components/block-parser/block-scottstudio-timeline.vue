@@ -55,7 +55,7 @@ export default defineComponent({
         bottom: -4px;
         position: absolute;
         box-sizing: border-box;
-        border: 1px solid rgb(229, 230, 235);
+        border-left: 1px solid rgb(229, 230, 235);
       }
       .timeline-dot-content {
         width: 6px;
