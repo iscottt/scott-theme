@@ -363,12 +363,6 @@ export default defineComponent({
   align-items: center;
   padding: 0 3em;
   background: #e9eff9;
-  @media (max-width: 577px) {
-    padding: 0 1em;
-    margin: 2em -1em -1em;
-    border-radius: 0;
-    box-shadow: 0 1px var(--white-opacity-8) inset, 0 -1px var(--gray-opacity-1) inset;
-  }
   button {
     width: 4em;
     height: 3em;
@@ -552,7 +546,7 @@ export default defineComponent({
     animation: fadeOutZoom 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .poster-main {
-    width: 25rem;
+    width: 21rem;
     margin: auto;
     border-radius: 0.625rem;
     overflow: hidden;
@@ -560,7 +554,7 @@ export default defineComponent({
     background: #fff;
     box-shadow: 0 1rem 2rem rgb(0 0 0 / 20%), 0 1rem 1rem rgb(54 100 152 / 50%);
     #share {
-      width: 25rem;
+      width: 21rem;
       overflow: visible;
       border-radius: 0.625rem;
     }
@@ -568,7 +562,7 @@ export default defineComponent({
       line-height: 0;
     }
     .share-top {
-      width: 400px;
+      width: 21rem;
       overflow: visible;
       position: relative;
       line-height: 0;
