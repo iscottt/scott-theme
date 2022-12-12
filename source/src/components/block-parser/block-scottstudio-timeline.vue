@@ -84,7 +84,6 @@ export default defineComponent({
       margin-left: 16px;
       position: relative;
       .timeline-content {
-        padding-bottom: 40px;
         display: flex;
         line-height: 1.5715;
         font-size: 14px;
@@ -107,6 +106,9 @@ export default defineComponent({
         }
         ::v-deep(.content p) {
           margin: 0 !important;
+        }
+        ::v-deep(.content ul) {
+          margin: 10px 20px !important;
         }
         ::v-deep(.content li) {
           margin-bottom: 2px;
