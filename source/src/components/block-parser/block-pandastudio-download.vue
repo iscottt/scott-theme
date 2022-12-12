@@ -69,17 +69,6 @@ export default defineComponent({
   margin-right: 8px;
   color: var(--primary-color);
   filter: drop-shadow(0 2px 1px var(--primary-opacity-3));
-  animation: arrow-animation 0.5s infinite alternate;
-}
-@keyframes arrow-animation {
-  0% {
-    transform: translateY(-6px);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 .get-it {
   width: 120px;
@@ -138,9 +127,6 @@ export default defineComponent({
   box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
     inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
   background-color: #e8f0fa;
-}
-svg path {
-  fill: currentColor;
 }
 .link-item {
   font-size: 14px;
