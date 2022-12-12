@@ -93,7 +93,7 @@ var types = {
     renderer({ echo, blocks: data.content.blocks });
     echo('</div>');
   },
-  'pandastudio/download'({ echo, data }) {
+  'scottstudio/download'({ echo, data }) {
     echo(`<a>下载链接</a>`);
     data.links.forEach((link) => {
       echo(`<a>${link.title}</a>`);

@@ -7,7 +7,10 @@
       success: data.type == 'success',
     }">
     <div class="icon">
-      <i class="fa-solid fa-circle-exclamation"></i>
+      <i class="fa-solid fa-circle-exclamation" v-if="data.type == 'warning'"></i>
+      <i class="fa-solid fa-circle-check" v-else-if="data.type == 'success'"></i>
+      <i class="fa-solid fa-circle-xmark" v-else-if="data.type == 'error'"></i>
+      <i class="fa-solid fa-circle-info" v-else></i>
     </div>
     <div class="content" v-html="data.title"></div>
   </div>

@@ -9,6 +9,6 @@ register_editor_block('pandastudio/tip', ['page', 'article'], '/srcs/block-tip/i
 register_editor_block('pandastudio/collapse', ['page', 'article'], '/srcs/block-collapse/index.js');
 register_editor_block('pandastudio/panel', ['page', 'article'], '/srcs/block-panel/index.js');
 register_editor_block('pandastudio/columns', ['page', 'article'], '/srcs/block-columns/index.js');
-register_editor_block('pandastudio/download', ['page', 'article'], '/srcs/block-download/index.js');
+register_editor_block('scottstudio/download', ['page', 'article'], '/srcs/block-download/index.js');
 register_editor_block('scottstudio/timeline', ['page', 'article'], '/srcs/block-timeline/index.js');
 register_editor_block('scottstudio/alert', ['page', 'article'], '/srcs/block-alert/index.js');
