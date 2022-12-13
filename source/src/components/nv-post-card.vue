@@ -1,4 +1,5 @@
 <template>
+  <!-- 样式二 -->
   <div v-if="$store.state.card_type == 'card' && $store.state.theme_settings.scott_card_theme == 2" class="post-item card flex flex-col items-center">
     <div class="relative" style="width: 100%">
       <div class="inner">
@@ -19,6 +20,7 @@
       <span v-if="!post.tags.length" class="color-0">无标签</span>
     </div>
   </div>
+  <!-- 样式一 -->
   <div v-if="$store.state.card_type == 'card' && $store.state.theme_settings.scott_card_theme == 1" class="scott-post-item flex flex-col items-center">
     <div class="cover-wrapper">
       <router-link :to="`/${post.slug}`" class="cover" :style="{ backgroundImage: `url(${post.thumbnail})` }"> </router-link>
@@ -113,6 +115,7 @@ export default defineComponent({
 </script>
 
 <style lang="less">
+// 样式二
 .post-item {
   .tags {
     padding-left: 0.625rem;
@@ -317,12 +320,11 @@ export default defineComponent({
     }
   }
 }
-
+// 样式一
 .scott-post-item {
   background: #fff;
   border-radius: 0.75rem;
   padding: 8px;
-  cursor: pointer;
   transition: 0.35s;
   &:hover {
     transform: translateY(-10px);
@@ -389,6 +391,11 @@ export default defineComponent({
       border-radius: 9em;
       color: #837adc;
       background: rgba(131, 122, 220, 0.15);
+      transition: 0.35s;
+      &:hover {
+        color: var(--primary-color);
+        text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+      }
     }
     .color-4 {
       color: #837adc;

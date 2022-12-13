@@ -70,7 +70,7 @@ export default {
             prop: 'scott_card_theme',
             config: {
               clearable: true,
-              width: 200,
+              style: 'width: 200px',
               defaultValue: 1,
               options: [
                 { value: 1, label: '样式一' },
