@@ -21,7 +21,7 @@
     </div>
   </div>
   <!-- 样式一 -->
-  <div v-if="$store.state.card_type == 'card' && $store.state.theme_settings.scott_card_theme == 1" class="scott-post-item flex flex-col items-center">
+  <div v-if="$store.state.card_type == 'card' && $store.state.theme_settings.scott_card_theme != 2" class="scott-post-item flex flex-col items-center">
     <div class="cover-wrapper">
       <router-link :to="`/${post.slug}`" class="cover" :style="{ backgroundImage: `url(${post.thumbnail})` }"> </router-link>
     </div>

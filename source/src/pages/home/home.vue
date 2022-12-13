@@ -238,6 +238,7 @@ export default defineComponent({
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-decoration: none;
+    font-weight: 500;
     i {
       margin-left: 0.375rem;
       font-size: 0.75rem;
@@ -250,8 +251,8 @@ export default defineComponent({
       color: #007dff;
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
       border-color: transparent;
-      // box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),inset 0.25rem 0.25rem 0.35rem rgba(54, 100, 152, 0.2), inset -0.2rem -0.2rem 0.35rem hsla(0, 0%, 100%, 0.6);
-      box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+      box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
+        inset 0.25rem 0.25rem 0.35rem rgba(54, 100, 152, 0.2), inset -0.2rem -0.2rem 0.35rem hsla(0, 0%, 100%, 0.6);
       i {
         color: #007dff;
         text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);

@@ -56,7 +56,10 @@ ul {
   align-items: center;
   position: relative;
   background: rgba(31, 45, 61, 0.04);
-  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+  // box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+
+  box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
+    inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
   border-radius: 9em;
   overflow: hidden;
 }
@@ -72,7 +75,7 @@ li {
   transition: color 0.3s;
   &.anchor {
     position: absolute;
-    box-shadow: 0 6px 6px #0000000d,0 10px 10px #00000026,0 -1px 2px var(--white-default) inset;
+    box-shadow: 0 6px 6px #0000000d, 0 10px 10px #00000026, 0 -1px 2px var(--white-default) inset;
     background: rgb(255, 255, 255);
     transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
     z-index: 0;
