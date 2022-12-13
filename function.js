@@ -112,7 +112,8 @@ register_rest_route('nirvana', 'site-metas', {
       'niRvana_fake_login',
 
       'scott_reward_links',
-      'scott_personal_links'
+      'scott_card_theme',
+      'scott_personal_links',
     ]);
     return { ...opts };
   },

@@ -64,6 +64,20 @@ export default {
             custom_type: 'personalLinks',
             prop: 'scott_personal_links',
           },
+          {
+            label: '卡片样式设置',
+            type: 'Select',
+            prop: 'scott_card_theme',
+            config: {
+              clearable: true,
+              width: 200,
+              defaultValue: 1,
+              options: [
+                { value: 1, label: '样式一' },
+                { value: 2, label: '样式二' },
+              ],
+            },
+          },
         ],
       },
       formData: {
