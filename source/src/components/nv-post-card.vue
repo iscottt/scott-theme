@@ -486,4 +486,26 @@ export default defineComponent({
     }
   }
 }
+
+@media (max-width: 768px) {
+  .scott-post-item {
+    .cover-wrapper {
+      height: 120px;
+    }
+    .tags a {
+      margin-right: 0.2em;
+      margin-bottom: 0.2em;
+      padding: 0.1em 0.5em;
+    }
+    .tags a:nth-of-type(3) {
+      display: none;
+    }
+    .info-wrapper {
+      flex-wrap: wrap;
+      .time {
+        margin-top: 5px;
+      }
+    }
+  }
+}
 </style>

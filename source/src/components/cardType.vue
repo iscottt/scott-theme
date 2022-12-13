@@ -104,4 +104,10 @@ li {
     filter: drop-shadow(0 33px 0 var(--white-opacity-6));
   }
 }
+
+@media (max-width: 768px) {
+  .card-type {
+    width: 80px;
+  }
+}
 </style>
