@@ -17,17 +17,46 @@
       <a :href="`mailto:${$store.state.current_user.email}`"> <i class="fa-solid fa-at"></i> Email </a>
     </div>
   </div>
+  <blockParser v-if="post.content" is="article" :blocks="post.content.blocks" ref="article" />
 </template>
 
 <script>
 import { defineComponent, computed } from 'vue';
 import { NProgress } from 'naive-ui';
+import blockParser from '/@/components/block-parser/parser.vue';
 export default defineComponent({
   name: 'post-info',
-  components: { NProgress },
+  components: { NProgress, blockParser },
+  data() {
+    return {
+      post: {},
+    };
+  },
   computed: {
     footerLinks() {
       return this.$store.state.theme_settings.scott_personal_links || [];
+    },
+  },
+  mounted() {
+    this.requestData();
+  },
+  methods: {
+    requestData() {
+      $fullLoading.start();
+      this.$axios({
+        method: 'post',
+        url: this.$API + '/nirvana/micro-post',
+        responseType: 'json',
+        // data: {},
+      })
+        .then(({ data }) => {
+          console.log('data', data);
+          this.post = data[0];
+        })
+        .catch((error) => {})
+        .finally(() => {
+          $fullLoading.end();
+        });
     },
   },
 });

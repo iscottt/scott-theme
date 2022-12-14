@@ -15,6 +15,17 @@ add_action('init_express', () => {
   register_static_url('/srcs', path.join(__dirname, './srcs/'));
 });
 
+register_posttype('article_microblog', {
+  label: '轻博客',
+  labels: {
+    all_items: '所有轻博客',
+    add_new_items: '写轻博客',
+  },
+  show_ui: true,
+  supports: ['title', 'editor', 'author'],
+  menu_icon: '<i class="el-icon-chat-round"></i>',
+});
+
 register_nav_menus({
   topNav: '顶部菜单',
   catNav: '分类菜单',
