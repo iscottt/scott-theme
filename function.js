@@ -19,7 +19,7 @@ register_posttype('article_microblog', {
   label: '轻博客',
   labels: {
     all_items: '所有轻博客',
-    add_new_items: '写轻博客',
+    add_new_item: '写轻博客',
   },
   show_ui: true,
   supports: ['editor', 'author', 'title'],
