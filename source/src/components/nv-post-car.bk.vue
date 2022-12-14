@@ -1,6 +1,5 @@
 <template>
-  <!-- 样式二 -->
-  <div v-if="$store.state.card_type == 'card' && $store.state.theme_settings.scott_card_theme == 2" class="post-item card flex flex-col items-center">
+  <div v-if="$store.state.card_type == 'card'" class="post-item card flex flex-col items-center">
     <div class="relative" style="width: 100%">
       <div class="inner">
         <div class="absolute info">
@@ -20,26 +19,7 @@
       <span v-if="!post.tags.length" class="color-0">无标签</span>
     </div>
   </div>
-  <!-- 样式一 -->
-  <div v-if="$store.state.card_type == 'card' && $store.state.theme_settings.scott_card_theme != 2" class="scott-post-item flex flex-col items-center">
-    <div class="cover-wrapper">
-      <router-link :to="`/${post.slug}`" class="cover" :style="{ backgroundImage: `url(${post.thumbnail})` }"> </router-link>
-    </div>
-    <NSpace class="tags" :size="2">
-      <router-link v-for="(tag, idx) in post.tags" :to="`/tag/${tag}`" v-show="idx < 3">{{ tag }}</router-link>
-      <span v-if="!post.tags.length" class="color-0">无标签</span>
-    </NSpace>
-    <div class="title">{{ post.title }}</div>
-    <div class="info-wrapper">
-      <div class="metas">
-        <div class="likes"><i class="fa-regular fa-heart"></i>{{ post.likes }}</div>
-        <div class="comments"><i class="fa-regular fa-comment-dots"></i>{{ post.comments }}</div>
-        <div class="views"><i class="fa-solid fa-eye"></i>{{ post.views }}</div>
-      </div>
-      <div class="time"><i class="fa-regular fa-clock"></i> {{ moment(post.modified_time).format('L') }}</div>
-    </div>
-  </div>
-  <div v-if="$store.state.card_type == 'list'" class="post-item list flex g-10">
+  <div v-else-if="$store.state.card_type == 'list'" class="post-item list flex g-10">
     <router-link :to="`/${post.slug}`" class="cover" :style="{ backgroundImage: `url(${post.thumbnail})` }"> </router-link>
     <div class="infos flex flex-col justify-center">
       <div class="title">
@@ -58,9 +38,7 @@ import { defineComponent } from 'vue';
 import { pdColor } from '/@/assets/pandaChromatology';
 import moment from 'moment';
 import md5 from 'blueimp-md5';
-import { NSpace } from 'naive-ui';
 export default defineComponent({
-  components: { NSpace },
   props: {
     post: {
       type: Object,
@@ -117,7 +95,6 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-// 样式二
 .post-item {
   .tags {
     padding-left: 0.625rem;
@@ -322,153 +299,6 @@ export default defineComponent({
     }
   }
 }
-// 样式一
-.scott-post-item {
-  background: #fff;
-  border-radius: 0.75rem;
-  padding: 8px;
-  transition: 0.35s;
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-  }
-  .cover-wrapper {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    .cover {
-      max-width: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0.75rem;
-      background-repeat: no-repeat;
-      background-position: 50%;
-      background-size: cover;
-      display: block;
-      transition: 0.35s;
-    }
-    .like {
-      position: absolute;
-      right: 0.5em;
-      border: 2px solid #fff;
-      bottom: -1em;
-      width: 2em;
-      height: 2em;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, v-bind(darkerColor), v-bind(lighterColor));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.35s;
-      &:hover {
-        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-          rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-      }
-    }
-  }
-  .tags {
-    width: 100%;
-    color: #8c9cae;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    padding: 0 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-top: 0.6rem;
-    a,
-    span {
-      text-decoration: none;
-      font-size: 12px;
-      display: inline;
-      padding: 0.3em 0.5em;
-      border-radius: 9em;
-      color: #2080f0;
-      background: rgba(32, 128, 240, 0.1);
-      transition: 0.35s;
-      &:hover {
-        color: var(--primary-color);
-        text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-      }
-    }
-    .color-4 {
-      color: #837adc;
-      background: rgba(131, 122, 220, 0.15);
-    }
-    .color-0 {
-      background: #eee;
-      color: #475669;
-    }
-  }
-  .title {
-    padding: 0 0.5em;
-    margin-top: 0.2rem;
-    flex-grow: 1;
-    text-align: left;
-    max-width: 100%;
-    width: 100%;
-    text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
-    transition: 0.25s;
-    color: #5a6f87;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    font-weight: 500;
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
-    @media (min-width: 768px) {
-      font-size: 17px;
-    }
-  }
-  .info-wrapper {
-    width: 100%;
-    transition-duration: 0.5s;
-    text-shadow: 0 1px 1px #fff;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    padding: 0 0.5em;
-    margin-top: 0.2rem;
-    .metas {
-      display: flex;
-      column-gap: 0.5em;
-      justify-content: flex-start;
-      font-size: 14px;
-      .likes,
-      .comments,
-      .views {
-        display: flex;
-        column-gap: 0.25em;
-        justify-content: center;
-        align-items: center;
-      }
-      .likes {
-        color: var(--error-color);
-      }
-      .comments {
-        color: var(--primary-color);
-      }
-      .views {
-        color: var(--success-color);
-      }
-    }
-    .time {
-      font-size: 0.8125rem;
-      line-height: 1rem;
-      color: #8c9cae;
-    }
-  }
-}
 
 @media (min-width: 768px) and (max-width: 991px), (min-width: 992px) and (max-width: 1199px), (min-width: 1200px) and (max-width: 1509px), (min-width: 1510px) {
   .post-item.card {
@@ -488,27 +318,6 @@ export default defineComponent({
         transform: perspective(59rem) rotateY(-59deg);
         box-shadow: 2.5rem 2rem 3rem rgb(54 100 152 / 30%);
         transition: 0.5s cubic-bezier(0.5, 1.5, 0.6, 1);
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .scott-post-item {
-    .cover-wrapper {
-      height: 120px;
-    }
-    .tags a {
-      margin-right: 0.2em;
-      margin-bottom: 0.2em;
-      padding: 0.1em 0.5em;
-    }
-    .tags > div:nth-of-type(3) a {
-      display: none;
-    }
-    .info-wrapper {
-      .time {
-        display: none;
       }
     }
   }

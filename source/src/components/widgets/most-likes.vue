@@ -8,8 +8,7 @@
           <router-link :to="`/${post.slug}`" class="title">{{ post.title }}</router-link>
           <div class="metas">
             <span class="likes"><svg-icon name="heart" height="14" />{{ post.likes }}</span>
-            <span class="comments"><svg-icon name="comment-dots" height="14" />{{ post.comments }}</span>
-            <span class="views"><svg-icon name="eye" height="14" />{{ post.views }}</span>
+            <span class="comments"><i class="fa-regular fa-clock"></i> {{ formatTime(post.modified_time) }}</span>
           </div>
         </div>
       </div>
@@ -20,6 +19,7 @@
 <script>
 import { defineComponent, computed } from 'vue';
 import widgetTitle from './widget-title.vue';
+import moment from 'moment';
 export default defineComponent({
   name: 'most-likes',
   components: {
@@ -36,6 +36,9 @@ export default defineComponent({
     }
   },
   methods: {
+    formatTime(time) {
+      return moment(time).format('L');
+    },
     requestData() {
       this.$axios({
         method: 'post',
@@ -67,7 +70,7 @@ export default defineComponent({
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 9999px;
+    border-radius: 0.5rem;
     // box-shadow: 0 8px 10px var(--gray-opacity-2);
     transition-duration: 0.25s;
     box-shadow: 0 0 0 0.125rem #fff, 0.442rem 0.442rem 0.625rem rgb(54 100 152 / 20%), -0.442rem -0.442rem 0.625rem hsl(0deg 0% 100% / 70%);
@@ -107,10 +110,13 @@ export default defineComponent({
     color: var(--error-color);
   }
   .comments {
-    color: var(--primary-color);
+    color: #8c9cae;
   }
   .views {
     color: var(--success-color);
+  }
+  .other {
+    color: var(--primary-color);
   }
 }
 </style>
