@@ -5,9 +5,9 @@
       <template v-for="block in titles">
         <li :class="{ active: activeIds.includes(block.id), isTop: block.data.style === 1 }" :data-header-level="block.data.level">
           <div class="toc_wrapper">
-            <span
-              ><a @click="handleTitleClick(block.id)">{{ block.data.text }}</a></span
-            >
+            <span>
+              <a @click="handleTitleClick(block.id)">{{ block.data.text }}</a>
+            </span>
           </div>
         </li>
       </template>
@@ -32,6 +32,7 @@ export default defineComponent({
       return this.post.content.blocks.filter((item) => item.type == 'header' || item.type == 'pandastudio/title');
     },
     activeIds() {
+      console.log('this.post.content.blocks', this.titles);
       var last = this.lastHidedHeaderId;
       var result = [];
       var getPrevId = (currentId) => {

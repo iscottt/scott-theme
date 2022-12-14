@@ -24,12 +24,12 @@ export default defineConfig({
     open: true, // 是否自动在浏览器打开
     proxy: {
       '/vite-proxy': {
-        target: 'http://localhost:9999/',
+        target: 'https://blog.ethan.pub/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/vite-proxy/, ''),
       },
       '/uploads': {
-        target: 'http://localhost:9999/uploads',
+        target: 'https://blog.ethan.pub/uploads',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/uploads/, ''),
       },

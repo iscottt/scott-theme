@@ -44,7 +44,7 @@ export default {
   }
 }
 aside {
-  padding-left: 1em;
+  padding: 0 1em;
   margin-top: 10px;
   border-left: 1px solid rgba(54, 100, 152, 0.15);
   box-shadow: inset 1px 0 hsl(0deg 0% 100% / 80%);

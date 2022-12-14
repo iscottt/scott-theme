@@ -8,7 +8,7 @@ register_rest_route('nirvana', 'micro-post', {
     var posts = query_posts({
       post_type: 'article_microblog',
       status: 'publish',
-      orderby: 'rand',
+      orderby: 'id',
       posts_per_page: 4,
     });
     return posts.data.map((post) => get_post(post.id));

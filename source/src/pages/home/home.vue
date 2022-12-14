@@ -45,6 +45,7 @@
       </template>
       <template v-slot:aside>
         <bloggerInfo />
+        <microBlog />
         <mostLikes />
         <mostComments />
       </template>
@@ -59,6 +60,7 @@ import SliderWrapper from '/@/components/slider/slider-wrapper.vue';
 import contentWrapper from '/@/components/contentWrapper.vue';
 import nvPostCard from '/@/components/nv-post-card.vue';
 import CatMenu from '/@/components/catMenu.vue';
+import microBlog from '/@/components/widgets/micro-blog.vue';
 import CardType from '/@/components/cardType.vue';
 import bloggerInfo from '/@/components/widgets/blogger-info.vue';
 import mostLikes from '/@/components/widgets/most-likes.vue';
@@ -73,6 +75,7 @@ export default defineComponent({
   components: {
     SliderWrapper,
     widgetTitle,
+    microBlog,
     contentWrapper,
     CatMenu,
     CardType,

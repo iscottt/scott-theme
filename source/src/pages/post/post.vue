@@ -126,7 +126,7 @@ export default defineComponent({
       var ids = [];
       var scrollTop = document.documentElement.scrollTop;
       // 滚动的时候查看有哪些 h2什么的标签被滚到顶部去了
-      this.$refs.article.$el.querySelectorAll('h2,h3,h4,h5,h6').forEach((header) => {
+      this.$refs.article.$el.querySelectorAll('h2,h3').forEach((header) => {
         if (header.offsetTop <= scrollTop + 56) {
           if (!header.getAttribute('data-block-id') && header.parentNode.offsetTop <= scrollTop + 56) {
             ids.push(header.parentNode.getAttribute('data-block-id'));
@@ -135,6 +135,7 @@ export default defineComponent({
           }
         }
       });
+      ids = ids.filter((v) => v && v.trim());
       this.lastHidedHeaderId = ids.length ? ids[ids.length - 1] : '';
     },
     postView() {
