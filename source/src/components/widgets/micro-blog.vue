@@ -1,6 +1,6 @@
 <template>
   <div class="micro-wrapper">
-    <WidgetTitle>轻博客</WidgetTitle>
+    <WidgetTitle>随笔</WidgetTitle>
     <ul class="micro-list">
       <li class="micro-item" v-for="post in posts" :key="post.id">
         <div class="flex">
@@ -8,7 +8,9 @@
           <div class="content-wrapper">
             <div class="date">{{ formatTime(post.modify_time) }}</div>
             <div class="content">
-              <p class="title">#<a href="javascript:;">{{post.title}}</a></p>
+              <p class="title">
+                #<a href="javascript:;">{{ post.title }}</a>
+              </p>
               <blockParser is="article" :blocks="post.content.blocks" ref="article" />
             </div>
           </div>
@@ -114,6 +116,7 @@ export default defineComponent({
           .nv-blocks {
             p {
               margin-top: 5px;
+              font-weight: 500;
             }
             img {
               border-radius: 8px !important;

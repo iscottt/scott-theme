@@ -22,7 +22,7 @@ register_posttype('article_microblog', {
     add_new_item: '写轻博客',
   },
   show_ui: true,
-  supports: ['editor', 'author', 'title'],
+  supports: ['editor', 'author', 'title', 'comments', 'excerpt'],
   menu_icon: '<i class="el-icon-chat-round"></i>',
 });
 
