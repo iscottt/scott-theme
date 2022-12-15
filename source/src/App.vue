@@ -82,7 +82,7 @@ export default {
 
     circleMagic({
       el: document.body,
-      height: 456,
+      height: 400,
       className: 'circle-magic',
       radius: 15,
       densety: 0.1,

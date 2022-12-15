@@ -87,11 +87,6 @@ export default defineComponent({
     background-position: 8.5px 0;
   }
 }
-@media (min-width: 992px) {
-  .nv-top-slider {
-    padding-top: 56px;
-  }
-}
 @media (max-width: 991.5px) {
   .nv-top-slider {
     padding-top: 46px;
