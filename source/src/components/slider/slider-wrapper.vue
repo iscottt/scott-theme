@@ -1,5 +1,5 @@
 <template>
-  <div class="nv-top-slider container" :data-post-type="post.post_type">
+  <div class="nv-top-slider" :class="{ container: post.post_type !== 'page', shadow: post.post_type !== 'page' }" :data-post-type="post.post_type">
     <sliderArticle v-if="$store.state.is_post && post.post_type == 'article'" />
     <sliderPage v-else-if="$store.state.is_post && post.post_type == 'page'" />
     <sliderSwiper v-else-if="$store.state.is_home || $store.state.is_term" />
@@ -57,12 +57,14 @@ export default defineComponent({
 <style lang="less" scoped>
 .nv-top-slider {
   position: relative;
-  box-shadow: 0 1px rgba(255, 255, 255, 0.6), 0 -10px 15px rgba(0, 0, 0, 0.1) inset, 0 10px 15px rgba(255, 255, 255, 0.2);
   transition: 0.5s;
-  margin: 20px auto;
-  margin-top: 96px;
-  border-radius: 1em;
-  box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
+  margin-top: 56px;
+  &.shadow {
+    box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
+    margin: 20px auto;
+    border-radius: 1em;
+    margin-top: 96px;
+  }
   @media (max-width: 767.5px) {
     margin-top: 46px;
     border-radius: 0;
