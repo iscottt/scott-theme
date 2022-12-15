@@ -71,9 +71,8 @@ export default defineComponent({
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 0.5rem;
-    // box-shadow: 0 8px 10px var(--gray-opacity-2);
+    box-shadow: 0 8px 10px var(--gray-opacity-2);
     transition-duration: 0.25s;
-    box-shadow: 0 0 0 0.125rem #fff, 0.442rem 0.442rem 0.625rem rgb(54 100 152 / 20%), -0.442rem -0.442rem 0.625rem hsl(0deg 0% 100% / 70%);
   }
   .title {
     text-decoration: none;

@@ -6,11 +6,11 @@
       {{ $store.state.theme_settings.niRvana_blogger_description }}
     </div>
   </div>
-  <div>
+  <div class="flex" style="font-size: 14px">
     <!-- 调用网站底部链接前两个，需要注意后台设置 -->
     <template v-for="(item, index) in footerLinks">
       <div class="my-tag">
-        <a :href="item.url" target="_blank"> <span v-html="item.text"></span> </a>
+        <a :href="item.url" target="_blank" v-html="item.text"></a>
       </div>
     </template>
     <div class="my-tag">
@@ -44,7 +44,8 @@ export default defineComponent({
     height: 4.5em;
     object-fit: cover;
     border-radius: 0.8em;
-    padding: 0.125rem;
+    // padding: 0.125rem;
+    border: 1px solid #fff;
     // box-shadow: -0.44rem -0.44rem 0.625rem hsl(0deg 0% 100% / 80%), 0.44rem 0.44rem 0.625rem rgb(54 100 152 / 10%), inset 0 0 0 transparent, inset 0 0 0 transparent;
   }
   .nickname {
@@ -55,34 +56,28 @@ export default defineComponent({
 }
 
 .my-tag {
-  background: linear-gradient(#f9fafc, #e8f0fa 0.75rem, #e8f0fa calc(100% - 0.75rem), #dae5f2) no-repeat;
-  box-shadow: 0 0.5rem 0.625rem rgb(54 100 152 / 20%);
-  display: inline-block;
-  transition-duration: 0.25s;
+  background: #fff;
+  display: flex;
   color: #73869a;
-  border: 1px solid;
-  border-color: #fff;
   border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-shadow: 0 1px 1px #fff;
   padding: 0.25em 0.6em 0.25em 0.6em;
   margin-right: 5px;
   margin-bottom: 5px;
-  &:hover {
-    a {
-      text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-      color: #007dff;
-    }
-    color: #007dff;
-    border-color: transparent;
-    box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
-      inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
-  }
+  transition-duration: 0.25s;
+  position: relative;
+  z-index: 0;
   a {
     color: #73869a;
     text-decoration: none;
     transition: 0.35s;
+  }
+  &:hover {
+    color: #007dff;
+    box-shadow: 0px 25px 20px -20px rgb(0 0 0 / 45%);
+    a {
+      text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+      color: #007dff;
+    }
   }
 }
 </style>
