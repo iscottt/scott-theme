@@ -49,7 +49,6 @@ export default defineComponent({
         // data: {},
       })
         .then(({ data }) => {
-          console.log('data', data);
           this.posts = data;
         })
         .catch((error) => {})
@@ -92,9 +91,10 @@ export default defineComponent({
           line-height: 1rem;
         }
         .content {
-          background: linear-gradient(#f9fafc, #e8f0fa 0.75rem, #e8f0fa calc(100% - 0.75rem), #dae5f2) no-repeat;
+          // background: linear-gradient(#f9fafc, #e8f0fa 0.75rem, #e8f0fa calc(100% - 0.75rem), #dae5f2) no-repeat;
           border-color: #fff;
-          box-shadow: 0 0.5rem 0.625rem rgb(54 100 152 / 20%);
+          background: #fff;
+          // box-shadow: 0 0.5rem 0.625rem rgb(54 100 152 / 20%);
           padding-top: 1px;
           padding-bottom: 1px;
           padding-left: 0.625rem;
@@ -120,12 +120,13 @@ export default defineComponent({
             }
             img {
               border-radius: 8px !important;
-              box-shadow: 0 13px 15px rgb(31 45 62 / 20%);
+              // box-shadow: 0 13px 15px rgb(31 45 62 / 20%);
               cursor: pointer;
             }
           }
           a {
             text-decoration: none;
+            color: var(--primary-color);
           }
           &::before {
             content: '';
@@ -146,6 +147,7 @@ export default defineComponent({
           text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
           color: #415973;
           transform: translateY(0.5rem);
+          box-shadow: 0px 25px 20px -20px rgb(0 0 0 / 45%);
         }
       }
     }

@@ -55,13 +55,15 @@ export default defineComponent({
 </script>
 <style lang="less">
 .widget-post-list {
-  margin-top: 40px;
+  margin-top: 1.5em;
   .post {
     margin-top: 1em;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    transition: .35s;
     &:hover {
-      .img {
-        transform: scale(1.1);
-      }
+      box-shadow: 0px 25px 20px -20px rgb(0 0 0 / 45%);
     }
   }
   .img {
@@ -71,7 +73,6 @@ export default defineComponent({
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 0.5rem;
-    box-shadow: 0 8px 10px var(--gray-opacity-2);
     transition-duration: 0.25s;
   }
   .title {

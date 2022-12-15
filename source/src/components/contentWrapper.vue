@@ -52,6 +52,12 @@ aside {
     display: none; /* Chrome Safari */
   }
 }
+
+@media (max-width: 1100px) {
+  aside {
+    padding: 0 0.5em;
+  }
+}
 @media (max-width: 991.5px) {
   aside {
     position: fixed;

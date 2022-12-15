@@ -1,12 +1,10 @@
 <template>
-  <div class="top-nav-wrapper">
-    <div
-      class="top-nav"
-      :class="{
-        float,
-        'float-in': floatIn,
-        'is-bar-open': isBarOpen,
-      }">
+  <div
+    class="top-nav-wrapper"
+    :class="{
+      floated: floatIn,
+    }">
+    <div class="top-nav">
       <div class="container">
         <button
           class="menu-button"
@@ -57,7 +55,6 @@ export default defineComponent({
   data() {
     return {
       sidebarIcon,
-      float: false,
       floatIn: false,
       observer: null,
     };
@@ -83,12 +80,6 @@ export default defineComponent({
         this.initObserver();
       }, 1000);
     },
-    floatIn(val) {
-      document.documentElement.classList[val ? 'add' : 'remove']('float-in');
-    },
-    isBarOpen(val) {
-      document.documentElement.classList[val ? 'add' : 'remove']('float-in');
-    },
   },
   methods: {
     initObserver() {
@@ -104,22 +95,15 @@ export default defineComponent({
       }
     },
     handleObserver([{ intersectionRatio }]) {
-      // var ratio = entries[0].intersectionRatio <= 0;
-      if (intersectionRatio <= 0) {
+      if (intersectionRatio < 1) {
         this.floatIn = true;
-        // console.log('动画显示')
+        // this.floatIn = true;
+        // console.log('显示')
       }
-      if (intersectionRatio > 0) {
+
+      if (intersectionRatio >= 1) {
         this.floatIn = false;
-        // console.log('动画隐藏')
-      }
-      if (intersectionRatio > 0.8) {
         this.float = false;
-        this.floatIn = false;
-        // console.log('隐藏')
-      }
-      if (intersectionRatio < 0.8) {
-        this.float = true;
         // console.log('显示')
       }
     },
@@ -130,6 +114,32 @@ export default defineComponent({
 <style lang="less" scoped>
 .top-nav-wrapper {
   height: 0;
+  position: sticky;
+  top: 0;
+  height: 56px;
+  z-index: 999;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    z-index: -1;
+    background: linear-gradient(#f0f6fc 76%, #d3dfed);
+    box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.35s;
+  }
+}
+
+.top-nav-wrapper.floated {
+  &::before {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
 @media (min-width: 992px) {
   .container,
@@ -206,7 +216,7 @@ export default defineComponent({
     align-items: center;
   }
   .sidebar-button {
-    color: #324057;
+    color: var(--text-color-3);
     transition: 0.35s;
     &.active {
       color: #fff;
@@ -271,9 +281,8 @@ export default defineComponent({
 }
 .top-nav {
   position: relative;
-  z-index: 999;
-  background: linear-gradient(#f0f6fc 76%, #d3dfed);
-  box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
+  // background: linear-gradient(#f0f6fc 76%, #d3dfed);
+  // box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
   animation: navDown 0.3s forwards;
 }
 @keyframes navDown {
@@ -286,38 +295,10 @@ export default defineComponent({
     transform: none;
   }
 }
-.top-nav.float {
-  position: fixed;
-  visibility: hidden;
-  top: -56px;
-  opacity: 0;
-  left: 0;
-  right: 0;
-  // background-image: linear-gradient(#fff,hsla(0,0,100%,0));
-  // background-image: linear-gradient(#fff,hsla(0,0,100%,0));
-  // background-color: hsla(211,40%,93%,.85);
-  background-position: top left;
-  box-shadow: 0 -1px rgba(255, 255, 255, 0.6) inset, 0 1px var(--gray-opacity-1), 0 5px 8px var(--gray-opacity-1);
-  animation: none;
-  transition: 0.25s;
-}
-.top-nav.float.float-in {
-  visibility: visible;
-  top: 0;
-  opacity: 1;
-  background: linear-gradient(#f0f6fc 76%, #d3dfed);
-  box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
-}
 
 .logo-wrapper {
   color: rgba(255, 255, 255, 0.7);
   transition: 0.35s;
-}
-.top-nav.float.float-in,
-.top-nav.float.is-bar-open {
-  .logo-wrapper {
-    color: var(--text-color-2);
-  }
 }
 @media (max-width: 991.5px) {
   .top-nav.is-bar-open {

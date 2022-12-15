@@ -6,7 +6,7 @@
       {{ $store.state.theme_settings.niRvana_blogger_description }}
     </div>
   </div>
-  <div class="flex" style="font-size: 14px">
+  <div class="flex flex-wrap" style="font-size: 14px">
     <!-- 调用网站底部链接前两个，需要注意后台设置 -->
     <template v-for="(item, index) in footerLinks">
       <div class="my-tag">
@@ -73,7 +73,7 @@ export default defineComponent({
   }
   &:hover {
     color: #007dff;
-    box-shadow: 0px 25px 20px -20px rgb(0 0 0 / 45%);
+    box-shadow: 0px 10px 15px -10px rgb(0 0 0 / 45%);
     a {
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
       color: #007dff;

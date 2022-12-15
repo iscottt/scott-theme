@@ -188,7 +188,7 @@ export default defineComponent({
     display: flex;
     align-items: center;
     padding: 0 20px;
-    color: var(--text-color);
+    color: var(--text-color-3);
     cursor: pointer;
     height: inherit;
     transition: 0.3s;
@@ -249,6 +249,7 @@ export default defineComponent({
     transform-origin: top center;
     transform: translateX(-50%) translateY(-5px) scale(0.8);
     transition: 0.3s;
+    top: 120%;
     &:before {
       content: '';
       display: block;
@@ -264,11 +265,13 @@ export default defineComponent({
       > a {
         padding: 7px 16px;
         border-radius: 5px;
+        color: #ffffff70;
       }
       &:hover {
         > a {
           background: rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        color: #ffffff;
         }
         > ul.submenu {
           transform: scale(1);
@@ -316,7 +319,7 @@ export default defineComponent({
     ul.menu > li.anchor {
       // top: 54px;
       // top: unset;
-      bottom: -1px;
+      bottom: 6px;
     }
     ul.submenu {
       // background: linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.6)) no-repeat;

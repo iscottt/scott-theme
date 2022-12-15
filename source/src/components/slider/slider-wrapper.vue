@@ -58,12 +58,11 @@ export default defineComponent({
 .nv-top-slider {
   position: relative;
   transition: 0.5s;
-  margin-top: 56px;
+  overflow: hidden;
   &.shadow {
     box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
     margin: 20px auto;
     border-radius: 1em;
-    margin-top: 96px;
   }
   @media (max-width: 767.5px) {
     margin-top: 46px;

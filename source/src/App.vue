@@ -300,9 +300,14 @@ main.is-leaving {
 }
 </style>
 <style lang="less">
+@media (min-width: 1100px) {
+  .container {
+    max-width: 1100px !important;
+  }
+}
 .circle-magic {
   position: absolute;
-  top: 96px;
+  top: 66px;
   left: 0;
   pointer-events: none;
   mix-blend-mode: overlay;

@@ -133,23 +133,25 @@ export default defineComponent({
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  color: var(--text-color);
+  color: var(--text-color-3);
   font-size: 18px;
   cursor: pointer;
 }
 .user-avatar {
   display: flex;
-  background-image: linear-gradient(var(--gray-5), var(--gray-3));
+  background-image: linear-gradient(var(--gray-6), var(--gray-4));
   justify-content: center;
   align-items: center;
-  color: var(--text-color);
+  color: var(--text-color-3);
   font-size: 18px;
   cursor: pointer;
   width: 2rem;
   height: 2rem;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 0 0.1rem #fff, 0.442rem 0.442rem 0.625rem rgb(54 100 152 / 20%), -0.25rem -0.25rem 0.625rem hsl(0deg 0% 100% / 70%);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  // box-shadow: 0 0 0 0.1rem #fff, 0.442rem 0.442rem 0.625rem rgb(54 100 152 / 20%), -0.25rem -0.25rem 0.625rem hsl(0deg 0% 100% / 70%);
 }
 .login {
   height: 56px;
@@ -174,7 +176,7 @@ export default defineComponent({
 .name {
   margin-left: 5px;
   font-size: 14px;
-  color: var(--text-color);
+  color: var(--text-color-3);
   cursor: pointer;
   .caret {
     font-size: 10px;
