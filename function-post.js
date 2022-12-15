@@ -2,13 +2,49 @@
 var path = require('path');
 var fs = require('fs');
 
+// 查询朋友圈列表
+register_rest_route('nirvana', 'moment-post', {
+  methods: 'post',
+  callback(data, req) {
+    const { page = 1, pageSize = 10 } = data;
+    var posts = query_posts({
+      post_type: 'article_microblog',
+      status: 'publish',
+      orderby: 'rand',
+      current_page: page,
+      posts_per_page: pageSize,
+      tax_query: {
+        relation: 'AND',
+        opts: [
+          {
+            taxonomy: 'article_microblog_category',
+            terms: [23],
+            operator: 'IN',
+          },
+        ],
+      },
+    });
+    return posts.data.map((post) => get_post(post.id));
+  },
+});
+// 查询随笔列表
 register_rest_route('nirvana', 'micro-post', {
   methods: 'post',
   callback(data, req) {
     var posts = query_posts({
       post_type: 'article_microblog',
       status: 'publish',
-      orderby: 'id',
+      orderby: 'rand',
+      tax_query: {
+        relation: 'AND',
+        opts: [
+          {
+            taxonomy: 'article_microblog_category',
+            terms: [22],
+            operator: 'IN',
+          },
+        ],
+      },
       posts_per_page: 4,
     });
     return posts.data.map((post) => get_post(post.id));

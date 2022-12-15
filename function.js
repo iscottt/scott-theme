@@ -14,7 +14,8 @@ require('./function-ssr.js');
 add_action('init_express', () => {
   register_static_url('/srcs', path.join(__dirname, './srcs/'));
 });
-
+console.dir(register_taxonomy);
+// 注册轻博客文章类型
 register_posttype('article_microblog', {
   label: '轻博客',
   labels: {
@@ -22,8 +23,19 @@ register_posttype('article_microblog', {
     add_new_item: '写轻博客',
   },
   show_ui: true,
-  supports: ['editor', 'author', 'title', 'comments', 'excerpt'],
+  supports: ['title', 'editor', 'author', 'comments'],
   menu_icon: '<i class="el-icon-chat-round"></i>',
+});
+// 注册轻博客分类
+register_taxonomy('article_microblog_category', 'article_microblog', {
+  taxonomy: '轻博客分类',
+  labels: {
+    name: '轻博客分类',
+    add_new_item: '添加新分类',
+    edit_item: '编辑分类',
+    delete_item: '删除分类',
+    singular_name: '分类',
+  },
 });
 
 register_nav_menus({
