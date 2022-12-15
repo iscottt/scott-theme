@@ -27,7 +27,7 @@
     </n-message-provider>
   </n-notification-provider>
   <NBackTop :listen-to="target">
-    <i class="fa-solid fa-arrow-up"></i>
+    <i class="fa-solid fa-circle-up"></i>
   </NBackTop>
 </template>
 
@@ -300,11 +300,6 @@ main.is-leaving {
 }
 </style>
 <style lang="less">
-@media (min-width: 1100px) {
-  .container {
-    max-width: 1100px !important;
-  }
-}
 .circle-magic {
   position: absolute;
   top: 66px;
@@ -322,27 +317,23 @@ main.is-leaving {
 }
 
 .n-back-top {
-  width: 2rem;
-  border-radius: 9999px;
+  width: 2.3rem;
+  border-radius: 5px;
   padding: 0;
   min-width: auto;
   color: #73869a;
   text-shadow: 0 1px 1px #fff;
-  box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%), inset -0.3536rem -0.3536rem 0.625rem rgb(54 100 152 / 10%),
-    0.4419rem 0.4419rem 1rem rgb(54 100 152 / 30%);
-  background-color: #dae5f2;
-  height: 2rem;
-  font-size: 0.875rem;
+  background-color: #fff;
+  height: 2.3rem;
+  font-size: 1.3rem;
   line-height: 1.25rem;
-  transition: 0.35s !important;
+  transition: 0.35s;
   i {
     transition: 0.35s;
   }
   &:hover {
     color: var(--primary-color);
     text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-    box-shadow: inset 0.3536rem 0.3536rem 0.625rem hsl(0deg 0% 100% / 80%), inset -0.1326rem -0.1326rem 0.25rem hsl(0deg 0% 100% / 30%), inset -0.3536rem -0.3536rem 0.625rem rgb(54 100 152 / 10%),
-      0.4419rem 0.4419rem 1rem rgb(54 100 152 / 30%);
   }
 }
 </style>

@@ -233,8 +233,6 @@ export default defineComponent({
     transition-duration: 0.35s;
     color: #8c9cae;
     text-shadow: 0 1px 1px #fff;
-    box-shadow: -0.1768rem -0.1768rem 0.25rem hsla(0, 0%, 100%, 0.35), 0.1326rem 0.1326rem 0.3rem rgba(54, 100, 152, 0.15), inset 0 0 0 transparent,
-      inset max(1px, 0.125rem) max(1px, 0.125rem) max(1px, 0.25rem) hsla(0, 0%, 100%, 0.6);
     border: 1px solid;
     border-color: rgba(54, 100, 152, 0.15);
     border-radius: 0.625rem;
@@ -242,6 +240,7 @@ export default defineComponent({
     line-height: 1.25rem;
     text-decoration: none;
     font-weight: 500;
+    background-color: #fff;
     i {
       margin-left: 0.375rem;
       font-size: 0.75rem;
@@ -253,9 +252,7 @@ export default defineComponent({
     &:hover {
       color: #007dff;
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-      border-color: transparent;
-      box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
-        inset 0.25rem 0.25rem 0.35rem rgba(54, 100, 152, 0.2), inset -0.2rem -0.2rem 0.35rem hsla(0, 0%, 100%, 0.6);
+      box-shadow: 0px 20px 15px -10px rgb(0 0 0 / 45%);
       i {
         color: #007dff;
         text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);

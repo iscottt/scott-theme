@@ -73,8 +73,8 @@ export default defineComponent({
       .avatar {
         width: 2rem;
         height: 2rem;
-        box-shadow: -0.1326rem -0.1326rem 0.1875rem hsl(0deg 0% 100% / 80%), 0.1326rem 0.1326rem 0.25rem rgb(54 100 152 / 10%), inset 0 0 0 transparent, inset 0 0 0 transparent;
-        border-radius: 9999px;
+        border: 1px solid #fff;
+        border-radius: 6px;
       }
       .content-wrapper {
         margin-left: 0.75rem;
