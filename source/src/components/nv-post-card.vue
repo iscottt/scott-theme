@@ -328,9 +328,11 @@ export default defineComponent({
   border-radius: 0.75rem;
   padding: 8px;
   transition: 0.35s;
+  animation: index-link-out 1s cubic-bezier(0.315, 0.605, 0.375, 0.925) forwards;
   &:hover {
     transform: translateY(-10px);
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    animation: index-link-active 1s cubic-bezier(0.315, 0.605, 0.375, 0.925) forwards;
   }
   .cover-wrapper {
     position: relative;
@@ -511,6 +513,29 @@ export default defineComponent({
         display: none;
       }
     }
+  }
+}
+
+@keyframes index-link-active {
+  0% {
+    transform: perspective(2000px) rotateX(0) rotateY(0) translateZ(0);
+  }
+  16% {
+    transform: perspective(2000px) rotateX(10deg) rotateY(5deg) translateZ(32px);
+  }
+  100% {
+    transform: perspective(2000px) rotateX(0) rotateY(0) translateZ(65px);
+  }
+}
+@keyframes index-link-out {
+  0% {
+    transform: perspective(2000px) rotateX(0) rotateY(0) translateZ(65px);
+  }
+  16% {
+    transform: perspective(2000px) rotateX(10deg) rotateY(5deg) translateZ(32px);
+  }
+  100% {
+    transform: perspective(2000px) rotateX(0) rotateY(0) translateZ(0);
   }
 }
 </style>

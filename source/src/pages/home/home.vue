@@ -361,9 +361,9 @@ export default defineComponent({
     overflow: hidden;
     flex-grow: 1;
     .cat-menu {
-      margin: 0 2em;
+      margin: 0;
       @media (max-width: 991.5px) {
-        margin: 0 1em;
+        margin: 0;
       }
     }
   }

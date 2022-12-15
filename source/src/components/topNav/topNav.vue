@@ -131,7 +131,7 @@ export default defineComponent({
 .top-nav-wrapper {
   height: 0;
 }
-@media (min-width: 1100px) {
+@media (min-width: 992px) {
   .container,
   .menu-wrapper {
     height: inherit;
@@ -155,7 +155,7 @@ export default defineComponent({
     display: none;
   }
 }
-@media (max-width: 1099.5px) {
+@media (max-width: 991.5px) {
   .container,
   .menu-wrapper {
     height: inherit;
