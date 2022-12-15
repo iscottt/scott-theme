@@ -133,7 +133,7 @@ export default defineComponent({
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: var(--text-color);
   font-size: 18px;
   cursor: pointer;
 }
@@ -142,7 +142,7 @@ export default defineComponent({
   background-image: linear-gradient(var(--gray-5), var(--gray-3));
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: var(--text-color);
   font-size: 18px;
   cursor: pointer;
   width: 2rem;
@@ -174,7 +174,7 @@ export default defineComponent({
 .name {
   margin-left: 5px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-color);
   cursor: pointer;
   .caret {
     font-size: 10px;

@@ -206,7 +206,7 @@ export default defineComponent({
     align-items: center;
   }
   .sidebar-button {
-    color: rgba(255, 255, 255, 0.4);
+    color: #324057;
     transition: 0.35s;
     &.active {
       color: #fff;
@@ -227,7 +227,7 @@ export default defineComponent({
       width: 20px;
       height: 1px;
       border-radius: 1em;
-      background: rgba(255, 255, 255, 0.4);
+      background: #324057;
       margin: 2.5px 0;
       transition: 0.35s, margin 0.2s ease-out 0.2s, width 0.2s ease-in-out 0.1s, transform 0.3s;
       &:first-child,
@@ -272,11 +272,8 @@ export default defineComponent({
 .top-nav {
   position: relative;
   z-index: 999;
-  // background-image: linear-gradient(hsla(0,0,100%,.95),hsla(211,40%,93%,.8) 25%,transparent 75%,transparent);
-  background-image: linear-gradient(#fff, hsl(213, 40%, 94%) 25%, transparent 75%, transparent);
-  background-repeat: no-repeat;
-  background-size: 100% 400%;
-  background-position: bottom left;
+  background: linear-gradient(#f0f6fc 76%, #d3dfed);
+  box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
   animation: navDown 0.3s forwards;
 }
 @keyframes navDown {

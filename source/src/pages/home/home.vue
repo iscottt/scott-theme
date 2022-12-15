@@ -9,9 +9,9 @@
           </div>
         </pf-scroller>
       </div>
-      <div class="grid justify-center items-center">
+      <!-- <div class="grid justify-center items-center">
         <CardType />
-      </div>
+      </div> -->
     </div>
     <contentWrapper type="transparent" class="content-wrapper">
       <template v-slot:main>

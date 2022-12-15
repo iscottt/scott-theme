@@ -214,8 +214,9 @@ export default defineComponent({
 	right: 0;
 	transition: .4s;
 	.cover-blur-img-wrapper {
-		width: 100vw;
-		height: 140%;
+		width: 100%;
+		height: 100%;
+    border-radius: 1em;
 		overflow: hidden;
 		-webkit-mask-image: linear-gradient(#000 20%,rgba(0,0,0,.6) 456px,rgba(0,0,0,.13) 456px,rgba(0,0,0,0));
 		mask-image: linear-gradient(#000 20%,rgba(0,0,0,.6) 456px,rgba(0,0,0,.13) 456px,rgba(0,0,0,0));
@@ -226,6 +227,8 @@ export default defineComponent({
 		@media (max-width:767.5px) {
 			-webkit-mask-image: linear-gradient(#000 20%,rgba(0,0,0,.6) 416px,rgba(0,0,0,.13) 416px,rgba(0,0,0,0));
 			mask-image: linear-gradient(#000 20%,rgba(0,0,0,.6) 416px,rgba(0,0,0,.13) 416px,rgba(0,0,0,0));
+      width: 100vw;
+      border-radius: 0;
 		}
 	}
 	img {
@@ -289,6 +292,7 @@ export default defineComponent({
 			height: 6em;
 			transform: translateY(-50%);
 			transition: .5s;
+      overflow: hidden;
 			&:before {
 				content: '';
 				width: 4em;

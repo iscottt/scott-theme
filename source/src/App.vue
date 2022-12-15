@@ -82,7 +82,7 @@ export default {
 
     circleMagic({
       el: document.body,
-      height: 500,
+      height: 456,
       className: 'circle-magic',
       radius: 15,
       densety: 0.1,
@@ -302,7 +302,7 @@ main.is-leaving {
 <style lang="less">
 .circle-magic {
   position: absolute;
-  top: 0;
+  top: 96px;
   left: 0;
   pointer-events: none;
   mix-blend-mode: overlay;
