@@ -336,4 +336,34 @@ main.is-leaving {
     text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
   }
 }
+@keyframes clouds2 {
+  97% {
+    transform: translateX(-130px);
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+  }
+
+  99% {
+    transform: translateX(-130px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrow-animation {
+  0% {
+    transform: translateX(-4px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 </style>

@@ -67,6 +67,7 @@ export default defineComponent({
   .micro-list {
     margin: 0;
     padding: 0;
+    margin-top: 20px;
     .micro-item {
       margin-bottom: 1rem;
       list-style: none;

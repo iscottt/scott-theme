@@ -22,7 +22,7 @@
         </transition>
         <div class="read-all flex items-start justify-center">
           <router-link :to="`/articles`" class="go flex items-end">
-            <span>全部文章<i class="fa-solid fa-arrow-right"></i> </span>
+            <span>全部文章<i class="fa-solid fa-plane-departure"></i></span>
           </router-link>
         </div>
         <div class="category" v-for="cat in categories">
@@ -37,7 +37,7 @@
             </transition>
             <div class="read-all flex items-start justify-center" style="margin-top: 40px">
               <router-link :to="`/category/${cat.slug}`" class="go flex items-end">
-                <span>阅读更多<i class="fa-solid fa-arrow-right"></i> </span>
+                <span>阅读更多<i class="fa-solid fa-plane-departure"></i></span>
               </router-link>
             </div>
           </div>

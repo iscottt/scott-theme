@@ -1,8 +1,10 @@
 <template>
-  <div class="scott-title">
-    <div class="title-con">
-      <span class="outer"><span class="inner"></span></span>
+  <div class="scott-category">
+    <div>
       <slot />
+      <i class="fa-solid fa-jet-fighter"></i>
+      <span class="cloud"></span>
+      <span class="cloud two"></span>
     </div>
   </div>
 </template>
@@ -108,6 +110,96 @@ export default defineComponent({
           top: 0.375rem;
           left: 0.375rem;
         }
+      }
+    }
+  }
+}
+
+.scott-category {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  &:after {
+    content: '';
+    display: block;
+    border-top: 1px solid rgba(54, 100, 152, 0.15);
+    box-shadow: 0 1px hsl(0deg 0% 100% / 80%);
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    padding: 0 0.8em;
+    color: #007dff;
+    font-size: 0.952rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+    border-radius: 0.375rem;
+    background: #fff;
+    margin-right: 1em;
+    transition: 0.35s;
+    .title {
+      display: inline-block;
+    }
+    i {
+      font-size: 0.9rem;
+      color: #5a6f87;
+      color: #007dff;
+      line-height: 1.75rem;
+      display: block;
+      transition: color 0.35s;
+      margin-left: 6px;
+    }
+    &:hover {
+      background: var(--primary-opacity-8);
+      color: var(--white-default);
+      text-shadow: 0 2px 2px var(--primary-color);
+      // box-shadow: 0px 10px 15px -10px rgb(0 0 0 / 45%);
+      transform: translateX(5px);
+      i {
+        color: var(--white-default);
+        animation: arrow-animation 0.5s infinite alternate;
+      }
+      .cloud {
+        animation: clouds2 3s linear infinite var(--cd, 0s);
+      }
+    }
+    .cloud {
+      width: 12px;
+      height: 4px;
+      border-radius: 2px;
+      background: #fff;
+      position: absolute;
+      top: var(--ct, 8px);
+      left: 100%;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+      display: block;
+      &:after,
+      &::before {
+        content: '';
+        position: absolute;
+        transform: translateX(var(--cx, 0));
+        border-radius: 50%;
+        width: var(--cs, 5px);
+        height: var(--cs, 5px);
+        background: #fff;
+        bottom: 1px;
+        left: 1px;
+      }
+      &:after {
+        --cs: 6px;
+        --cx: 4px;
+      }
+      &.two {
+        --ct: 20px;
+        --cd: 1s;
+        opacity: 0.6;
       }
     }
   }
