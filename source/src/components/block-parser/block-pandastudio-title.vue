@@ -50,7 +50,7 @@ export default defineComponent({
   border-bottom: 1.5px solid linear-gradient(var(--analogous-color) 20%, var(--primary-color) 80%);
 }
 .pandastudio-title .wrapper {
-  background: #f0f6fc;
+  background: #fff;
   z-index: 2;
   padding: 0 20px;
 }
