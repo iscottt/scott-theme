@@ -321,9 +321,10 @@ export default defineComponent({
 }
 
 .is-dark {
-  .floated {
-    .top-nav {
+  .top-nav-wrapper {
+    &:before {
       background: #202124;
+      box-shadow: none;
     }
   }
 }

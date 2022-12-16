@@ -18,6 +18,8 @@ $gray_7: #E5E9F2;
 $gray_8: #EFF2F7;
 $gray_9: #f2f7fc;
 
+$scroll-color:#828C96;
+
 html {
 	--primary-color: #{$primary};
 	@for $i from 1 through 9 {
@@ -32,6 +34,11 @@ html {
 	--white-default: #{$white_default};
 	@for $i from 1 through 9 {
 		--white-opacity-#{$i}: #{rgba($white_default, calc($i/10) )};
+	}
+
+  --scroll-color: #{$scroll-color};
+	@for $i from 1 through 9 {
+		--scroll-opacity-#{$i}: #{rgba($scroll-color, calc($i/10) )};
 	}
 
 	--success-color: #{$success};
@@ -66,4 +73,5 @@ html {
 	--bg-color: #e8f0fa;
 
 	--text-shadow: rgba(255,255,255,.6);
+
 }

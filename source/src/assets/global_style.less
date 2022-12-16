@@ -15,13 +15,12 @@ button {
   }
 }
 html {
-  // background-color: var(--bg-color);
-  background-color: #e8f0fa;
+  background-color: var(--bg-color);
   background-image: linear-gradient(var(--bg-color), var(--bg-color));
   min-height: 100vh;
   transition: background-color 0.25s;
   &.float-in {
-    background-color: #fff;
+    background-color: var(--white-default);
   }
   @media (min-width: 680px) {
     &:before,
@@ -33,21 +32,6 @@ html {
       z-index: -9999;
     }
   }
-  // &:before {
-  // 	background-image: url("/@/assets/images/tr.webp");
-  // 	width: 400px;
-  // 	height: 361px;
-  // 	right: 0;
-  // 	opacity: .7;
-  // }
-  // &:after {
-  // 	background-image: url("/@/assets/images/bl.webp");
-  // 	width: 280px;
-  // 	height: 294px;
-  // 	left: 0;
-  // 	bottom: 0;
-  // 	opacity: .5;
-  // }
 }
 body {
   -moz-osx-font-smoothing: grayscale;
@@ -55,7 +39,6 @@ body {
   font-size: 16px;
   line-height: 1.6;
   font-family: 'Play', '微软雅黑', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif' !important;
-  // font-family: v-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0;
   overflow-x: hidden;
   color: var(--text-color-2);
@@ -69,12 +52,12 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 125, 255, 0.7);
-  color: #fff;
+  background: var(--primary-opacity-7);
+  color: var(--white-default);
 }
 .is-dark {
   ::selection {
-    background: #007dff;
+    background: var(--primary-color);
   }
 }
 
@@ -83,30 +66,20 @@ html:not(.is-mac),
 html:not(.is-mac) * {
   scrollbar-width: thin;
 }
-html:not(.is-mac)::-webkit-scrollbar,
-html:not(.is-mac) *::-webkit-scrollbar {
+html::-webkit-scrollbar,
+html *::-webkit-scrollbar {
   width: 6px;
   height: 6px;
   background-color: transparent;
 }
-html:not(.is-mac)::-webkit-scrollbar-thumb,
-html:not(.is-mac) *::-webkit-scrollbar-thumb {
-  background-color: rgba(130, 140, 150, 0.4);
+html::-webkit-scrollbar-thumb,
+html *::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-opacity-4);
+  border-radius: 10px;
 }
 html.is-dark {
-  background: #050407;
-}
-html.is-dark::-webkit-scrollbar {
-  background: #202124;
-  width: 6px;
-  height: 6px;
-}
-html.is-dark::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #3f3f3f;
-}
-html.is-dark::-webkit-scrollbar-thumb:hover {
-  background: #5f5f5f;
+  --bg-color: #050407;
+  --scroll-color: #202124;
 }
 
 .background_shining {
@@ -242,6 +215,7 @@ html.is-dark::-webkit-scrollbar-thumb:hover {
     transform: scale(0.9);
   }
 }
+// override css
 .nv-blocks .scott-category {
   margin: 20px 0;
 }
