@@ -29,6 +29,10 @@
   <NBackTop :listen-to="target">
     <i class="fa-solid fa-circle-up"></i>
   </NBackTop>
+  <div class="change-theme flex items-center justify-center" @click="toggleTheme">
+    <i class="fa-solid fa-moon" :class="{ isIn: !isDark }"></i>
+    <i class="fa-solid fa-sun" :class="{ isIn: isDark }"></i>
+  </div>
 </template>
 
 <script>
@@ -60,6 +64,7 @@ export default {
   watch: {},
   data() {
     return {
+      isDark: false,
       fullScreenLoadingStack: [],
       fullLoadingIsClicked: false,
       loadingText: '正在加载...',
@@ -95,6 +100,18 @@ export default {
     this.read_guest_info();
   },
   methods: {
+    toggleTheme() {
+      const htmlDom = document.documentElement;
+      const htmlClass = htmlDom.getAttribute('class');
+      const isDark = htmlClass.indexOf('dark') > -1;
+      if (isDark) {
+        htmlDom.setAttribute('class', htmlClass.replace('dark', ''));
+        this.isDark = false;
+      } else {
+        htmlDom.setAttribute('class', htmlClass + ' is-dark');
+        this.isDark = true;
+      }
+    },
     read_guest_info() {
       var guest_info = this.$localStorage('guest_info');
       if (guest_info) {
@@ -314,6 +331,43 @@ main.is-leaving {
 }
 .n-image-preview-toolbar .n-base-icon {
   box-sizing: initial;
+}
+.change-theme {
+  width: 2.3rem;
+  border-radius: 5px;
+  padding: 0;
+  min-width: auto;
+  color: #73869a;
+  text-shadow: 0 1px 1px #fff;
+  background-color: #fff;
+  height: 2.3rem;
+  font-size: 1.3rem;
+  line-height: 1.25rem;
+  transition: 0.35s;
+  position: fixed;
+  bottom: 90px;
+  right: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.12);
+  flex-wrap: wrap;
+  i {
+    position: fixed;
+    transition: 0.35s;
+    transform: scale(0);
+    bottom: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    &.isIn {
+      transform: scale(1);
+    }
+  }
+  &:hover {
+    color: var(--primary-color);
+    text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+  }
 }
 
 .n-back-top {
