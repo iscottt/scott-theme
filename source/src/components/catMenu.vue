@@ -317,4 +317,14 @@ li:hover {
   background: linear-gradient(90deg, var(--primary-color), var(--analogous-color));
   box-shadow: 0 5px 9px var(--primary-opacity-4);
 }
+
+.is-dark {
+  a {
+    color: #fff;
+    text-shadow: none;
+    &:hover {
+      text-shadow: none;
+    }
+  }
+}
 </style>

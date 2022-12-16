@@ -96,8 +96,10 @@ export default defineComponent({
 <style lang="less">
 .is-dark {
   .scott-alert {
+    background-color: #111b26;
+    border: 1px solid #153450;
     .content {
-      color: var(--text-color-2) !important;
+      color: #fff;
     }
   }
 }

@@ -61,7 +61,7 @@ export default defineComponent({
     background: #fff;
     border-radius: 0.5rem;
     padding: 0.2rem;
-    transition: .35s;
+    transition: 0.35s;
     &:hover {
       box-shadow: 0px 25px 20px -20px rgb(0 0 0 / 45%);
     }
@@ -117,6 +117,24 @@ export default defineComponent({
   }
   .other {
     color: var(--primary-color);
+  }
+}
+
+.is-dark {
+  .widget-post-list {
+    .post {
+      background: rgba(99, 226, 183, 0.16);
+      .title,
+      .metas {
+        text-shadow: none;
+        color: rgba(255, 255, 255, 0.9);
+        .svg-icon {
+          path {
+            filter: none;
+          }
+        }
+      }
+    }
   }
 }
 </style>

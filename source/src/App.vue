@@ -98,6 +98,27 @@ export default {
     this.$store.commit('recordWindowWidth');
 
     this.read_guest_info();
+
+    const htmlDom = document.documentElement;
+    const htmlClass = htmlDom.getAttribute('class');
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      htmlDom.setAttribute('class', htmlClass + ' is-dark');
+      this.isDark = true;
+    } else {
+      htmlDom.setAttribute('class', htmlClass.replace('dark', ''));
+      this.isDark = false;
+    }
+
+    // 监听暗黑模式
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      if (event.matches) {
+        htmlDom.setAttribute('class', htmlClass + ' is-dark');
+        this.isDark = true;
+      } else {
+        htmlDom.setAttribute('class', htmlClass.replace('dark', ''));
+        this.isDark = false;
+      }
+    });
   },
   methods: {
     toggleTheme() {
@@ -345,7 +366,7 @@ main.is-leaving {
   line-height: 1.25rem;
   transition: 0.35s;
   position: fixed;
-  bottom: 90px;
+  bottom: 85px;
   right: 40px;
   cursor: pointer;
   box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.12);
@@ -354,7 +375,7 @@ main.is-leaving {
     position: fixed;
     transition: 0.35s;
     transform: scale(0);
-    bottom: 90px;
+    bottom: 85px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -418,6 +439,19 @@ main.is-leaving {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+.is-dark {
+  .n-back-top,
+  .change-theme {
+    background-color: #48484e;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: none;
+    &:hover {
+      background: var(--primary-color);
+      text-shadow: none;
+    }
   }
 }
 </style>

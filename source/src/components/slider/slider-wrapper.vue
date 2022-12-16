@@ -104,4 +104,10 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .nv-top-slider {
+    box-shadow: none !important;
+  }
+}
 </style>

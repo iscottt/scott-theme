@@ -153,4 +153,24 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .micro-wrapper {
+    .micro-list {
+      .micro-item {
+        .content-wrapper {
+          .content {
+            background: rgba(99, 226, 183, 0.16);
+            color: #fff;
+            border-color: transparent;
+            text-shadow: none;
+            &::before {
+              border-right: 0.3125rem solid #1e1e1e;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

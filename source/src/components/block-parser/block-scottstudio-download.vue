@@ -89,7 +89,7 @@ export default defineComponent({
   text-shadow: 0 2px 2px var(--primary-opacity-3);
   transition: 0.25s;
 }
-.get-it .main i{
+.get-it .main i {
   font-size: 18px;
   margin-right: 5px;
 }
@@ -142,6 +142,22 @@ export default defineComponent({
     text-decoration: none;
     text-shadow: 0 2px 2px var(--primary-opacity-3);
     display: block;
+  }
+}
+
+.is-dark {
+  .get-it {
+    .main {
+      box-shadow: none;
+      background: rgba(112, 192, 232, 0.16);
+      color: #70c0e8;
+      border: none;
+      &:hover{
+        background: var(--primary-color);
+        color: #fff;
+        text-shadow: none;
+      }
+    }
   }
 }
 </style>

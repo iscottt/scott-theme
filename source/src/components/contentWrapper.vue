@@ -84,4 +84,8 @@ aside {
 .main-column {
   max-width: 1140px;
 }
+.is-dark aside{
+  box-shadow: none;
+  border-color: rgba(99, 226, 183, 0.16);
+}
 </style>

@@ -50,4 +50,8 @@ figcaption {
   text-decoration: none;
   text-shadow: 2px 2px 2px var(--primary-opacity-3);
 }
+
+.is-dark .block-quote p {
+  text-shadow: none;
+}
 </style>

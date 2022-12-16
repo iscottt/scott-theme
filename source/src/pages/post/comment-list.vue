@@ -95,7 +95,6 @@ export default defineComponent({
     background-size: cover;
     border-radius: 9999px;
     padding: 0.25rem;
-    box-shadow: 0 0 0 0.1rem #fff, 0.442rem 0.442rem 0.625rem rgb(54 100 152 / 20%), -0.25rem -0.25rem 0.625rem hsl(0deg 0% 100% / 70%);
     margin-right: 1em;
   }
   .info {
@@ -128,22 +127,16 @@ export default defineComponent({
     transform: translateY(0.75em);
     color: var(--gray-5);
     border-radius: 9em;
-    border-color: rgba(54, 100, 152, 0.15);
-    background-color: #ecf2fb;
+    background-color: #fff;
     text-shadow: 0 1px var(--white-default);
     height: 1.5em;
     padding: 0 0.625em;
-    border: 1px solid var(--border-color);
     // box-shadow: 0 4px 6px var(--gray-opacity-1),0 0 0 1px var(--white-default) inset,.75em 0 .75em transparent inset;
-    box-shadow: -0.1768rem -0.1768rem 0.25rem hsla(0, 0%, 100%, 0.35), 0.1326rem 0.1326rem 0.3rem rgba(54, 100, 152, 0.15), inset 0 0 0 transparent,
-      inset max(1px, 0.125rem) max(1px, 0.125rem) max(1px, 0.25rem) hsla(0, 0%, 100%, 0.6);
     transition: 0.35s;
     &:hover {
       color: #007dff;
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-      border-color: transparent;
-      box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
-        inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
+      box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.45);
     }
   }
   .sub-list {
@@ -159,6 +152,17 @@ export default defineComponent({
       .parent-info {
         display: inline;
       }
+    }
+  }
+}
+
+.is-dark {
+  .comment-list {
+    .info {
+      border-color: #484849;
+    }
+    .content {
+      color: rgba(255, 255, 255, 0.9);
     }
   }
 }

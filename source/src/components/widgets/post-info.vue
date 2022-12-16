@@ -50,4 +50,19 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .post-info .tags {
+    a {
+      background: rgba(99, 226, 183, 0.16);
+      color: rgba(255, 255, 255, 0.52);
+      box-shadow: none;
+      text-shadow: none;
+      &:hover{
+        background: var(--primary-color);
+        color: #fff;
+      }
+    }
+  }
+}
 </style>

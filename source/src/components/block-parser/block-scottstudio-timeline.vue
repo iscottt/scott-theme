@@ -111,7 +111,30 @@ export default defineComponent({
           margin: 10px 20px !important;
         }
         ::v-deep(.content li) {
-          margin-bottom: 2px;
+          margin-bottom: 6px;
+        }
+      }
+    }
+  }
+}
+
+.is-dark {
+  .scottstudio-timeline {
+    .timeline-item {
+      .timeline-dot-line {
+        border-left: 1px solid rgb(72, 72, 73);
+      }
+      .timeline-content-wrapper {
+        .timeline-content {
+          h2 {
+            color: rgba(255, 255, 255, 0.9);
+          }
+          ::v-deep(.content p) {
+            color: rgba(255, 255, 255, 0.9);
+          }
+          ::v-deep(.content ul) {
+            color: rgba(255, 255, 255, 0.9);
+          }
         }
       }
     }

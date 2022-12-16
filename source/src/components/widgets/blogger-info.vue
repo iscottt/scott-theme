@@ -80,4 +80,28 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .blogger-info {
+    color: var(--white-default);
+    text-shadow: none;
+    .nickname {
+      color: #fff;
+    }
+  }
+  .my-tag {
+    background: rgba(99, 226, 183, 0.16);
+    a {
+      color: rgba(255, 255, 255, 0.52);;
+    }
+    &:hover {
+      background: #007dff;
+      color: #fff;
+      a {
+        color: #fff;
+        text-shadow: none;
+      }
+    }
+  }
+}
 </style>

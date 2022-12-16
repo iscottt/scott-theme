@@ -107,4 +107,16 @@ export default defineComponent({
   color: #007dff;
   text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
 }
+
+.is-dark {
+  .toc {
+    li {
+      text-shadow: none;
+      color: rgba(255, 255, 255, 0.52);;
+      &.active a{
+        text-shadow: none;
+      }
+    }
+  }
+}
 </style>

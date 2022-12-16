@@ -370,4 +370,27 @@ export default defineComponent({
   padding: 0.875em 0.35em;
   height: 2.5em;
 }
+
+.is-dark {
+  .read-all {
+    .go {
+      background: rgba(99, 226, 183, 0.16);
+      text-shadow: none;
+      color: #63e2b7;
+      i {
+        text-shadow: none;
+        color: #63e2b7;
+      }
+      &:hover {
+        background: var(--primary-color);
+        text-shadow: none;
+        color: #fff;
+        i {
+          text-shadow: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
 </style>

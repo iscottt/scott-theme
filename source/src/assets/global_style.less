@@ -94,7 +94,19 @@ html:not(.is-mac) *::-webkit-scrollbar-thumb {
   background-color: rgba(130, 140, 150, 0.4);
 }
 html.is-dark {
-  background: #000;
+  background: #050407;
+}
+html.is-dark::-webkit-scrollbar {
+  background: #202124;
+  width: 6px;
+  height: 6px;
+}
+html.is-dark::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #3f3f3f;
+}
+html.is-dark::-webkit-scrollbar-thumb:hover {
+  background: #5f5f5f;
 }
 
 .background_shining {
@@ -233,6 +245,18 @@ html.is-dark {
 .nv-blocks .scott-category {
   margin: 20px 0;
 }
-.block-list li{
+.block-list li {
   margin-bottom: 5px;
+}
+
+.is-dark .nv-blocks mark {
+  text-shadow: none;
+}
+
+.is-dark {
+  --text-color-2: rgba(255, 255, 255, 0.52);
+}
+
+.is-dark .nv-blocks div:before {
+  text-shadow: none;
 }

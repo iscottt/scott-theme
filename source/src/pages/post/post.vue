@@ -176,4 +176,12 @@ export default defineComponent({
     border: none;
   }
 }
+
+.is-dark {
+  .article-wrapper {
+    background: rgba(99, 226, 183, 0.16);
+    border:none;
+    box-shadow: none;
+  }
+}
 </style>

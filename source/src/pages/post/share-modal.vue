@@ -111,7 +111,7 @@
         <p v-if="isCreating">正在生成海报...</p>
       </div>
       <div @click="closeModal" class="close flex items-center absolute justify-center">
-        <i class="fa-solid fa-close"></i>
+        <i class="fa-solid fa-xmark"></i>
       </div>
     </div>
   </div>
@@ -406,7 +406,8 @@ export default defineComponent({
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(230 162 60 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
     }
     &:hover {
-      box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
+      box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
+        inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
       // box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
     }
   }
@@ -681,7 +682,7 @@ export default defineComponent({
     height: 2.5rem;
     font-size: 18px;
     line-height: 1;
-    color: var(--member-light-color, var(--theme-light-color));
+    color: #333;
     opacity: 0.7;
     transition: 0.35s;
     box-shadow: 0 1rem 2rem rgb(0 0 0 / 20%), 0 1rem 1rem rgb(54 100 152 / 50%);
@@ -702,6 +703,30 @@ export default defineComponent({
   animation: fadeIn linear 0.35s;
   &.fadeOut {
     animation: fadeOut 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
+.is-dark {
+  .share-modal {
+    background: #050407;
+    button {
+      background: rgba(99, 226, 183, 0.16);
+      box-shadow: none;
+      text-shadow: none;
+      &:hover {
+        background: var(--primary-color);
+        color: #fff;
+      }
+    }
+  }
+
+  .scott-share{
+    .content{
+      .title{
+        text-shadow: none;
+        color: #73869a;
+      }
+    }
   }
 }
 </style>

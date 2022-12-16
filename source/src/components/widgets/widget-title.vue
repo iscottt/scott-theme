@@ -200,4 +200,20 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .scott-category {
+    &:after {
+      box-shadow: none;
+      border-color: #484849;
+    }
+    div {
+      color: var(--primary-color);
+      text-shadow: none;
+      i {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
 </style>

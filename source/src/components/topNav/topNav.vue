@@ -319,4 +319,12 @@ export default defineComponent({
     opacity: 1;
   }
 }
+
+.is-dark {
+  .floated {
+    .top-nav {
+      background: #202124;
+    }
+  }
+}
 </style>

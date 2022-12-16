@@ -56,7 +56,7 @@ export default defineComponent({
   font-size: 14px;
   padding-top: 0.5em;
   text-decoration: none;
- justify-content: flex-end;
+  justify-content: flex-end;
   a {
     text-decoration: none;
     color: #8c9cae;
@@ -89,5 +89,19 @@ footer {
 }
 .main-pagination-wrapper {
   margin-top: -21px;
+}
+
+.is-dark {
+  footer {
+    background: #202124;
+    border: none;
+    box-shadow: none;
+    .copyright {
+      text-shadow: none;
+    }
+    .info,.links a{
+      text-shadow: none;
+    }
+  }
 }
 </style>

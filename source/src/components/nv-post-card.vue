@@ -538,4 +538,17 @@ export default defineComponent({
     transform: perspective(2000px) rotateX(0) rotateY(0) translateZ(0);
   }
 }
+
+.is-dark {
+  .scott-post-item {
+    background: rgba(99, 226, 183, 0.16);
+    .title{
+      text-shadow: none;
+      color: var(--white-default);
+    }
+    .info-wrapper{
+      text-shadow: none;
+    }
+  }
+}
 </style>
