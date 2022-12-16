@@ -6,11 +6,13 @@
         <div class="flex">
           <img class="avatar" src="https://ethanwp.oss-cn-shenzhen.aliyuncs.com/blog/peeps-avatar%20%281%29.png" />
           <div class="content-wrapper">
-            <div class="date">{{ formatTime(post.modify_time) }}</div>
             <div class="content">
-              <p class="title">
-                #<a href="javascript:;">{{ post.title }}</a>
-              </p>
+              <div class="title-wrapper flex items-center justify-between">
+                <p class="title">
+                  #<a href="javascript:;">{{ post.title }}</a>
+                </p>
+                <p class="date">{{ formatTime(post.created_time) }}</p>
+              </div>
               <blockParser is="article" :blocks="post.content.blocks" ref="article" />
             </div>
           </div>
@@ -38,7 +40,8 @@ export default defineComponent({
   },
   methods: {
     formatTime(time) {
-      return moment(time).format('YYYY-MM-DD A HH:mm');
+      const timeStr = moment(time).fromNow();
+      return timeStr.replace(/\s*/g, '');
     },
     requestData() {
       $fullLoading.start();
@@ -80,17 +83,6 @@ export default defineComponent({
       .content-wrapper {
         margin-left: 0.75rem;
         flex-grow: 1;
-        .date {
-          opacity: 0;
-          height: 0.75rem;
-          padding-left: 0.125rem;
-          transition-duration: 0.25s;
-          color: #007dff;
-          font-weight: 500;
-          text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-          font-size: 0.8125rem;
-          line-height: 1rem;
-        }
         .content {
           // background: linear-gradient(#f9fafc, #e8f0fa 0.75rem, #e8f0fa calc(100% - 0.75rem), #dae5f2) no-repeat;
           border-color: #fff;
@@ -111,8 +103,15 @@ export default defineComponent({
           line-height: 1.25rem;
           border-color: #fff;
           z-index: 2;
-          .title {
+          .title,
+          .date {
             margin: 5px 0 0 0;
+            a {
+              margin-left: 2px;
+            }
+          }
+          .date {
+            font-size: 12px;
           }
           .nv-blocks {
             p {
