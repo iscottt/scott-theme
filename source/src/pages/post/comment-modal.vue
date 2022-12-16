@@ -485,25 +485,32 @@ export default defineComponent({
       text-shadow: none;
     }
   }
-  .funcs,
-  .actions {
-    button {
-      background-color: rgba(99, 226, 183, 0.16);
-      box-shadow: none;
-      color: rgba(255, 255, 255, 0.52);
-      &:hover {
-        background: var(--primary-color);
-        color: #fff;
+  #comment {
+    .funcs,
+    .actions {
+      button {
+        background-color: rgba(99, 226, 183, 0.16);
+        box-shadow: none;
+        color: rgba(255, 255, 255, 0.52);
+        text-shadow: none;
+        &:hover {
+          background: var(--primary-color);
+          text-shadow: none;
+          color: #fff;
+        }
       }
     }
-  }
-  .form {
-    textarea {
-      box-shadow: none;
-      text-shadow: none;
-      color: #fff;
-      border-color: transparent;
-      background: rgba(99, 226, 183, 0.16);
+    .form {
+      textarea {
+        box-shadow: none;
+        text-shadow: none;
+        color: #fff;
+        border-color: transparent;
+        background: rgba(99, 226, 183, 0.16);
+        &:focus {
+          background: rgba(99, 226, 183, 0.26);
+        }
+      }
     }
   }
 }
