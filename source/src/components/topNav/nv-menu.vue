@@ -271,7 +271,7 @@ export default defineComponent({
         > a {
           background: rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-        color: #ffffff;
+          color: #ffffff;
         }
         > ul.submenu {
           transform: scale(1);
@@ -420,24 +420,6 @@ export default defineComponent({
       margin-right: -0.5em;
       padding-right: 1em;
       position: relative;
-      &:before,
-      &:after {
-        content: '';
-        width: 5px;
-        height: 1px;
-        display: block;
-        // background: var(--text-color-3);
-        background: currentColor;
-        position: absolute;
-        right: 0;
-        top: calc(50% - 0.5px);
-        transform-origin: calc(100% - 0.5px) center;
-        transform: rotate(-45deg);
-        border-radius: 1px;
-      }
-      &:after {
-        transform: rotate(45deg);
-      }
     }
   }
 }

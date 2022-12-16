@@ -17,7 +17,7 @@
     <div class="title">{{ post.title }}</div>
     <div class="tags">
       <router-link v-for="(tag, idx) in post.tags" :to="`/tag/${tag}`">{{ idx < post.tags.length - 1 ? `${tag} · ` : tag }}</router-link>
-      <span v-if="!post.tags.length" class="color-0">无标签</span>
+      <span v-if="!post.tags.length" class="no-data">无标签</span>
     </div>
   </div>
   <!-- 样式一 -->
@@ -27,7 +27,7 @@
     </div>
     <NSpace class="tags" :size="2">
       <router-link v-for="(tag, idx) in post.tags" :to="`/tag/${tag}`" v-show="idx < 3">{{ tag }}</router-link>
-      <span v-if="!post.tags.length" class="color-0">无标签</span>
+      <span v-if="!post.tags.length" class="no-data">无标签</span>
     </NSpace>
     <div class="title">{{ post.title }}</div>
     <div class="info-wrapper">
@@ -47,7 +47,7 @@
       </div>
       <div class="tags">
         <router-link v-for="(tag, idx) in post.tags" :to="`/tag/${tag}`">{{ idx < post.tags.length - 1 ? `${tag} · ` : tag }}</router-link>
-        <span v-if="!post.tags.length" class="color-0">无标签</span>
+        <span v-if="!post.tags.length" class="no-data">无标签</span>
       </div>
     </div>
   </div>
@@ -128,11 +128,11 @@ export default defineComponent({
     text-align: left;
     span,
     a {
-      color: #8c9cae;
+      color: var(--text-color-4);
       transition: 0.35s;
       text-decoration: none;
       &:hover {
-        color: #007dff;
+        color: var(--primary-color);
       }
     }
   }
@@ -239,7 +239,7 @@ export default defineComponent({
       width: 100%;
       text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
       transition: 0.25s;
-      color: #5a6f87;
+      color: var(--text-color-2);
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -299,7 +299,7 @@ export default defineComponent({
         flex-grow: 0;
         transition-duration: 0.35s;
         transition: 0.25s;
-        color: #5a6f87;
+        color: var(--text-color-2);
         text-decoration: none;
         &:hover {
           color: #007dff;
@@ -315,7 +315,7 @@ export default defineComponent({
     }
     .tags {
       margin-top: 0.375rem;
-      color: #8c9cae;
+      color: var(--text-color-4);
       font-size: 0.875rem;
       line-height: 1.25rem;
       padding-left: 0;
@@ -324,7 +324,7 @@ export default defineComponent({
 }
 // 样式一
 .scott-post-item {
-  background: #fff;
+  background: var(--white-default);
   border-radius: 0.75rem;
   padding: 8px;
   transition: 0.35s;
@@ -353,30 +353,10 @@ export default defineComponent({
       display: block;
       transition: 0.35s;
     }
-    .like {
-      position: absolute;
-      right: 0.5em;
-      border: 2px solid #fff;
-      bottom: -1em;
-      width: 2em;
-      height: 2em;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, v-bind(darkerColor), v-bind(lighterColor));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.35s;
-      &:hover {
-        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-          rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-      }
-    }
   }
   .tags {
     width: 100%;
-    color: #8c9cae;
+    color: var(--text-color-4);
     font-size: 0.875rem;
     line-height: 1.25rem;
     padding: 0 0.5em;
@@ -392,21 +372,17 @@ export default defineComponent({
       display: inline;
       padding: 0.3em 0.5em;
       border-radius: 9em;
-      color: #2080f0;
-      background: rgba(32, 128, 240, 0.1);
+      color: var(--primary-color);
+      background: var(--primary-opacity-1);
       transition: 0.35s;
       &:hover {
         color: var(--primary-color);
         text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
       }
     }
-    .color-4 {
-      color: #837adc;
-      background: rgba(131, 122, 220, 0.15);
-    }
-    .color-0 {
-      background: #eee;
-      color: #475669;
+    .no-data {
+      background: var(gray-opacity-2);
+      color: var(--text-color-2);
     }
   }
   .title {
@@ -418,7 +394,7 @@ export default defineComponent({
     width: 100%;
     text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
     transition: 0.25s;
-    color: #5a6f87;
+    color: var(--text-color-2);
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -467,7 +443,7 @@ export default defineComponent({
     .time {
       font-size: 0.8125rem;
       line-height: 1rem;
-      color: #8c9cae;
+      color: var(--text-color-4);
     }
   }
 }
@@ -541,12 +517,8 @@ export default defineComponent({
 
 .is-dark {
   .scott-post-item {
-    background: rgba(99, 226, 183, 0.16);
-    .title{
-      text-shadow: none;
-      color: var(--white-default);
-    }
-    .info-wrapper{
+    .title,
+    .info-wrapper {
       text-shadow: none;
     }
   }

@@ -36,9 +36,8 @@ export default defineComponent({
 }
 .copyright {
   padding: 1em 0 0;
-  color: var(--text-color-3);
+  color: var(--text-color-2);
   text-shadow: 0.12rem 0.12rem 0.2rem #bec9d5, -1px -1px 1px hsl(0deg 0% 100% / 80%);
-  color: #5a6f87;
   text-align: center;
   font-size: 14px;
   text-align: right;
@@ -46,7 +45,7 @@ export default defineComponent({
 .info {
   cursor: default;
   text-align: right;
-  color: #8c9cae;
+  color: var(--text-color-4);
   font-size: 12px;
   transition: 0.35s;
   margin-top: 0.5em;
@@ -59,7 +58,7 @@ export default defineComponent({
   justify-content: flex-end;
   a {
     text-decoration: none;
-    color: #8c9cae;
+    color: var(--text-color-4);
     text-shadow: 0 1px 1px #fff;
     img {
       width: 16px;
@@ -72,8 +71,7 @@ export default defineComponent({
 </style>
 <style lang="less">
 footer {
-  // background: var(--gray-opacity-1);
-  background: #dae5f2;
+  background: var(--tip-color);
   padding-bottom: env(safe-area-inset-bottom);
   transform-origin: bottom;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -93,14 +91,16 @@ footer {
 
 .is-dark {
   footer {
-    background: #202124;
     border: none;
     box-shadow: none;
     .copyright {
       text-shadow: none;
+      color: rgba(255, 255, 255, 0.8);
     }
-    .info,.links a{
+    .info,
+    .links a {
       text-shadow: none;
+      color: rgba(255, 255, 255, 0.5);
     }
   }
 }

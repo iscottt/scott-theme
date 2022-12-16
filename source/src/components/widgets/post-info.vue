@@ -32,8 +32,8 @@ export default defineComponent({
     text-decoration: none;
     border-radius: 0.375rem;
     font-size: 87.5%;
-    color: #73869a;
-    background-color: #fff;
+    color: var(--text-color-3);
+    background-color: var(--white-default);
     text-shadow: 0 1px var(--white-default);
     padding: 0.25em 0.9em 0.25em 0.6em;
     border-radius: 0.5em;
@@ -44,7 +44,7 @@ export default defineComponent({
     align-items: center;
     grid-gap: 0.35em;
     &:hover {
-      color: #007dff;
+      color: var(--primary-color);
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
       box-shadow: 0px 10px 15px -10px rgb(0 0 0 / 45%);
     }
@@ -54,11 +54,10 @@ export default defineComponent({
 .is-dark {
   .post-info .tags {
     a {
-      background: rgba(99, 226, 183, 0.16);
       color: rgba(255, 255, 255, 0.52);
       box-shadow: none;
       text-shadow: none;
-      &:hover{
+      &:hover {
         background: var(--primary-color);
         color: #fff;
       }

@@ -98,12 +98,12 @@ export default defineComponent({
   padding-left: 1rem;
 }
 .toc > ul > li.active {
-  border-color: #007dff;
-  background: rgba(0, 125, 255, 0.1);
+  border-color: var(--primary-color);
+  background: var(--primary-opacity-1);
 }
 
 .toc > ul > li.active a {
-  color: #007dff;
+  color: var(--primary-color);
   text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
 }
 

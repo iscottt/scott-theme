@@ -231,7 +231,7 @@ export default defineComponent({
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
     transition-duration: 0.35s;
-    color: #8c9cae;
+    color: var(--text-color-4);
     text-shadow: 0 1px 1px #fff;
     border: 1px solid;
     border-color: rgba(54, 100, 152, 0.15);
@@ -245,7 +245,7 @@ export default defineComponent({
       margin-left: 0.375rem;
       font-size: 0.75rem;
       line-height: 1rem;
-      color: #8c9cae;
+      color: var(--text-color-4);
       text-shadow: 0 1px 1px #fff;
       font-size: 12px;
     }

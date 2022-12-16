@@ -274,7 +274,7 @@ export default defineComponent({
       padding-right: 1rem;
       padding-top: 0.625rem;
       padding-bottom: 0.625rem;
-      color: #73869a;
+      color: var(--text-color-3);
       box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
         inset 0.25rem 0.25rem 0.35rem rgba(54, 100, 152, 0.2), inset -0.2rem -0.2rem 0.35rem hsla(0, 0%, 100%, 0.6);
     }
@@ -282,10 +282,10 @@ export default defineComponent({
   .login-tip {
     margin: 0.5em 0;
     padding: 0.5em 1.25em;
-    background-color: #dae5f2;
+    background-color: var(--tip-color);
     border-radius: 0.5em;
     text-align: center;
-    color: #5a6f87;
+    color: var(--text-color-2);
     a {
       font-weight: 500;
       margin: 0 0.25em;
@@ -406,7 +406,7 @@ export default defineComponent({
     border: 1px solid var(--white-default);
     border-bottom-color: var(--border-color-2);
     background: var(--gray-9);
-    color: var(--text-color-2);
+    color: #5a6f87;
   }
   .content {
     padding: 0.75rem 1rem;
@@ -442,7 +442,7 @@ export default defineComponent({
   }
   button.text {
     background: transparent;
-    color: var(--text-color-3);
+    color: #73869a;
     &:hover {
       color: var(--primary-color);
     }
@@ -455,7 +455,7 @@ export default defineComponent({
   }
   .form {
     label {
-      color: var(--text-color-3);
+      color: #73869a;
     }
     input {
       outline: none;
@@ -465,7 +465,7 @@ export default defineComponent({
       font-family: inherit;
       padding: 0.5em 1em;
       border: 1px solid var(--border-color);
-      color: var(--text-color-3);
+      color: #73869a;
       border-radius: 0.5em;
       margin-bottom: 0.25em;
       transition: 0.25s;

@@ -163,7 +163,7 @@ export default defineComponent({
 .article-wrapper {
   padding: 2em 3em;
   /*background: var(--white-opacity-8);*/
-  background: #f0f6fc;
+  background: var(--white-default);
   border: 1px solid var(--white-default);
   border-radius: 0.8125em;
   box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
@@ -179,8 +179,7 @@ export default defineComponent({
 
 .is-dark {
   .article-wrapper {
-    background: rgba(99, 226, 183, 0.16);
-    border:none;
+    border: none;
     box-shadow: none;
   }
 }

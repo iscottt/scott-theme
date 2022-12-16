@@ -78,7 +78,7 @@ export default defineComponent({
   text-shadow: none;
 }
 .is-dark .pandastudio-title .wrapper {
-  background: #142723;
+  background: #23312E;
 }
 .is-dark .pandastudio-title::before,
 .is-dark .pandastudio-title::after {

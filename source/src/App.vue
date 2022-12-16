@@ -352,27 +352,38 @@ main.is-leaving {
 .n-image-preview-toolbar .n-base-icon {
   box-sizing: initial;
 }
-.change-theme {
+
+.change-theme,
+.n-back-top {
   width: 2.3rem;
   border-radius: 5px;
   padding: 0;
   min-width: auto;
-  color: #73869a;
+  color: var(--text-color-3);
   text-shadow: 0 1px 1px #fff;
-  background-color: #fff;
+  background-color: var(--white-default);
   height: 2.3rem;
   font-size: 1.3rem;
   line-height: 1.25rem;
   transition: 0.35s;
   position: fixed;
-  bottom: 85px;
   right: 40px;
   cursor: pointer;
   box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.12);
   flex-wrap: wrap;
   i {
+    transition: 0.2s;
+  }
+  &:hover {
+    color: var(--primary-color);
+    text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
+  }
+}
+.change-theme {
+  bottom: 85px;
+  i {
     position: fixed;
-    transition: 0.35s;
+    transition: 0.2s;
     transform: scale(0);
     bottom: 85px;
     display: flex;
@@ -383,31 +394,6 @@ main.is-leaving {
     &.isIn {
       transform: scale(1);
     }
-  }
-  &:hover {
-    color: var(--primary-color);
-    text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-  }
-}
-
-.n-back-top {
-  width: 2.3rem;
-  border-radius: 5px;
-  padding: 0;
-  min-width: auto;
-  color: #73869a;
-  text-shadow: 0 1px 1px #fff;
-  background-color: #fff;
-  height: 2.3rem;
-  font-size: 1.3rem;
-  line-height: 1.25rem;
-  transition: 0.35s;
-  i {
-    transition: 0.35s;
-  }
-  &:hover {
-    color: var(--primary-color);
-    text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
   }
 }
 @keyframes clouds2 {
@@ -429,7 +415,6 @@ main.is-leaving {
     transform: translateX(0);
   }
 }
-
 @keyframes arrow-animation {
   0% {
     transform: translateX(-4px);
@@ -444,7 +429,6 @@ main.is-leaving {
 .is-dark {
   .n-back-top,
   .change-theme {
-    background-color: #48484e;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: none;
     &:hover {

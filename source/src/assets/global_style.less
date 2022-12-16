@@ -41,7 +41,7 @@ body {
   font-family: 'Play', '微软雅黑', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif' !important;
   margin: 0;
   overflow-x: hidden;
-  color: var(--text-color-2);
+  color: var(--text-color-3);
   > .pf_scroller_x {
     display: none;
   }
@@ -55,12 +55,6 @@ body {
   background: var(--primary-opacity-7);
   color: var(--white-default);
 }
-.is-dark {
-  ::selection {
-    background: var(--primary-color);
-  }
-}
-
 /*scrollbar*/
 html:not(.is-mac),
 html:not(.is-mac) * {
@@ -76,10 +70,6 @@ html::-webkit-scrollbar-thumb,
 html *::-webkit-scrollbar-thumb {
   background-color: var(--scroll-opacity-4);
   border-radius: 10px;
-}
-html.is-dark {
-  --bg-color: #050407;
-  --scroll-color: #202124;
 }
 
 .background_shining {
@@ -223,14 +213,17 @@ html.is-dark {
   margin-bottom: 5px;
 }
 
-.is-dark .nv-blocks mark {
-  text-shadow: none;
-}
-
 .is-dark {
-  --text-color-2: rgba(255, 255, 255, 0.52);
-}
-
-.is-dark .nv-blocks div:before {
-  text-shadow: none;
+  ::selection {
+    background: var(--primary-color);
+  }
+  .nv-blocks {
+    color: rgba(255, 255, 255, 0.82);
+    div:before {
+      text-shadow: none;
+    }
+    mark {
+      text-shadow: none;
+    }
+  }
 }

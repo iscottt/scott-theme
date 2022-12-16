@@ -58,12 +58,12 @@ export default defineComponent({
   margin-top: 1.5em;
   .post {
     margin-top: 1em;
-    background: #fff;
+    background: var(--white-default);
     border-radius: 0.5rem;
     padding: 0.2rem;
     transition: 0.35s;
     &:hover {
-      box-shadow: 0px 25px 20px -20px rgb(0 0 0 / 45%);
+      box-shadow: var(--scott-shadow-short);
     }
   }
   .img {
@@ -110,7 +110,7 @@ export default defineComponent({
     color: var(--error-color);
   }
   .comments {
-    color: #8c9cae;
+    color: var(--text-color-4);
   }
   .views {
     color: var(--success-color);
@@ -123,7 +123,6 @@ export default defineComponent({
 .is-dark {
   .widget-post-list {
     .post {
-      background: rgba(99, 226, 183, 0.16);
       .title,
       .metas {
         text-shadow: none;

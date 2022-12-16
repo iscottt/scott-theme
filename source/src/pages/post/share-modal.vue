@@ -362,56 +362,49 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   padding: 0 3em;
-  background: #e9eff9;
   button {
     width: 4em;
     height: 3em;
     padding: 0;
-    border-radius: 50%;
-    border: none;
     margin-right: 0.75em;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background: transparent;
-    text-shadow: 0 1px 1px #fff;
-    box-shadow: -0.1768rem -0.1768rem 0.25rem hsla(0, 0%, 100%, 0.35), 0.1326rem 0.1326rem 0.3rem rgba(54, 100, 152, 0.15), inset 0 0 0 transparent,
-      inset max(1px, 0.125rem) max(1px, 0.125rem) max(1px, 0.25rem) hsla(0, 0%, 100%, 0.6);
+    color: var(--text-color-3);
+    background: var(--white-default);
     border-radius: 0.625rem;
+    border: none;
     cursor: pointer;
     transition: 0.25s;
-    border-color: rgba(54, 100, 152, 0.15);
     i {
       font-size: 18px;
     }
     &.likes {
-      color: #f56c6c;
+      color: var(--error-color);
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(245 108 108 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
       &.-o {
-        color: #73869a;
+        color: var(--text-color-3);
       }
     }
 
     &.share {
       width: 3em;
       height: 3em;
-      color: #61be33;
+      color: var(--warning-color);
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(97 190 51 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
     }
     &.money {
       width: 3em;
       height: 3em;
-      color: #e6a23c;
+      color: var(--success-color);
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(230 162 60 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
     }
     &:hover {
-      box-shadow: min(-1px, -0.0625rem) min(-1px, -0.0625rem) hsla(0, 0%, 100%, 0.6), max(1px, 0.0625rem) max(1px, 0.0625rem) rgba(54, 100, 152, 0.2),
-        inset 0.1875rem 0.1875rem 0.1875rem rgba(54, 100, 152, 0.2), inset -0.125rem -0.125rem 0.1875rem hsla(0, 0%, 100%, 0.6);
-      // box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+      box-shadow: var(--scott-shadow);
     }
   }
 }
+// 打赏
 .scott-share {
   padding-bottom: 20vh;
   overflow: auto;
@@ -447,7 +440,7 @@ export default defineComponent({
       }
       .code-main {
         p {
-          color: #73869a;
+          color: var(--text-color-3);
           font-size: 0.875rem;
           line-height: 1.25rem;
           text-align: left;
@@ -466,7 +459,7 @@ export default defineComponent({
             flex-grow: 1;
           }
           .tab-title {
-            color: #73869a;
+            color: var(--text-color-3);
             font-size: 1rem;
             cursor: pointer;
             padding: 0.5rem 0.75rem;
@@ -480,7 +473,7 @@ export default defineComponent({
               border: 1px solid rgba(54, 100, 152, 0.2);
               border-bottom: none;
               box-shadow: inset 1px 1px hsl(0deg 0% 100% / 80%), 1px 0 hsl(0deg 0% 100% / 50%);
-              color: #007dff;
+              color: var(--primary-color);
               text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
             }
           }
@@ -513,7 +506,7 @@ export default defineComponent({
           padding-top: 0.5rem;
           padding-bottom: 0.5rem;
           transition-duration: 0.25s;
-          color: #007dff;
+          color: var(--primary-color);
           text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
           background: transparent;
           box-shadow: 0 0 0 transparent, max(1px, 0.0625rem) max(1px, 0.0625rem) max(1px, 0.0625rem) hsla(0, 0%, 100%, 0.7),
@@ -534,6 +527,7 @@ export default defineComponent({
     }
   }
 }
+// 海报，暗黑模式下不做颜色的改变
 .scott-poster {
   padding-bottom: 20vh;
   top: 24px;
@@ -708,9 +702,7 @@ export default defineComponent({
 
 .is-dark {
   .share-modal {
-    background: #050407;
     button {
-      background: rgba(99, 226, 183, 0.16);
       box-shadow: none;
       text-shadow: none;
       &:hover {
@@ -720,11 +712,10 @@ export default defineComponent({
     }
   }
 
-  .scott-share{
-    .content{
-      .title{
+  .scott-share {
+    .content {
+      .title {
         text-shadow: none;
-        color: #73869a;
       }
     }
   }

@@ -320,7 +320,7 @@ li:hover {
 
 .is-dark {
   a {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.82);
     text-shadow: none;
     &:hover {
       text-shadow: none;

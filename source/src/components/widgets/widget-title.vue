@@ -20,7 +20,7 @@ export default defineComponent({
 .widget-title {
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 1px var(--white-opacity-7);
-  color: #5a6f87;
+  color: var(--text-color-2);
   span {
     display: inline-block;
     position: relative;
@@ -149,7 +149,7 @@ export default defineComponent({
     }
     i {
       font-size: 0.9rem;
-      color: #5a6f87;
+      color: var(--text-color-2);
       color: #007dff;
       line-height: 1.75rem;
       display: block;

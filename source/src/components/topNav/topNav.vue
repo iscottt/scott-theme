@@ -97,14 +97,11 @@ export default defineComponent({
     handleObserver([{ intersectionRatio }]) {
       if (intersectionRatio < 1) {
         this.floatIn = true;
-        // this.floatIn = true;
-        // console.log('显示')
       }
 
       if (intersectionRatio >= 1) {
         this.floatIn = false;
         this.float = false;
-        // console.log('显示')
       }
     },
   },
@@ -190,7 +187,6 @@ export default defineComponent({
     height: calc(100vh - 66px);
     width: 280px;
     background: linear-gradient(hsla(0, 0%, 100%, 0.9), hsla(213, 40%, 96%, 0.9));
-    // background: linear-gradient(rgba(255,255,255,.7),rgba(240,240,240,.7));
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6) inset, 0 0 0 1px var(--gray-opacity-1), 0 5px 8px var(--gray-opacity-2);
     border-radius: 10px;
     transform-origin: left;
@@ -281,8 +277,6 @@ export default defineComponent({
 }
 .top-nav {
   position: relative;
-  // background: linear-gradient(#f0f6fc 76%, #d3dfed);
-  // box-shadow: inset 0 -1px hsl(0deg 0% 100% / 30%), 0 1px rgb(164 181 201 / 50%), 0 4px 6px rgb(54 100 152 / 20%);
   animation: navDown 0.3s forwards;
 }
 @keyframes navDown {

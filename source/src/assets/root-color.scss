@@ -9,69 +9,83 @@ $error: #f56c6c;
 
 $gray_0: #1f2d3d;
 $gray_1: #324057;
-$gray_2: #475669;
-$gray_3: #8492A6;
-$gray_4: #99A9BF;
-$gray_5: #C0CCDA;
-$gray_6: #D3DCE6;
-$gray_7: #E5E9F2;
-$gray_8: #EFF2F7;
+$gray_2: #5a6f87;
+$gray_3: #73869a;
+$gray_4: #8c9cae;
+$gray_5: #c0ccda;
+$gray_6: #d3dce6;
+$gray_7: #e5e9f2;
+$gray_8: #eff2f7;
 $gray_9: #f2f7fc;
 
-$scroll-color:#828C96;
+$tip-color: #dae5f2;
+
+$scroll-color: #828c96;
 
 html {
-	--primary-color: #{$primary};
-	@for $i from 1 through 9 {
-		--primary-opacity-#{$i}: #{rgba($primary, calc($i/10) )};
-	}
+  --primary-color: #{$primary};
+  @for $i from 1 through 9 {
+    --primary-opacity-#{$i}: #{rgba($primary, calc($i/10))};
+  }
 
-	--analogous-color: #{$analogous};
-	@for $i from 1 through 9 {
-		--analogous-opacity-#{$i}: #{rgba($analogous, calc($i/10) )};
-	}
+  --analogous-color: #{$analogous};
+  @for $i from 1 through 9 {
+    --analogous-opacity-#{$i}: #{rgba($analogous, calc($i/10))};
+  }
 
-	--white-default: #{$white_default};
-	@for $i from 1 through 9 {
-		--white-opacity-#{$i}: #{rgba($white_default, calc($i/10) )};
-	}
+  --white-default: #{$white_default};
+  @for $i from 1 through 9 {
+    --white-opacity-#{$i}: #{rgba($white_default, calc($i/10))};
+  }
 
   --scroll-color: #{$scroll-color};
-	@for $i from 1 through 9 {
-		--scroll-opacity-#{$i}: #{rgba($scroll-color, calc($i/10) )};
-	}
+  @for $i from 1 through 9 {
+    --scroll-opacity-#{$i}: #{rgba($scroll-color, calc($i/10))};
+  }
 
-	--success-color: #{$success};
-	--warning-color: #{$warning};
-	--error-color: #{$error};
+  --success-color: #{$success};
+  --warning-color: #{$warning};
+  --error-color: #{$error};
 
-	--gray-0: #{$gray_0};
-	@for $i from 1 through 9 {
-		--gray-opacity-#{$i}: #{rgba($gray_0, calc($i/10) )};
-	}
+  --gray-0: #{$gray_0};
+  @for $i from 1 through 9 {
+    --gray-opacity-#{$i}: #{rgba($gray_0, calc($i/10))};
+  }
 
-	--gray-1: #{$gray_1};
-	--gray-2: #{$gray_2};
-	--gray-3: #{$gray_3};
-	--gray-4: #{$gray_4};
-	--gray-5: #{$gray_5};
-	--gray-6: #{$gray_6};
-	--gray-7: #{$gray_7};
-	--gray-8: #{$gray_8};
-	--gray-9: #{$gray_9};
+  --gray-1: #{$gray_1};
+  --gray-2: #{$gray_2};
+  --gray-3: #{$gray_3};
+  --gray-4: #{$gray_4};
+  --gray-5: #{$gray_5};
+  --gray-6: #{$gray_6};
+  --gray-7: #{$gray_7};
+  --gray-8: #{$gray_8};
+  --gray-9: #{$gray_9};
 
-	--text-color: #{$gray_1};
-	--text-color-2: #{$gray_2};
-	--text-color-3: #{mix($gray_2,$gray_3,25%)};
-	--text-color-4: #{$gray_3};
+  --text-color: #{$gray_1};
+  --text-color-2: #{$gray_2};
+  --text-color-3: #{mix($gray_2, $gray_3, 25%)};
+  --text-color-4: #{$gray_3};
 
-	--border-color-0: #{mix($gray_6,$gray_5)};
-	--border-color: #{$gray_6};
-	--border-color-2: #{$gray_7};
-	--border-color-3: #{$gray_8};
+  --border-color-0: #{mix($gray_6, $gray_5)};
+  --border-color: #{$gray_6};
+  --border-color-2: #{$gray_7};
+  --border-color-3: #{$gray_8};
 
-	--bg-color: #e8f0fa;
+  --bg-color: #e8f0fa;
+  --tip-color: #{$tip-color};
 
-	--text-shadow: rgba(255,255,255,.6);
+  --text-shadow: rgba(255, 255, 255, 0.6);
 
+  --scott-shadow: 0px 10px 10px -10px rgb(0 0 0 / 45%);
+  --scott-shadow-short: 0px 25px 20px -20px rgb(0 0 0 / 45%);
+
+  &.is-dark {
+    --white-default: rgba(99, 226, 183, 0.16);
+    --tip-color: rgba(99, 226, 183, 0.16);
+    --text-color-2: rgba(255, 255, 255, 0.82);
+    --text-color-3: rgba(255, 255, 255, 0.82);
+    --bg-color: #101014;
+    --scroll-color: #202124;
+  }
 }

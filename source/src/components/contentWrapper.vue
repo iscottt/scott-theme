@@ -29,11 +29,6 @@ export default {
 .container {
   padding: 0 1em;
   grid-template-columns: 100% 0;
-  /*@media (min-width: 992px) {
-		grid-template-columns: calc(100% - 20em) 20em;
-		padding: 0 2em;
-		grid-gap: 1em;
-	}*/
   @media (min-width: 992px) {
     grid-template-columns: 75% 25%;
     padding: 0 0.5em;
@@ -84,8 +79,8 @@ aside {
 .main-column {
   max-width: 1140px;
 }
-.is-dark aside{
+.is-dark aside {
   box-shadow: none;
-  border-color: rgba(99, 226, 183, 0.16);
+  border-color: var(--white-default);
 }
 </style>

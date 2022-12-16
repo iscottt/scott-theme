@@ -44,21 +44,19 @@ export default defineComponent({
     height: 4.5em;
     object-fit: cover;
     border-radius: 0.8em;
-    // padding: 0.125rem;
     border: 1px solid #fff;
-    // box-shadow: -0.44rem -0.44rem 0.625rem hsl(0deg 0% 100% / 80%), 0.44rem 0.44rem 0.625rem rgb(54 100 152 / 10%), inset 0 0 0 transparent, inset 0 0 0 transparent;
   }
   .nickname {
     font-size: 120%;
-    color: var(--text-color);
+    color: var(--text-color-2);
     text-shadow: 0 -1px var(--white-default), 0 2px 2px var(--gray-opacity-3);
   }
 }
 
 .my-tag {
-  background: #fff;
+  background: var(--white-default);
   display: flex;
-  color: #73869a;
+  color: var(--text-color-3);
   border-radius: 0.375rem;
   padding: 0.25em 0.6em 0.25em 0.6em;
   margin-right: 5px;
@@ -67,36 +65,30 @@ export default defineComponent({
   position: relative;
   z-index: 0;
   a {
-    color: #73869a;
+    color: var(--text-color-3);
     text-decoration: none;
     transition: 0.35s;
   }
   &:hover {
-    color: #007dff;
+    color: var(--primary-color);
     box-shadow: 0px 10px 15px -10px rgb(0 0 0 / 45%);
     a {
       text-shadow: 0.1326rem 0.1326rem 0.1875rem rgb(0 125 255 / 50%), -1px -1px 1px hsl(0deg 0% 100% / 80%);
-      color: #007dff;
+      color: var(--primary-color);
     }
   }
 }
 
 .is-dark {
   .blogger-info {
-    color: var(--white-default);
     text-shadow: none;
-    .nickname {
-      color: #fff;
-    }
   }
   .my-tag {
-    background: rgba(99, 226, 183, 0.16);
     a {
-      color: rgba(255, 255, 255, 0.52);;
+      color: rgba(255, 255, 255, 0.52);
     }
     &:hover {
       background: #007dff;
-      color: #fff;
       a {
         color: #fff;
         text-shadow: none;

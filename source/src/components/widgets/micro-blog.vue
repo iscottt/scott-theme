@@ -84,24 +84,19 @@ export default defineComponent({
         margin-left: 0.75rem;
         flex-grow: 1;
         .content {
-          // background: linear-gradient(#f9fafc, #e8f0fa 0.75rem, #e8f0fa calc(100% - 0.75rem), #dae5f2) no-repeat;
-          border-color: #fff;
-          background: #fff;
-          // box-shadow: 0 0.5rem 0.625rem rgb(54 100 152 / 20%);
+          background: var(--white-default);
           padding-top: 1px;
           padding-bottom: 1px;
           padding-left: 0.625rem;
           padding-right: 0.625rem;
-          color: #73869a;
+          color: var(--text-color-3);
           transition-duration: 0.25s;
           text-shadow: 0 1px 1px #fff;
-          border: 1px solid;
           border-radius: 0.625rem;
           border-top-left-radius: 0;
           position: relative;
           font-size: 0.875rem;
           line-height: 1.25rem;
-          border-color: #fff;
           z-index: 2;
           .title,
           .date {
@@ -120,7 +115,6 @@ export default defineComponent({
             }
             img {
               border-radius: 8px !important;
-              // box-shadow: 0 13px 15px rgb(31 45 62 / 20%);
               cursor: pointer;
             }
           }
@@ -160,9 +154,7 @@ export default defineComponent({
       .micro-item {
         .content-wrapper {
           .content {
-            background: rgba(99, 226, 183, 0.16);
             color: #fff;
-            border-color: transparent;
             text-shadow: none;
             &::before {
               border-right: 0.3125rem solid #1e1e1e;
