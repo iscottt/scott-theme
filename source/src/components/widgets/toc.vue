@@ -1,6 +1,6 @@
 <template>
   <div class="widget toc" v-if="titles.length > 0">
-    <widgetTitle>文章目录</widgetTitle>
+    <widgetTitle>Wiki</widgetTitle>
     <ul>
       <template v-for="block in titles">
         <li :class="{ active: activeIds.includes(block.id), isTop: block.data.style === 1 }" :data-header-level="block.data.level">
