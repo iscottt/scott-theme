@@ -186,6 +186,12 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .title {
+    color: #475669;
+  }
+}
 </style>
 <style lang="less">
 @media (min-width: 992px) {

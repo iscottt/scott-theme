@@ -32,7 +32,6 @@ export default defineComponent({
       return this.post.content.blocks.filter((item) => item.type == 'header' || item.type == 'pandastudio/title');
     },
     activeIds() {
-      console.log('this.post.content.blocks', this.titles);
       var last = this.lastHidedHeaderId;
       var result = [];
       var getPrevId = (currentId) => {
@@ -112,8 +111,8 @@ export default defineComponent({
   .toc {
     li {
       text-shadow: none;
-      color: rgba(255, 255, 255, 0.52);;
-      &.active a{
+      color: rgba(255, 255, 255, 0.52);
+      &.active a {
         text-shadow: none;
       }
     }

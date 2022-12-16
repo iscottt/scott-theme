@@ -49,7 +49,6 @@ import nvFooter from '/@/components/footer.vue';
 import circleMagic from '/@/assets/circleMagic-top-to-down.js';
 
 import { NMessageProvider, NNotificationProvider, NSpin, NBackTop } from 'naive-ui';
-
 export default {
   name: 'App',
   components: {

@@ -164,6 +164,10 @@ export default defineComponent({
     .content {
       color: rgba(255, 255, 255, 0.9);
     }
+    .reply {
+      background: rgba(99, 226, 183, 0.16);
+      color: rgba(255, 255, 255, 0.52);
+    }
   }
 }
 </style>
