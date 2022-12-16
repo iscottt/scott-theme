@@ -128,8 +128,8 @@ export default defineComponent({
       // 滚动的时候查看有哪些 h2什么的标签被滚到顶部去了
       this.$refs.article.$el.querySelectorAll('h2,h3').forEach((header) => {
         if (header.offsetTop <= scrollTop + 56) {
-          if (!header.getAttribute('data-block-id') && header.parentNode.offsetTop <= scrollTop + 56) {
-            ids.push(header.parentNode.getAttribute('data-block-id'));
+          if (!header.getAttribute('data-block-id') && header.parentNode.parentNode.offsetTop <= scrollTop + 56) {
+            ids.push(header.parentNode.parentNode.getAttribute('data-block-id'));
           } else {
             header.getAttribute('data-block-id') && ids.push(header.getAttribute('data-block-id'));
           }
@@ -163,7 +163,7 @@ export default defineComponent({
 .article-wrapper {
   padding: 2em 3em;
   /*background: var(--white-opacity-8);*/
-  background: #fff;
+  background: #f0f6fc;
   border: 1px solid var(--white-default);
   border-radius: 0.8125em;
   box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;

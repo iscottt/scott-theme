@@ -121,6 +121,9 @@ export default defineComponent({
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
+  h2 {
+    font-size: 18px;
+  }
   &:after {
     content: '';
     display: block;
