@@ -423,4 +423,13 @@ export default defineComponent({
     }
   }
 }
+
+.is-dark {
+  .menu li {
+    box-shadow: none;
+  }
+  li.is-active > a {
+    text-shadow: none !important;
+  }
+}
 </style>

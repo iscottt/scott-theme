@@ -32,7 +32,7 @@ export default {
   @media (min-width: 992px) {
     grid-template-columns: 75% 25%;
     padding: 0 0.5em;
-    grid-gap: 0.5em;
+    grid-gap: 1.5em;
   }
   @media (min-width: 1510px) {
     grid-template-columns: 80% 20%;

@@ -65,9 +65,9 @@ export default defineComponent({
     border-radius: 1em;
   }
   @media (max-width: 767.5px) {
-    margin-top: 46px;
-    border-radius: 0;
-    box-shadow: none;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
   &:not([data-post-type='page']) {
     position: relative;
@@ -99,7 +99,7 @@ export default defineComponent({
   .is-menubar-open,
   .is-sidebar-open {
     .nv-top-slider {
-      border-radius: 0 0 15px 15px;
+      border-radius: 0;
       box-shadow: 0 0 transparent, 0 0 0 transparent inset, 0 0 transparent, 0 -1px rgba(255, 255, 255, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3);
     }
   }

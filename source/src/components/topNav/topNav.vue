@@ -214,9 +214,9 @@ export default defineComponent({
   .sidebar-button {
     color: var(--text-color-3);
     transition: 0.35s;
-    &.active {
-      color: #fff;
-    }
+    // &.active {
+    //   color: #fff;
+    // }
   }
   .float-in,
   .is-bar-open {
@@ -245,7 +245,7 @@ export default defineComponent({
       span {
         width: 20px;
         margin: -0.5px;
-        background: #fff;
+        background: #324057;
         transition: 0.35s, margin 0.2s, width 0.2s 0.2s, transform 0.3s ease-in-out 0.1s;
         &:first-child {
           transform: rotate(-45deg);
@@ -320,6 +320,13 @@ export default defineComponent({
       background: #202124;
       box-shadow: none;
     }
+    .menu-button span{
+      background: #fff;
+    }
+  }
+  .menu-wrapper{
+    background: #3f4147;
+    box-shadow: none;
   }
 }
 </style>

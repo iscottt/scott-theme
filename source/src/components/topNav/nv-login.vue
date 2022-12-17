@@ -1,6 +1,12 @@
 <template>
   <div class="login flex items-center" v-if="$store.state.theme_settings.niRvana_fake_login || $store.state.theme_settings.comment_registration">
-    <NPopover raw class="nv-popover" v-if="!$store.state.guest.email && !$store.state.current_user.id">
+    <NPopover
+      raw
+      class="nv-popover"
+      v-if="!$store.state.guest.email && !$store.state.current_user.id"
+      :show="fake_login_popover_state"
+      @clickoutside="handleCloseAllPopover"
+      :disabled="$store.state.theme_settings.comment_registration">
       <template #trigger>
         <div class="user-avatar" @click="handleTogglePopover">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="16">
@@ -180,7 +186,6 @@ export default defineComponent({
     }
   }
 }
-
 </style>
 <style lang="less">
 @media (min-width: 992px) {
@@ -193,6 +198,11 @@ export default defineComponent({
   .login .name {
     color: var(--text-color-3);
     text-shadow: 0 1px #fff;
+  }
+}
+.is-dark {
+  .login .name {
+    text-shadow: none;
   }
 }
 </style>

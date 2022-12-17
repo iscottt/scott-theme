@@ -522,5 +522,26 @@ export default defineComponent({
       text-shadow: none;
     }
   }
+
+  .post-item {
+    .inner {
+      box-shadow: none;
+      background: var(--white-default);
+      .likes,
+      .comments,
+      .views,
+      .detail {
+        text-shadow: none;
+      }
+    }
+    &:hover {
+      .inner {
+        box-shadow: none;
+      }
+    }
+    .title {
+      text-shadow: none;
+    }
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="micro-wrapper">
+  <div class="micro-wrapper" v-if="posts.length > 0">
     <WidgetTitle>随笔</WidgetTitle>
     <ul class="micro-list">
       <li class="micro-item" v-for="post in posts" :key="post.id">
