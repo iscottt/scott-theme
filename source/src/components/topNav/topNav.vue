@@ -320,13 +320,15 @@ export default defineComponent({
       background: #202124;
       box-shadow: none;
     }
-    .menu-button span{
+    .menu-button span {
       background: #fff;
     }
   }
-  .menu-wrapper{
-    background: #3f4147;
-    box-shadow: none;
+  @media (max-width: 992px) {
+    .menu-wrapper {
+      background: #3f4147;
+      box-shadow: none;
+    }
   }
 }
 </style>
