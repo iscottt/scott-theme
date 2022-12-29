@@ -428,6 +428,9 @@ export default defineComponent({
   .menu li {
     box-shadow: none;
   }
+  .submenu {
+    background: none;
+  }
   li.is-active > a {
     text-shadow: none !important;
   }

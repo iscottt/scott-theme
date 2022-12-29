@@ -118,9 +118,10 @@ export default defineComponent({
   },
   computed: {
     sliders() {
+      console.log('this.recent_articles', this.recent_articles);
       // 随机抽取 5 个
       var shuffle = this.recent_articles.slice(0);
-      shuffle.sort(() => Math.random() - 0.5);
+      // shuffle.sort(() => Math.random() - 0.5);
       return shuffle.slice(0, 5);
     },
   },
