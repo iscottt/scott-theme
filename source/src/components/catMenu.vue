@@ -326,5 +326,8 @@ li:hover {
       text-shadow: none;
     }
   }
+  .submenu {
+    background: none;
+  }
 }
 </style>

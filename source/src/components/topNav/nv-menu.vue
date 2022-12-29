@@ -415,6 +415,11 @@ export default defineComponent({
       }
     }
   }
+  .is-dark {
+    .submenu {
+      background: none !important;
+    }
+  }
   li.has-submenu {
     > a {
       margin-right: -0.5em;
@@ -429,7 +434,7 @@ export default defineComponent({
     box-shadow: none;
   }
   .submenu {
-    background: none;
+    background: none !important;
   }
   li.is-active > a {
     text-shadow: none !important;
