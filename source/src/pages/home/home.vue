@@ -21,7 +21,7 @@
           </component>
         </transition>
         <div class="read-all flex items-start justify-center">
-          <router-link :to="`/articles`" class="go flex items-end">
+          <router-link :to="`/articles`" class="go flex rounded items-end">
             <span>全部文章<i class="fa-solid fa-plane-departure"></i></span>
           </router-link>
         </div>

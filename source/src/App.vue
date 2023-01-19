@@ -295,6 +295,22 @@ export default {
   }
 }
 
+
+.zoom-fade-enter-active,
+.zoom-fade-leave-active {
+  transition: transform 0.35s, opacity 0.28s ease-in-out;
+}
+
+.zoom-fade-enter-from {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.zoom-fade-leave-to {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
 /*.router-change-enter-active,
 .router-change-leave-active {
 	will-change: transform;
@@ -313,7 +329,7 @@ export default {
 .router-change-leave-to {
 	opacity: 0;
 	transform: translate3d(0, -20px, 0);
-}*/
+}
 
 main {
   flex-grow: 1;
